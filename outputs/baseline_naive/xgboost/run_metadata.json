@@ -1,0 +1,35 @@
+{
+  "model_name": "xgboost",
+  "created_at": "2026-06-26T11:26:09Z",
+  "python": "3.11.15 | packaged by conda-forge | (main, Mar  5 2026, 16:36:00) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "config": {
+    "experiment": "naive_baseline",
+    "model": "XGBRegressor",
+    "hyperparameter_tuning": false,
+    "model_parameters": {
+      "objective": "reg:squarederror",
+      "eval_metric": "rmse",
+      "random_state": 42,
+      "n_jobs": -1
+    }
+  },
+  "packages": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "xgboost": "3.1.3"
+  },
+  "summary_mean_metrics": {
+    "train_start_year": 2012.0,
+    "train_end_year": 2022.5,
+    "test_year": 2023.5,
+    "n_train": 2782.25,
+    "n_test": 240.5,
+    "rmse": 11.47153999912242,
+    "mae": 8.515708224888993,
+    "mape": 1.0101296591240616,
+    "r2": 0.9061004072178153,
+    "direction_accuracy": 0.5002402740571535
+  }
+}
