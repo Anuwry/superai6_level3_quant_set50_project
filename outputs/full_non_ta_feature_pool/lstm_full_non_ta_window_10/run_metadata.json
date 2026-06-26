@@ -1,0 +1,42 @@
+{
+  "model_name": "lstm_full_non_ta_window_10",
+  "created_at": "2026-06-26T12:44:29Z",
+  "python": "3.11.15 | packaged by conda-forge | (main, Mar  5 2026, 16:36:00) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "config": {
+    "experiment": "full_non_ta_feature_pool",
+    "model": "Keras LSTM",
+    "data": "D:\\SET50_direction_prediction_paper\\data-folds-full-non-ta-nn",
+    "original_units_data": "D:\\SET50_direction_prediction_paper\\data-folds-full-non-ta",
+    "hyperparameter_tuning": false,
+    "scaling": "MinMaxScaler fitted on each train fold only",
+    "window": 10,
+    "all_windows": [
+      5,
+      10,
+      20,
+      40,
+      60
+    ],
+    "epochs": 20,
+    "batch_size": 32
+  },
+  "packages": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "tensorflow": "2.21.0"
+  },
+  "summary_mean_metrics": {
+    "train_start_year": 2012.0,
+    "train_end_year": 2022.5,
+    "test_year": 2023.5,
+    "n_train": 2722.25,
+    "n_test": 240.5,
+    "rmse": 17.078046796354972,
+    "mae": 14.140778039553519,
+    "mape": 1.6501660321871947,
+    "r2": 0.8037123390885723,
+    "direction_accuracy": 0.5176569812219125
+  }
+}

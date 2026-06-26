@@ -231,17 +231,19 @@ def run_model_on_folds(
     predict_fold: PredictFold,
     config: dict[str, object],
     packages: list[str],
+    data_dir: Path = DATA_FOLDS_DIR,
+    output_dir: Path = OUTPUT_DIR,
 ) -> pd.DataFrame:
     metrics: list[dict[str, float | str | int]] = []
     predictions: dict[str, pd.DataFrame] = {}
-    for spec in discover_folds():
+    for spec in discover_folds(data_dir):
         fold = load_fold(spec)
         y_pred = np.asarray(predict_fold(fold), dtype=float)
         if y_pred.shape != (len(fold.test),):
             raise ValueError(f"{model_name} produced invalid prediction shape for {spec.fold}: {y_pred.shape}")
         metrics.append(evaluate_predictions(fold, y_pred))
         predictions[spec.fold] = predictions_frame(fold, y_pred)
-    save_run_outputs(model_name, metrics, predictions, config, packages)
+    save_run_outputs(model_name, metrics, predictions, config, packages, output_dir=output_dir)
     return pd.DataFrame(metrics)
 
 
