@@ -1,0 +1,135 @@
+{
+  "protocol_version": "track-c-shap-point-in-time-v2",
+  "started_at": "2026-07-31T08:42:58+00:00",
+  "completed_at": "2026-07-31T08:46:22+00:00",
+  "ranking_generated": true,
+  "outer_results_generated": false,
+  "outer_results_viewed": false,
+  "lime_outer_explanations_generated": false,
+  "models_completed": [
+    "cnn",
+    "lstm",
+    "lstm_attention",
+    "lstm_cnn",
+    "lstm_cnn_attention"
+  ],
+  "selection_folds": [
+    "fold_1",
+    "fold_2",
+    "fold_3"
+  ],
+  "regimes": [
+    "global",
+    "bull",
+    "sideway",
+    "bear"
+  ],
+  "feature_count": 122,
+  "shap_cells": 60,
+  "fallback_cells": 0,
+  "runtime_seconds": 203.89979540000786,
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "tensorflow": "2.21.0",
+    "shap": "0.52.0"
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10",
+  "input_files": [
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_1\\test_2018.csv",
+      "sha256": "23f62f6317a3ea048c8ce01f16b1251ed49c5b3246a0d88494fc9b054aa43bc1",
+      "bytes": 417660
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_1\\train_2012_2017.csv",
+      "sha256": "b50d0780606fbabcc7029cedc62f8671850b8cac379d71140250b3d189d67fbb",
+      "bytes": 2312810
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_2\\test_2019.csv",
+      "sha256": "487f1b21d9229153f2581d85b13ca84f76ba914379606e88d656c2b83f8a9e8f",
+      "bytes": 416232
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_2\\train_2012_2018.csv",
+      "sha256": "1194787f05c1b99851268c39e0c6dc6df3cc74729df9017fa1745f8a816b5768",
+      "bytes": 2728936
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_3\\test_2020.csv",
+      "sha256": "8834c177710dc38a15e0b6143641bd907baf581db99c81865d3bcbd8939cb08c",
+      "bytes": 407354
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_3\\train_2012_2019.csv",
+      "sha256": "70723bee2ab53f2397bc0615acf4bc6343163e6105ebb0acf494366de2c926ac",
+      "bytes": 3143630
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_4\\test_2021.csv",
+      "sha256": "e9befc7837ea54d72c31c3e5f6e844cf4dd851cd9d9f898596c45a97a284eee2",
+      "bytes": 400996
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_4\\train_2012_2020.csv",
+      "sha256": "6d471522e78a6a387f5343b47566586c2b3df4240af6d5a39a12099c03ad51b3",
+      "bytes": 3549528
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd_nn\\fold_1\\test_2018.csv",
+      "sha256": "a7d60e81f36caaf64d2df9393cd145a232b05911c03bf32b76f7a0217c4c6e70",
+      "bytes": 561285
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd_nn\\fold_1\\train_2012_2017.csv",
+      "sha256": "10c845b01b321de57da581fff6472ea24b4ab5cece9c80578a0e992eab018d50",
+      "bytes": 3169897
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd_nn\\fold_2\\test_2019.csv",
+      "sha256": "7f9ed68a599c7f0e70fef8d0cd7ca12df0cca334eb9404bd64cef96eedd7e021",
+      "bytes": 560030
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd_nn\\fold_2\\train_2012_2018.csv",
+      "sha256": "4ebdcf5cfd60a460c6107706f78041e6f3808c285932b8be8c654d7ec4f77142",
+      "bytes": 3737825
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd_nn\\fold_3\\test_2020.csv",
+      "sha256": "334ff69f7a0b0009caf77f3b0ebd65c690579a384f4e244b1b961674f16e457e",
+      "bytes": 564320
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd_nn\\fold_3\\train_2012_2019.csv",
+      "sha256": "90c6ba5b6a5c0e1e56125290e7e55afdea2267281dd3fc21a3ca68c5c0d231d8",
+      "bytes": 4296500
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd_nn\\fold_4\\test_2021.csv",
+      "sha256": "3b5b0e83f5e8858ad073aa030b42abc77c33f517c2e6143ed38db25e8ff1e1e2",
+      "bytes": 552400
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd_nn\\fold_4\\train_2012_2020.csv",
+      "sha256": "bbbb9f1885869908b1febb8fc9ad6a60fc1d6c8a0717113e7b8d71d2f292b460",
+      "bytes": 4855044
+    }
+  ],
+  "artifacts": [
+    "protocol.json",
+    "importance_by_cell.csv",
+    "consensus_ranking.csv",
+    "fold_consensus_ranking.csv",
+    "rank_stability.csv",
+    "spearman_importance_by_fold.csv",
+    "spearman_consensus_ranking.csv",
+    "runtime_by_cell.csv",
+    "fallback_audit.csv",
+    "deviation_log.csv"
+  ]
+}

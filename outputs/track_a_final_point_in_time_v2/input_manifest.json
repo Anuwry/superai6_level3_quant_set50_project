@@ -1,0 +1,260 @@
+{
+  "protocol_version": "track_a_point_in_time_v2",
+  "created_at": "2026-07-31T05:24:52+00:00",
+  "selection_years": [
+    2018,
+    2019,
+    2020,
+    2021
+  ],
+  "outer_test_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "selection_uses_outer_test": false,
+  "boundary_context_contract": "context files are excluded from supervised fitting and used only to preserve consecutive evaluation sequences",
+  "files": [
+    {
+      "path": "data-folds-full-ta-point-in-time-v2\\fold_1\\context_before_test.csv",
+      "sha256": "f541798bd2b93b731b7cfbaa51efb1b83bde2db5bd7e1c337171e8d4028981b3",
+      "bytes": 3017
+    },
+    {
+      "path": "data-folds-full-ta-point-in-time-v2\\fold_1\\test_2022.csv",
+      "sha256": "40fdfc41a57de4e4c2bd8db3bb3592df9956791d0ac406f5cdb3b4099c8445f2",
+      "bytes": 390365
+    },
+    {
+      "path": "data-folds-full-ta-point-in-time-v2\\fold_1\\train_2012_2021.csv",
+      "sha256": "b21548c7848829063ace10e2ae357eb1bef8359d0fad3c8afe06a63dc31f2318",
+      "bytes": 3801709
+    },
+    {
+      "path": "data-folds-full-ta-point-in-time-v2\\fold_2\\context_before_test.csv",
+      "sha256": "a0ec44ba3a8cde78430a785184ac8be073f77542cf2e67c2d7fa5ae2c8f4710e",
+      "bytes": 3003
+    },
+    {
+      "path": "data-folds-full-ta-point-in-time-v2\\fold_2\\test_2023.csv",
+      "sha256": "69038c9b03507c700926d81a4d1c91057a24d8b512868ec4bbd97cc186c3a617",
+      "bytes": 393307
+    },
+    {
+      "path": "data-folds-full-ta-point-in-time-v2\\fold_2\\train_2012_2022.csv",
+      "sha256": "2e7a611ac3fe35f572240839a16d75a6c1dde63520bd96257931f79886aa1d3f",
+      "bytes": 4190667
+    },
+    {
+      "path": "data-folds-full-ta-point-in-time-v2\\fold_3\\context_before_test.csv",
+      "sha256": "0611b9dcf239ca990e9250c315af39a122f36349ea946cf1f0f5478333f95dbc",
+      "bytes": 3021
+    },
+    {
+      "path": "data-folds-full-ta-point-in-time-v2\\fold_3\\test_2024.csv",
+      "sha256": "2944cd9cfc2053a932c78037fa6dea4ccbf1091580f9f94be79d2cd36ac22028",
+      "bytes": 393117
+    },
+    {
+      "path": "data-folds-full-ta-point-in-time-v2\\fold_3\\train_2012_2023.csv",
+      "sha256": "a24313182c5cafe4cdf1cc4c7c5a5827424b2adfaea314386afd1fd9eb9b7245",
+      "bytes": 4582535
+    },
+    {
+      "path": "data-folds-full-ta-point-in-time-v2\\fold_4\\context_before_test.csv",
+      "sha256": "2d0eccabac43aa74ec0cde7d700ed5444e88a3c7121b27bf151f38fb6e6b218e",
+      "bytes": 3033
+    },
+    {
+      "path": "data-folds-full-ta-point-in-time-v2\\fold_4\\test_2025.csv",
+      "sha256": "fbdb18db4b833bcd5cc46b74280cd227157222b63d4b5de72d939fc3676e036b",
+      "bytes": 374705
+    },
+    {
+      "path": "data-folds-full-ta-point-in-time-v2\\fold_4\\train_2012_2024.csv",
+      "sha256": "13c05883556434f51f3bd44c4dc66af5f1185552b84a2b098b915b8e9402d14f",
+      "bytes": 4974219
+    },
+    {
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_1\\context_before_test.csv",
+      "sha256": "8fd10988f9d7826afc78759594db0835d6be71c74972194f4480e13d67cffc7a",
+      "bytes": 3213
+    },
+    {
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_1\\test_2022.csv",
+      "sha256": "c5434fe1f7c2f6d2a74cec397de31158e6e8ea84ead62d86615e29b75306f464",
+      "bytes": 418373
+    },
+    {
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_1\\train_2012_2021.csv",
+      "sha256": "9e112537bc5a01a616d3215cb6630dcc43dc3d6c545ef0337f1a281bb2e7fc39",
+      "bytes": 4075565
+    },
+    {
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_2\\context_before_test.csv",
+      "sha256": "b55a0641ee7549e15de764fc7146c0c09486a2249473e52ef47d5653f6014155",
+      "bytes": 3200
+    },
+    {
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_2\\test_2023.csv",
+      "sha256": "87f2bee58325792a5b3f0d6cf3e7b8d3a93235dfb7c26f6a012b7829db358dee",
+      "bytes": 421566
+    },
+    {
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_2\\train_2012_2022.csv",
+      "sha256": "a10251c0a8353eef3020f1281b8723bbf2d3f671d5554a23aac1459dd906a520",
+      "bytes": 4492448
+    },
+    {
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_3\\context_before_test.csv",
+      "sha256": "127990b61c3aa1e4669e31fc4cfa3b53f9b438e6abb7828099475c2392a3f443",
+      "bytes": 3219
+    },
+    {
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_3\\test_2024.csv",
+      "sha256": "78a82d3f705bb43cb9edb587bd331a338afedd81d1b99d0470180152529d8ad1",
+      "bytes": 421437
+    },
+    {
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_3\\train_2012_2023.csv",
+      "sha256": "129ed19a70f0751ef59e4adf02096cd6e240d554b26e4e081250f885840e6816",
+      "bytes": 4912492
+    },
+    {
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_4\\context_before_test.csv",
+      "sha256": "b6cb0e4220b5ec954d2935dedbed18f5ab3756d9662b70fa20b73e14f52a1b83",
+      "bytes": 3228
+    },
+    {
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_4\\test_2025.csv",
+      "sha256": "54eaa480f99aec3faaa89354562d3cb01cd968536d76ecf52a288192a22cee65",
+      "bytes": 401733
+    },
+    {
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_4\\train_2012_2024.csv",
+      "sha256": "f3422a050ffe4e9864656e316da9ae5658bdb53d1ea8c556aa94a423453c024e",
+      "bytes": 5332417
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta\\fold_1\\context_before_test.csv",
+      "sha256": "ffe5d5e0c94654f7d9d394e3304dd14eef5f6b5d98214ba01d99e5eb116da350",
+      "bytes": 2960
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta\\fold_1\\test_2018.csv",
+      "sha256": "8670bc1511829c67fb1cdfcbf2bbc5823d58ce4d6bfb46a8b2ca6859ca196415",
+      "bytes": 389081
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta\\fold_1\\train_2012_2017.csv",
+      "sha256": "07fc3a204e8452457823b72d39a8db286b2d2d476a3378f221ed04d96129427b",
+      "bytes": 2153223
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta\\fold_2\\context_before_test.csv",
+      "sha256": "12a629901c21326261c83c47e23b182b2d986f9896f39358b30631d98f21435d",
+      "bytes": 2993
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta\\fold_2\\test_2019.csv",
+      "sha256": "f94250b25fa9d67ebd8fbbf7937a3bffc4ea2579c6b2eb33e6b9b0bf7788a1ec",
+      "bytes": 387711
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta\\fold_2\\train_2012_2018.csv",
+      "sha256": "ac42131289c5a97779174c68c0fd7f6f6e39259fc5a4c8a2978276e494b81ac5",
+      "bytes": 2540850
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta\\fold_3\\context_before_test.csv",
+      "sha256": "b1382e562baa181b5bb53c4761404b424ad2976ba78be80ec8e1d8c79d3845ef",
+      "bytes": 3026
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta\\fold_3\\test_2020.csv",
+      "sha256": "87133ecf89d4288bddbcd4a617c834310ad3bf72936e892652773dfcac71e983",
+      "bytes": 379395
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta\\fold_3\\train_2012_2019.csv",
+      "sha256": "7a57f2d6e45632d33043a71609e5d64b8d15d94ebd92531e6827e97d2cf3f059",
+      "bytes": 2927107
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta\\fold_4\\context_before_test.csv",
+      "sha256": "7ea6529f6d95c0c9102b24d3d2cd1b1c10d1cdab4aba5eddc10365db941da794",
+      "bytes": 2980
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta\\fold_4\\test_2021.csv",
+      "sha256": "8630a5d1fa205b8afce3d64ad43d1955ac53b28783db133441eb380a9ed463d5",
+      "bytes": 373331
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta\\fold_4\\train_2012_2020.csv",
+      "sha256": "4d085d137ecf820459b4fa70c08d3610ba661f483d67148d3e6ce41034f0f94b",
+      "bytes": 3305127
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_1\\context_before_test.csv",
+      "sha256": "610cf2dab690d2bcf2ababa0ccc7b547f09be2dad6f0e5b783131f8b188e7a50",
+      "bytes": 3158
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_1\\test_2018.csv",
+      "sha256": "23f62f6317a3ea048c8ce01f16b1251ed49c5b3246a0d88494fc9b054aa43bc1",
+      "bytes": 417660
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_1\\train_2012_2017.csv",
+      "sha256": "b50d0780606fbabcc7029cedc62f8671850b8cac379d71140250b3d189d67fbb",
+      "bytes": 2312810
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_2\\context_before_test.csv",
+      "sha256": "a6ba343c26d7241ac8cd32df60ffa50d369c16a7a47abf3ee796de51529a78be",
+      "bytes": 3189
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_2\\test_2019.csv",
+      "sha256": "487f1b21d9229153f2581d85b13ca84f76ba914379606e88d656c2b83f8a9e8f",
+      "bytes": 416232
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_2\\train_2012_2018.csv",
+      "sha256": "1194787f05c1b99851268c39e0c6dc6df3cc74729df9017fa1745f8a816b5768",
+      "bytes": 2728936
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_3\\context_before_test.csv",
+      "sha256": "9304ef651c4621dc3194baa664ac12a159e6cae6df1338f3b884bb2fb97e9a43",
+      "bytes": 3224
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_3\\test_2020.csv",
+      "sha256": "8834c177710dc38a15e0b6143641bd907baf581db99c81865d3bcbd8939cb08c",
+      "bytes": 407354
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_3\\train_2012_2019.csv",
+      "sha256": "70723bee2ab53f2397bc0615acf4bc6343163e6105ebb0acf494366de2c926ac",
+      "bytes": 3143630
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_4\\context_before_test.csv",
+      "sha256": "e0d49b789321ed31423839e8cd4a2eca6ca34345e4d7b3bb3dcd59e40aec22fa",
+      "bytes": 3177
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_4\\test_2021.csv",
+      "sha256": "e9befc7837ea54d72c31c3e5f6e844cf4dd851cd9d9f898596c45a97a284eee2",
+      "bytes": 400996
+    },
+    {
+      "path": "data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_4\\train_2012_2020.csv",
+      "sha256": "6d471522e78a6a387f5343b47566586c2b3df4240af6d5a39a12099c03ad51b3",
+      "bytes": 3549528
+    }
+  ]
+}

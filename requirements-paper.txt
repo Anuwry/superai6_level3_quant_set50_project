@@ -1,0 +1,13 @@
+# Reproduction environment captured on 2026-07-31.
+# Install with: py -3.12 -m pip install -r requirements-paper.txt
+numpy==2.4.3
+pandas==3.0.1
+scipy==1.17.1
+scikit-learn==1.8.0
+tensorflow==2.21.0
+shap==0.52.0
+openai==2.33.0
+pydantic==2.12.5
+requests==2.33.1
+tqdm==4.67.3
+pytest==9.1.1

@@ -1,0 +1,86 @@
+{
+  "model_name": "ridge_optuna_full_ta",
+  "created_at": "2026-07-31T03:45:50Z",
+  "python": "3.11.15 | packaged by conda-forge | (main, Mar  5 2026, 16:36:00) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "config": {
+    "experiment": "full_ta_optuna_tuning",
+    "model": "ridge_optuna_full_ta",
+    "objective": "validation_rmse",
+    "trials_per_fold": 25,
+    "sampler": "TPESampler",
+    "sampler_seed": 42,
+    "outer_test_used_for_tuning": false,
+    "best_parameters": {
+      "fold_1": {
+        "alpha": 1557.8594975751546
+      },
+      "fold_2": {
+        "alpha": 297.81178047841695
+      },
+      "fold_3": {
+        "alpha": 120.4275297251682
+      },
+      "fold_4": {
+        "alpha": 12.401260870167759
+      }
+    },
+    "cuda_requested": true,
+    "cuda_available": true,
+    "runtime_by_fold": {
+      "fold_1": {
+        "final_fit_inference_seconds": 0.02039389999845298,
+        "tuning_seconds_this_run": 6.00004568696022e-07,
+        "completed_trial_duration_seconds": 1.1331339999999999
+      },
+      "fold_2": {
+        "final_fit_inference_seconds": 0.019730299994989764,
+        "tuning_seconds_this_run": 6.999980541877449e-07,
+        "completed_trial_duration_seconds": 1.170639
+      },
+      "fold_3": {
+        "final_fit_inference_seconds": 0.021137299998372328,
+        "tuning_seconds_this_run": 8.999995770864189e-07,
+        "completed_trial_duration_seconds": 1.127516
+      },
+      "fold_4": {
+        "final_fit_inference_seconds": 0.02445080000325106,
+        "tuning_seconds_this_run": 1.0000003385357559e-06,
+        "completed_trial_duration_seconds": 1.131384
+      }
+    },
+    "runtime_clock": "time.perf_counter"
+  },
+  "packages": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "optuna": "4.9.0"
+  },
+  "summary_mean_metrics": {
+    "train_start_year": 2012.0,
+    "train_end_year": 2022.5,
+    "test_year": 2023.5,
+    "n_train": 2721.25,
+    "n_test": 240.5,
+    "rmse": 7.751565010878691,
+    "mae": 5.917938732071867,
+    "mape": 0.6771305609765381,
+    "r2": 0.9539440917956481,
+    "direction_accuracy": 0.5048625947657245,
+    "balanced_accuracy": 0.5022425001520261,
+    "mcc": 0.0020650437223512126,
+    "direction_coverage": 1.0,
+    "n_direction_evaluated": 240.0,
+    "n_actual_ties": 0.5,
+    "n_predicted_abstentions": 0.0,
+    "direction_tn": 37.0,
+    "direction_fp": 83.5,
+    "direction_fn": 35.25,
+    "direction_tp": 84.25,
+    "predicted_up_share": 0.6994041027899076,
+    "runtime_seconds": 0.021428074998766533,
+    "tuning_runtime_seconds_this_run": 8.000006346264854e-07,
+    "tuning_trial_runtime_seconds_total": 1.1406682499999998
+  }
+}

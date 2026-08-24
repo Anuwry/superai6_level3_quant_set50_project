@@ -1,0 +1,12 @@
+{
+  "model": "lstm_attention",
+  "stage": "xai_sanity",
+  "instances": 30,
+  "features": 122,
+  "trained_shap_seconds": 1.2077795000077458,
+  "random_initialization_shap_seconds": 1.1018347000062931,
+  "permuted_label_fit_seconds": 13.324421600002097,
+  "permuted_label_shap_seconds": 1.5031428000074811,
+  "deletion_seconds": 3.3650665000022855,
+  "weight_reproduction_max_abs_error": 0.0
+}

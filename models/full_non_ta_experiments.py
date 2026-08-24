@@ -3,12 +3,14 @@ from __future__ import annotations
 import shutil
 import sys
 from pathlib import Path
+from typing import Callable, Iterable
 
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import Ridge
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
+from tqdm.auto import tqdm
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -29,6 +31,38 @@ from models.baseline_common import (
     run_model_on_folds,
     save_run_outputs,
     split_xy,
+    sequence_history_features,
+)
+from models.attention_lstm import (
+    ATTENTION_HEADS as ATTENTION_LSTM_HEADS,
+    ATTENTION_KEY_DIM as ATTENTION_LSTM_KEY_DIM,
+    BATCH_SIZE as ATTENTION_LSTM_BATCH_SIZE,
+    DENSE_UNITS as ATTENTION_LSTM_DENSE_UNITS,
+    EPOCHS as ATTENTION_LSTM_EPOCHS,
+    LSTM_UNITS as ATTENTION_LSTM_UNITS,
+    SEQUENCE_LENGTH as ATTENTION_LSTM_SEQUENCE_LENGTH,
+    predict_fold as predict_attention_lstm_fold,
+)
+from models.attention_lstm_cnn import (
+    ATTENTION_HEADS as ATTENTION_LSTM_CNN_HEADS,
+    ATTENTION_KEY_DIM as ATTENTION_LSTM_CNN_KEY_DIM,
+    BATCH_SIZE as ATTENTION_LSTM_CNN_BATCH_SIZE,
+    CONV_FILTERS as ATTENTION_LSTM_CNN_FILTERS,
+    DENSE_UNITS as ATTENTION_LSTM_CNN_DENSE_UNITS,
+    EPOCHS as ATTENTION_LSTM_CNN_EPOCHS,
+    KERNEL_SIZE as ATTENTION_LSTM_CNN_KERNEL_SIZE,
+    LSTM_UNITS as ATTENTION_LSTM_CNN_UNITS,
+    SEQUENCE_LENGTH as ATTENTION_LSTM_CNN_SEQUENCE_LENGTH,
+    predict_fold as predict_attention_lstm_cnn_fold,
+)
+from models.convolutional_neural_network import (
+    BATCH_SIZE as CNN_BATCH_SIZE,
+    CONV_FILTERS,
+    DENSE_UNITS as CNN_DENSE_UNITS,
+    EPOCHS as CNN_EPOCHS,
+    KERNEL_SIZE,
+    SEQUENCE_LENGTH as CNN_SEQUENCE_LENGTH,
+    predict_fold as predict_cnn_fold,
 )
 from models.full_non_ta_feature_pool import (
     FULL_NON_TA_DATA_FOLDS_DIR,
@@ -36,10 +70,25 @@ from models.full_non_ta_feature_pool import (
     create_full_non_ta_folds,
     create_scaled_full_non_ta_nn_folds,
 )
+from models.lstm_cnn import (
+    BATCH_SIZE as LSTM_CNN_BATCH_SIZE,
+    CONV_FILTERS as LSTM_CNN_CONV_FILTERS,
+    DENSE_UNITS as LSTM_CNN_DENSE_UNITS,
+    EPOCHS as LSTM_CNN_EPOCHS,
+    KERNEL_SIZE as LSTM_CNN_KERNEL_SIZE,
+    LSTM_UNITS as LSTM_CNN_UNITS,
+    SEQUENCE_LENGTH as LSTM_CNN_SEQUENCE_LENGTH,
+    predict_fold as predict_lstm_cnn_fold,
+)
+from models.lstm_cnn_attention import (
+    BENCHMARK_SEEDS as LSTM_CNN_ATTENTION_SEEDS,
+    CONFIG as LSTM_CNN_ATTENTION_CONFIG,
+    run_multi_seed_benchmark as run_lstm_cnn_attention_multi_seed_benchmark,
+)
 from models.neural_network_folds import inverse_scaled_target, load_scaler_metadata
 
 FULL_NON_TA_OUTPUT_DIR = PROJECT_ROOT / "outputs" / "full_non_ta_feature_pool"
-LSTM_WINDOWS = [5, 10, 20, 40, 60]
+LSTM_SEQUENCE_LENGTH = 20
 LSTM_EPOCHS = 20
 LSTM_BATCH_SIZE = 32
 
@@ -197,14 +246,14 @@ def run_autogluon_full_non_ta() -> pd.DataFrame:
     return metrics
 
 
-def set_lstm_seed() -> None:
+def set_lstm_seed(seed: int = RANDOM_SEED) -> None:
     import random
 
     import tensorflow as tf
 
-    random.seed(RANDOM_SEED)
-    np.random.seed(RANDOM_SEED)
-    tf.random.set_seed(RANDOM_SEED)
+    random.seed(seed)
+    np.random.seed(seed)
+    tf.random.set_seed(seed)
 
 
 def make_lstm_sequences(features: np.ndarray, target: np.ndarray, window: int) -> tuple[np.ndarray, np.ndarray]:
@@ -216,26 +265,42 @@ def make_lstm_sequences(features: np.ndarray, target: np.ndarray, window: int) -
     return np.asarray(x_values, dtype=np.float32), np.asarray(y_values, dtype=np.float32)
 
 
-def predict_lstm_fold(fold: FoldData, window: int) -> np.ndarray:
+def build_lstm_model(input_shape: tuple[int, int]):
     import tensorflow as tf
 
-    set_lstm_seed()
-    x_train, y_train, x_test, _ = split_xy(fold)
-    train_features = x_train.to_numpy(dtype=float)
-    combined_features = np.vstack([x_train.to_numpy(dtype=float), x_test.to_numpy(dtype=float)])
-    x_seq, y_seq = make_lstm_sequences(train_features, y_train.to_numpy(dtype=float), window)
     model = tf.keras.Sequential(
         [
-            tf.keras.layers.Input(shape=(window, train_features.shape[1])),
+            tf.keras.layers.Input(shape=input_shape),
             tf.keras.layers.LSTM(16),
             tf.keras.layers.Dense(8, activation="relu"),
             tf.keras.layers.Dense(1),
         ]
     )
     model.compile(optimizer="adam", loss="mse")
+    return model
+
+
+def predict_lstm_fold(
+    fold: FoldData,
+    window: int,
+    random_seed: int = RANDOM_SEED,
+) -> np.ndarray:
+    import tensorflow as tf
+
+    set_lstm_seed(random_seed)
+    x_train, y_train, x_test, _ = split_xy(fold)
+    train_features = x_train.to_numpy(dtype=float)
+    history_features = sequence_history_features(fold)
+    combined_features = np.vstack(
+        [history_features, x_test.to_numpy(dtype=float)]
+    )
+    x_seq, y_seq = make_lstm_sequences(train_features, y_train.to_numpy(dtype=float), window)
+    model = build_lstm_model(
+        (window, train_features.shape[1])
+    )
     model.fit(x_seq, y_seq, epochs=LSTM_EPOCHS, batch_size=LSTM_BATCH_SIZE, shuffle=False, verbose=0)
     test_sequences = []
-    train_length = len(x_train)
+    train_length = len(history_features)
     for offset in range(len(x_test)):
         end = train_length + offset + 1
         start = end - window
@@ -243,24 +308,25 @@ def predict_lstm_fold(fold: FoldData, window: int) -> np.ndarray:
     return model.predict(np.asarray(test_sequences, dtype=np.float32), verbose=0).reshape(-1)
 
 
-def run_lstm_full_non_ta_window(window: int) -> pd.DataFrame:
-    if window not in LSTM_WINDOWS:
-        raise ValueError(f"Unsupported LSTM window: {window}")
+def run_lstm_full_non_ta() -> pd.DataFrame:
     ensure_full_non_ta_data()
     metrics = []
     predictions = {}
-    for scaled_spec, original_spec in zip(
-        discover_folds(FULL_NON_TA_NN_DATA_FOLDS_DIR),
-        discover_folds(FULL_NON_TA_DATA_FOLDS_DIR),
-    ):
+    fold_pairs = list(
+        zip(
+            discover_folds(FULL_NON_TA_NN_DATA_FOLDS_DIR),
+            discover_folds(FULL_NON_TA_DATA_FOLDS_DIR),
+        )
+    )
+    for scaled_spec, original_spec in tqdm(fold_pairs, desc="lstm_full_non_ta", unit="fold"):
         scaled_fold = load_fold(scaled_spec)
         original_fold = load_fold(original_spec)
         metadata = load_scaler_metadata_for_full_non_ta(scaled_spec.fold)
-        scaled_prediction = predict_lstm_fold(scaled_fold, window)
+        scaled_prediction = predict_lstm_fold(scaled_fold, LSTM_SEQUENCE_LENGTH)
         y_pred = inverse_scaled_target(scaled_prediction, metadata)
         metrics.append(evaluate_predictions(original_fold, y_pred))
         predictions[scaled_spec.fold] = predictions_frame(original_fold, y_pred)
-    model_name = f"lstm_full_non_ta_window_{window}"
+    model_name = "lstm_full_non_ta"
     config = {
         "experiment": "full_non_ta_feature_pool",
         "model": "Keras LSTM",
@@ -268,10 +334,14 @@ def run_lstm_full_non_ta_window(window: int) -> pd.DataFrame:
         "original_units_data": str(FULL_NON_TA_DATA_FOLDS_DIR),
         "hyperparameter_tuning": False,
         "scaling": "MinMaxScaler fitted on each train fold only",
-        "window": window,
-        "all_windows": LSTM_WINDOWS,
+        "sequence_length": LSTM_SEQUENCE_LENGTH,
         "epochs": LSTM_EPOCHS,
         "batch_size": LSTM_BATCH_SIZE,
+        "lstm_units": 16,
+        "dense_units": 8,
+        "optimizer": "adam",
+        "loss": "mse",
+        "shuffle": False,
     }
     save_run_outputs(
         model_name,
@@ -286,16 +356,258 @@ def run_lstm_full_non_ta_window(window: int) -> pd.DataFrame:
     return metrics_frame
 
 
+def run_cnn_full_non_ta() -> pd.DataFrame:
+    ensure_full_non_ta_data()
+    metrics = []
+    predictions = {}
+    fold_pairs = zip(
+        discover_folds(FULL_NON_TA_NN_DATA_FOLDS_DIR),
+        discover_folds(FULL_NON_TA_DATA_FOLDS_DIR),
+        strict=True,
+    )
+    for scaled_spec, original_spec in tqdm(fold_pairs, desc="cnn_full_non_ta", unit="fold"):
+        scaled_fold = load_fold(scaled_spec)
+        original_fold = load_fold(original_spec)
+        metadata = load_scaler_metadata_for_full_non_ta(scaled_spec.fold)
+        scaled_prediction = predict_cnn_fold(scaled_fold, CNN_SEQUENCE_LENGTH)
+        prediction = inverse_scaled_target(scaled_prediction, metadata)
+        metrics.append(evaluate_predictions(original_fold, prediction))
+        predictions[scaled_spec.fold] = predictions_frame(original_fold, prediction)
+    model_name = "cnn_full_non_ta"
+    config = {
+        "experiment": "full_non_ta_feature_pool",
+        "model": "Keras 1D CNN",
+        "data": str(FULL_NON_TA_NN_DATA_FOLDS_DIR),
+        "original_units_data": str(FULL_NON_TA_DATA_FOLDS_DIR),
+        "hyperparameter_tuning": False,
+        "scaling": "MinMaxScaler fitted on each train fold only",
+        "sequence_length": CNN_SEQUENCE_LENGTH,
+        "epochs": CNN_EPOCHS,
+        "batch_size": CNN_BATCH_SIZE,
+        "conv_filters": CONV_FILTERS,
+        "kernel_size": KERNEL_SIZE,
+        "padding": "causal",
+        "pooling": "GlobalAveragePooling1D",
+        "dense_units": CNN_DENSE_UNITS,
+        "optimizer": "adam",
+        "loss": "mse",
+        "shuffle": False,
+    }
+    save_run_outputs(
+        model_name,
+        metrics,
+        predictions,
+        config,
+        ["numpy", "pandas", "scikit-learn", "tensorflow"],
+        output_dir=FULL_NON_TA_OUTPUT_DIR,
+    )
+    metrics_frame = pd.DataFrame(metrics)
+    print_metrics(metrics_frame)
+    return metrics_frame
+
+
+def run_lstm_cnn_full_non_ta() -> pd.DataFrame:
+    ensure_full_non_ta_data()
+    metrics = []
+    predictions = {}
+    fold_pairs = zip(
+        discover_folds(FULL_NON_TA_NN_DATA_FOLDS_DIR),
+        discover_folds(FULL_NON_TA_DATA_FOLDS_DIR),
+        strict=True,
+    )
+    for scaled_spec, original_spec in tqdm(
+        fold_pairs,
+        desc="lstm_cnn_full_non_ta",
+        unit="fold",
+    ):
+        scaled_fold = load_fold(scaled_spec)
+        original_fold = load_fold(original_spec)
+        metadata = load_scaler_metadata_for_full_non_ta(scaled_spec.fold)
+        scaled_prediction = predict_lstm_cnn_fold(
+            scaled_fold,
+            LSTM_CNN_SEQUENCE_LENGTH,
+        )
+        prediction = inverse_scaled_target(scaled_prediction, metadata)
+        metrics.append(evaluate_predictions(original_fold, prediction))
+        predictions[scaled_spec.fold] = predictions_frame(original_fold, prediction)
+    model_name = "lstm_cnn_full_non_ta"
+    config = {
+        "experiment": "full_non_ta_feature_pool",
+        "model": "Keras LSTM-CNN",
+        "data": str(FULL_NON_TA_NN_DATA_FOLDS_DIR),
+        "original_units_data": str(FULL_NON_TA_DATA_FOLDS_DIR),
+        "hyperparameter_tuning": False,
+        "scaling": "MinMaxScaler fitted on each train fold only",
+        "sequence_length": LSTM_CNN_SEQUENCE_LENGTH,
+        "epochs": LSTM_CNN_EPOCHS,
+        "batch_size": LSTM_CNN_BATCH_SIZE,
+        "lstm_units": LSTM_CNN_UNITS,
+        "conv_filters": LSTM_CNN_CONV_FILTERS,
+        "kernel_size": LSTM_CNN_KERNEL_SIZE,
+        "padding": "causal",
+        "pooling": "GlobalAveragePooling1D",
+        "dense_units": LSTM_CNN_DENSE_UNITS,
+        "layer_order": [
+            "LSTM",
+            "Conv1D",
+            "GlobalAveragePooling1D",
+            "Dense",
+        ],
+        "optimizer": "adam",
+        "loss": "mse",
+        "shuffle": False,
+    }
+    save_run_outputs(
+        model_name,
+        metrics,
+        predictions,
+        config,
+        ["numpy", "pandas", "scikit-learn", "tensorflow"],
+        output_dir=FULL_NON_TA_OUTPUT_DIR,
+    )
+    metrics_frame = pd.DataFrame(metrics)
+    print_metrics(metrics_frame)
+    return metrics_frame
+
+
+def run_attention_sequence_full_non_ta(
+    model_name: str,
+    model_label: str,
+    predictor: Callable[[FoldData, int], np.ndarray],
+    sequence_length: int,
+    model_parameters: dict[str, object],
+) -> pd.DataFrame:
+    ensure_full_non_ta_data()
+    metrics = []
+    predictions = {}
+    fold_pairs = zip(
+        discover_folds(FULL_NON_TA_NN_DATA_FOLDS_DIR),
+        discover_folds(FULL_NON_TA_DATA_FOLDS_DIR),
+        strict=True,
+    )
+    for scaled_spec, original_spec in tqdm(
+        fold_pairs,
+        desc=model_name,
+        unit="fold",
+    ):
+        scaled_fold = load_fold(scaled_spec)
+        original_fold = load_fold(original_spec)
+        metadata = load_scaler_metadata_for_full_non_ta(scaled_spec.fold)
+        scaled_prediction = predictor(scaled_fold, sequence_length)
+        prediction = inverse_scaled_target(scaled_prediction, metadata)
+        metrics.append(evaluate_predictions(original_fold, prediction))
+        predictions[scaled_spec.fold] = predictions_frame(original_fold, prediction)
+    config = {
+        "experiment": "full_non_ta_feature_pool",
+        "model": model_label,
+        "data": str(FULL_NON_TA_NN_DATA_FOLDS_DIR),
+        "original_units_data": str(FULL_NON_TA_DATA_FOLDS_DIR),
+        "hyperparameter_tuning": False,
+        "scaling": "MinMaxScaler fitted on each train fold only",
+        "sequence_length": sequence_length,
+        **model_parameters,
+        "optimizer": "adam",
+        "loss": "mse",
+        "shuffle": False,
+    }
+    save_run_outputs(
+        model_name,
+        metrics,
+        predictions,
+        config,
+        ["numpy", "pandas", "scikit-learn", "tensorflow"],
+        output_dir=FULL_NON_TA_OUTPUT_DIR,
+    )
+    metrics_frame = pd.DataFrame(metrics)
+    print_metrics(metrics_frame)
+    return metrics_frame
+
+
+def run_attention_lstm_full_non_ta() -> pd.DataFrame:
+    return run_attention_sequence_full_non_ta(
+        "attention_lstm_full_non_ta",
+        "Keras Attention-LSTM",
+        predict_attention_lstm_fold,
+        ATTENTION_LSTM_SEQUENCE_LENGTH,
+        {
+            "epochs": ATTENTION_LSTM_EPOCHS,
+            "batch_size": ATTENTION_LSTM_BATCH_SIZE,
+            "lstm_units": ATTENTION_LSTM_UNITS,
+            "attention_heads": ATTENTION_LSTM_HEADS,
+            "attention_key_dim": ATTENTION_LSTM_KEY_DIM,
+            "causal_attention": True,
+            "pooling": "GlobalAveragePooling1D",
+            "dense_units": ATTENTION_LSTM_DENSE_UNITS,
+            "layer_order": [
+                "LSTM",
+                "MultiHeadAttention",
+                "GlobalAveragePooling1D",
+                "Dense",
+            ],
+        },
+    )
+
+
+def run_attention_lstm_cnn_full_non_ta() -> pd.DataFrame:
+    return run_attention_sequence_full_non_ta(
+        "attention_lstm_cnn_full_non_ta",
+        "Keras Attention-LSTM-CNN",
+        predict_attention_lstm_cnn_fold,
+        ATTENTION_LSTM_CNN_SEQUENCE_LENGTH,
+        {
+            "epochs": ATTENTION_LSTM_CNN_EPOCHS,
+            "batch_size": ATTENTION_LSTM_CNN_BATCH_SIZE,
+            "lstm_units": ATTENTION_LSTM_CNN_UNITS,
+            "attention_heads": ATTENTION_LSTM_CNN_HEADS,
+            "attention_key_dim": ATTENTION_LSTM_CNN_KEY_DIM,
+            "causal_attention": True,
+            "conv_filters": ATTENTION_LSTM_CNN_FILTERS,
+            "kernel_size": ATTENTION_LSTM_CNN_KERNEL_SIZE,
+            "padding": "causal",
+            "pooling": "GlobalAveragePooling1D",
+            "dense_units": ATTENTION_LSTM_CNN_DENSE_UNITS,
+            "layer_order": [
+                "LSTM",
+                "MultiHeadAttention",
+                "Conv1D",
+                "GlobalAveragePooling1D",
+                "Dense",
+            ],
+        },
+    )
+
+
+def run_lstm_cnn_attention_full_non_ta(
+    seeds: Iterable[int] = LSTM_CNN_ATTENTION_SEEDS,
+) -> pd.DataFrame:
+    ensure_full_non_ta_data()
+    config = {
+        **LSTM_CNN_ATTENTION_CONFIG,
+        "experiment": "full_non_ta_feature_pool",
+        "data": str(FULL_NON_TA_NN_DATA_FOLDS_DIR),
+        "original_units_data": str(FULL_NON_TA_DATA_FOLDS_DIR),
+        "model_parameters": {
+            **LSTM_CNN_ATTENTION_CONFIG["model_parameters"],
+            "scaled_data_dir": str(FULL_NON_TA_NN_DATA_FOLDS_DIR),
+        },
+    }
+    return run_lstm_cnn_attention_multi_seed_benchmark(
+        "lstm_cnn_attention_full_non_ta",
+        FULL_NON_TA_NN_DATA_FOLDS_DIR,
+        FULL_NON_TA_DATA_FOLDS_DIR,
+        load_scaler_metadata_for_full_non_ta,
+        FULL_NON_TA_OUTPUT_DIR,
+        config,
+        seeds=seeds,
+    )
+
+
 def load_scaler_metadata_for_full_non_ta(fold_name: str) -> dict[str, object]:
     path = FULL_NON_TA_NN_DATA_FOLDS_DIR / fold_name / "minmax_scaler.json"
     with path.open("r", encoding="utf-8") as file:
         import json
 
         return json.load(file)
-
-
-def run_lstm_full_non_ta_all_windows() -> dict[int, pd.DataFrame]:
-    return {window: run_lstm_full_non_ta_window(window) for window in LSTM_WINDOWS}
 
 
 def run_chronos_full_non_ta_reference() -> pd.DataFrame:

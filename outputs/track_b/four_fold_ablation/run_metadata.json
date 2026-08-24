@@ -1,0 +1,51 @@
+{
+  "created_at": "2026-07-30T15:02:19+00:00",
+  "experiment": "Track B four-outer-fold technical-news paired ablation",
+  "models": [
+    "lstm",
+    "cnn",
+    "lstm_cnn",
+    "lstm_attention",
+    "lstm_cnn_attention"
+  ],
+  "feature_sets": [
+    "technical_vmd",
+    "technical_vmd_news"
+  ],
+  "locked_windows": {
+    "lstm": 5,
+    "cnn": 5,
+    "lstm_cnn": 20,
+    "lstm_attention": 20,
+    "lstm_cnn_attention": 20
+  },
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    2025
+  ],
+  "test_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "news_start_year": 2019,
+  "training_scope": "2019 through test_year-1; identical rows for technical and technical+news arms",
+  "daily_news_assignment": "strictly next trading day",
+  "sentiment_predictions": "D:\\SET50_direction_prediction_paper\\outputs\\track_b\\forward_news\\daily_news_features_2019_2025.csv",
+  "sentiment_prediction_contract": "expanding labelled inference for 2019-2023; frozen through 2023 for both 2024 and 2025; no pseudo-label retraining",
+  "scaling": "MinMaxScaler fit separately on each fold train only",
+  "completed_fits": 200,
+  "fit_runtime_seconds_sum": 1710.3913282999965,
+  "command_runtime_seconds": 1983.4630758999992,
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "tensorflow": "2.21.0"
+  }
+}

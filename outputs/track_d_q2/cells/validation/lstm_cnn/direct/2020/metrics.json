@@ -1,0 +1,23 @@
+{
+  "model": "lstm_cnn",
+  "objective": "direct",
+  "seed": 42,
+  "window": 20,
+  "features": 122,
+  "training_sequences": 1854,
+  "trainable_parameters": 10737,
+  "fit_seconds": 12.134491900011199,
+  "inference_seconds": 0.505887299994356,
+  "return_target_mean": 0.0001618288348219698,
+  "return_target_std": 0.009321440202421474,
+  "rows": 242,
+  "positive_share": 0.48760330578512395,
+  "direction_accuracy": 0.5289256198347108,
+  "balanced_accuracy": 0.51715418261345,
+  "mcc": 0.1102859641429393,
+  "auc": 0.5085087479496992,
+  "brier": 0.24969067913097204,
+  "log_loss": 0.692528311289295,
+  "ece_10": 0.026891773397272306,
+  "validation_year": 2020
+}

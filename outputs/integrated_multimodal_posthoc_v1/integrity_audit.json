@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "protocol_id": "integrated-multimodal-posthoc-v1",
+  "input_manifest": {
+    "passed": true,
+    "files_checked": 24
+  },
+  "expected_cells": 100,
+  "completed_cells": 100,
+  "metric_rows": 400,
+  "fit_rows": 800,
+  "seed_averaged_fold_arm_rows": 80,
+  "paired_fold_rows": 100,
+  "fold_inference_rows": 125,
+  "bootstrap_rows": 50,
+  "minimum_training_sequences": 213,
+  "all_predictions_finite": true,
+  "feature_counts": {
+    "Global-Numeric/global": [
+      122
+    ],
+    "Global-Numeric-News/global": [
+      130
+    ],
+    "Regime-SHAP-Numeric/bear": [
+      80
+    ],
+    "Regime-SHAP-Numeric/bull": [
+      30
+    ],
+    "Regime-SHAP-Numeric/sideway": [
+      122
+    ],
+    "Regime-SHAP-Numeric-News/bear": [
+      88
+    ],
+    "Regime-SHAP-Numeric-News/bull": [
+      38
+    ],
+    "Regime-SHAP-Numeric-News/sideway": [
+      130
+    ]
+  }
+}

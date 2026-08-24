@@ -1,0 +1,80 @@
+{
+  "package_type": "non_manuscript_q2_evidence_audit",
+  "generated_at_utc": "2026-07-31T16:53:29.495717+00:00",
+  "model_registry": [
+    "lstm",
+    "cnn",
+    "lstm_cnn",
+    "lstm_attention",
+    "lstm_cnn_attention"
+  ],
+  "row_count": 90,
+  "source_artifacts": [
+    {
+      "name": "track_a",
+      "path": "outputs/track_a_final_point_in_time_v2/paper_track_a_compact.csv",
+      "sha256": "d80354edf2a7692a241979ded686be0f3c60689ff848badb0580efa0ad822e14",
+      "bytes": 3889
+    },
+    {
+      "name": "track_a_windows",
+      "path": "outputs/track_a_final_point_in_time_v2/locked_windows.csv",
+      "sha256": "47456d5827bcb6a4ca01ce56cff21fce67d065f89c953150552ada3ca9faa55f",
+      "bytes": 946
+    },
+    {
+      "name": "track_b",
+      "path": "outputs/track_b/four_fold_ablation_point_in_time_v2/paper_track_b_four_fold_table.csv",
+      "sha256": "49070d4a7bde2fc681d210ce3b411c7af471095a007a6ad31e8515eac09359e7",
+      "bytes": 2926
+    },
+    {
+      "name": "track_c_arms",
+      "path": "outputs/track_c/outer_v2/arm_summary.csv",
+      "sha256": "e28ffc17820fa8e4031fb891dbe412a51734a1e3ee83f48d1e2aa8972ebe55a3",
+      "bytes": 5086
+    },
+    {
+      "name": "track_c_inference",
+      "path": "outputs/track_c/outer_v2/inference_holm_adjusted.csv",
+      "sha256": "b75541ce343a835043f02aa00fc124475a98e7bec79f5c4630d3f935f0ec1a4b",
+      "bytes": 23029
+    },
+    {
+      "name": "track_c_integrity",
+      "path": "outputs/track_c/outer_v2/outer_integrity_audit.json",
+      "sha256": "8a2d039dbd9bec108f64aae03d32bcade81cb05b0b640437c67a00eccff7ddb7",
+      "bytes": 1831
+    },
+    {
+      "name": "track_d_predictive",
+      "path": "outputs/track_d_q2/paper_predictive_summary.csv",
+      "sha256": "2dfe165193289221025b0525ac85be2580454560a74c61e3f6cf84a9ae4ab02b",
+      "bytes": 3980
+    },
+    {
+      "name": "track_d_economic",
+      "path": "outputs/track_d_q2/paper_economic_primary_10bps.csv",
+      "sha256": "55253570a6ca217c4fdb5438a9d314eb82ec2fa827a910935bd49032ceed1240",
+      "bytes": 5278
+    },
+    {
+      "name": "track_d_integrity",
+      "path": "outputs/track_d_q2/integrity_audit.json",
+      "sha256": "12fa74d578083dfaebaa15dd8d9ff8e97d3eb598d11a601d55f47496460103d5",
+      "bytes": 4040
+    }
+  ],
+  "generated_artifacts": [
+    {
+      "path": "master_evidence_matrix.csv",
+      "sha256": "b5ed656ea0eb4f5e40577f3081f4de0c0de5ac9bec5747ad159780503c505746",
+      "rows": 90
+    },
+    {
+      "path": "q2_claim_status.csv",
+      "sha256": "44a457b1c53afc7907a473243424e094f8a3331d00ff99a58a2503393e95d56f",
+      "rows": 8
+    }
+  ]
+}

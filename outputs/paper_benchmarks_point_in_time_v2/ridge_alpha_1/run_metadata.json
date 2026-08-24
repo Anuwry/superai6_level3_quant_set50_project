@@ -1,0 +1,44 @@
+{
+  "model_name": "ridge_alpha_1",
+  "created_at": "2026-07-31T03:40:28Z",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "config": {
+    "protocol_version": "point_in_time_v2",
+    "data_dir": "D:\\SET50_direction_prediction_paper\\data-folds-full-ta-point-in-time-v2",
+    "label_purge_rule": "retain Label_Date < first evaluation Date",
+    "direction_contract": "binary Up/Down; actual ties excluded; predicted no-change is an abstention",
+    "estimator": "StandardScaler + Ridge",
+    "alpha": 1.0,
+    "hyperparameter_status": "fixed comparator; not tuned"
+  },
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0"
+  },
+  "summary_mean_metrics": {
+    "train_start_year": 2012.0,
+    "train_end_year": 2022.5,
+    "test_year": 2023.5,
+    "n_train": 2721.25,
+    "n_test": 240.5,
+    "rmse": 7.863064369364437,
+    "mae": 6.015256958672595,
+    "mape": 0.6873191196591343,
+    "r2": 0.9525872287119822,
+    "direction_accuracy": 0.5175194966690868,
+    "balanced_accuracy": 0.5194848342121936,
+    "mcc": 0.036307281367246626,
+    "direction_coverage": 1.0,
+    "n_direction_evaluated": 240.0,
+    "n_actual_ties": 0.5,
+    "n_predicted_abstentions": 0.0,
+    "direction_tn": 46.75,
+    "direction_fp": 73.75,
+    "direction_fn": 42.0,
+    "direction_tp": 77.5,
+    "predicted_up_share": 0.6309630684351251,
+    "runtime_seconds": 0.016590949997407733
+  }
+}

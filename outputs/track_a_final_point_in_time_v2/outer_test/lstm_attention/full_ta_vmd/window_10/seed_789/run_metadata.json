@@ -1,0 +1,75 @@
+{
+  "protocol_version": "track_a_point_in_time_v2",
+  "created_at": "2026-07-31T05:09:28+00:00",
+  "stage": "outer_test",
+  "model_key": "lstm_attention",
+  "model": "LSTM-Attention",
+  "feature_set": "full_ta_vmd",
+  "feature_set_label": "Full TA + causal rolling VMD",
+  "sequence_window": 10,
+  "seed": 789,
+  "scaled_data_dir": "D:\\SET50_direction_prediction_paper\\data-folds-full-ta-vmd-point-in-time-v2-nn",
+  "original_units_data_dir": "D:\\SET50_direction_prediction_paper\\data-folds-full-ta-vmd-point-in-time-v2",
+  "selection_years": [
+    2018,
+    2019,
+    2020,
+    2021
+  ],
+  "outer_test_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "test_data_used_for_window_selection": false,
+  "selection_rule": "highest mean validation balanced accuracy across both feature sets and all pretest folds; higher direction accuracy, lower RMSE, then shorter window",
+  "direction_metric_contract": {
+    "task": "binary Up versus Down",
+    "actual_ties": "excluded from binary metrics",
+    "predicted_no_change": "abstention",
+    "coverage_denominator": "non-tied actual observations"
+  },
+  "sequence_boundary_context": {
+    "file": "context_before_test.csv",
+    "role": "feature-only history between supervised train and evaluation; excluded from model.fit",
+    "scaling": "transformed with train-fitted scaler without refit"
+  },
+  "model_parameters": {
+    "epochs": 20,
+    "batch_size": 32,
+    "lstm_units": 16,
+    "attention_heads": 2,
+    "attention_key_dim": 8,
+    "causal_attention": true,
+    "pooling": "GlobalAveragePooling1D",
+    "dense_units": 8,
+    "layer_order": [
+      "LSTM",
+      "MultiHeadAttention",
+      "GlobalAveragePooling1D",
+      "Dense"
+    ],
+    "optimizer": "adam",
+    "loss": "mse",
+    "shuffle": false,
+    "scaling": "MinMaxScaler fitted on each train fold only"
+  },
+  "vmd": {
+    "enabled": true,
+    "window": 60,
+    "causal": true
+  },
+  "runtime": {
+    "clock": "time.perf_counter",
+    "scope": "model build + training + evaluation-period inference",
+    "fit_predict_seconds": 62.25770160000684,
+    "total_configuration_seconds": 66.20120660000248
+  },
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "tensorflow": "2.21.0"
+  }
+}

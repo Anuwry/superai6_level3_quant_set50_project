@@ -1,0 +1,27 @@
+{
+  "created_at": "2026-07-31T04:11:24+00:00",
+  "valid": true,
+  "expected_pairs": 1333,
+  "completed_pairs": 1333,
+  "prediction_rows": 1333,
+  "successful_calls": 5332,
+  "expected_roles_per_pair": [
+    "bear",
+    "bull",
+    "leader",
+    "single"
+  ],
+  "historical_errors": 21,
+  "historical_error_items": 20,
+  "recovered_error_items": 20,
+  "duplicate_predictions": [],
+  "duplicate_item_roles": [],
+  "duplicate_response_ids": [],
+  "incomplete_roles": [],
+  "unresolved_items": [],
+  "orphan_call_items": [],
+  "probability_violations": [],
+  "decision_probability_disagreements": [
+    "23564::PTT::leader"
+  ]
+}

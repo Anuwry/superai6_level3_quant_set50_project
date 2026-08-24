@@ -1,0 +1,86 @@
+{
+  "created_at": "2026-07-31T08:32:57+00:00",
+  "protocol_version": "track-c-dual-xai-lime-v1",
+  "ranking_generated": false,
+  "outer_explanations_generated": false,
+  "method": "temporally grouped LIME weighted Ridge surrogate",
+  "attribution_target": "predicted next-close minus current close in original units",
+  "results": [
+    {
+      "model": "lstm",
+      "input_shape": [
+        3,
+        6
+      ],
+      "n_perturbations": 64,
+      "coefficient_shape": [
+        6
+      ],
+      "finite": true,
+      "fidelity_r2": 0.9730974714256735,
+      "repeat_max_abs_diff": 0.0,
+      "repeat_exact": true
+    },
+    {
+      "model": "cnn",
+      "input_shape": [
+        3,
+        6
+      ],
+      "n_perturbations": 64,
+      "coefficient_shape": [
+        6
+      ],
+      "finite": true,
+      "fidelity_r2": 0.9768913423182828,
+      "repeat_max_abs_diff": 0.0,
+      "repeat_exact": true
+    },
+    {
+      "model": "lstm_cnn",
+      "input_shape": [
+        3,
+        6
+      ],
+      "n_perturbations": 64,
+      "coefficient_shape": [
+        6
+      ],
+      "finite": true,
+      "fidelity_r2": 0.9750588934302565,
+      "repeat_max_abs_diff": 0.0,
+      "repeat_exact": true
+    },
+    {
+      "model": "lstm_attention",
+      "input_shape": [
+        3,
+        6
+      ],
+      "n_perturbations": 64,
+      "coefficient_shape": [
+        6
+      ],
+      "finite": true,
+      "fidelity_r2": 0.9659581270444333,
+      "repeat_max_abs_diff": 0.0,
+      "repeat_exact": true
+    },
+    {
+      "model": "lstm_cnn_attention",
+      "input_shape": [
+        3,
+        6
+      ],
+      "n_perturbations": 64,
+      "coefficient_shape": [
+        6
+      ],
+      "finite": true,
+      "fidelity_r2": 0.9742108823117078,
+      "repeat_max_abs_diff": 0.0,
+      "repeat_exact": true
+    }
+  ],
+  "all_models_passed": true
+}

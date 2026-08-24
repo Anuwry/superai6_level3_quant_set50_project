@@ -1,0 +1,78 @@
+{
+  "protocol_version": "track-c-shap-point-in-time-v2",
+  "started_at": "2026-07-31T13:13:53+00:00",
+  "completed_at": "2026-07-31T13:14:45+00:00",
+  "models_completed": [
+    "cnn",
+    "lstm",
+    "lstm_attention",
+    "lstm_cnn",
+    "lstm_cnn_attention"
+  ],
+  "folds_completed": [
+    "fold_1",
+    "fold_2",
+    "fold_3",
+    "fold_4"
+  ],
+  "seeds_completed": [
+    42,
+    123,
+    456,
+    789,
+    2025
+  ],
+  "arms": [
+    "Global-All",
+    "Global3-All",
+    "Global-SHAP",
+    "Global-Spearman",
+    "Regime-All",
+    "Regime-SHAP",
+    "Regime-Spearman"
+  ],
+  "metrics_rows": 700,
+  "selection_freeze": {
+    "protocol_version": "track-c-shap-point-in-time-v2",
+    "frozen_at": "2026-07-31T09:48:16+00:00",
+    "selection_complete": true,
+    "outer_execution_authorized": true,
+    "outer_results_generated": false,
+    "lime_outer_explanations_generated": false,
+    "selected_top_k_sha256": "5ffabe9bba272270e10f321de9cae0775f00d366618c49f0c02562f5f23e2264",
+    "selected_features_sha256": "533e0ec56d5008c95c8d77b4e98bfb510b449544ef09fc0e565f5f78a1c0c441",
+    "top_k_gate_audit_sha256": "3b777b756bda78177590f08764d18a12f7a44c716f08f488a2d12ca26a6ae0c9"
+  },
+  "outer_results_generated": true,
+  "lime_outer_explanations_generated": false,
+  "runtime_seconds": 51.83527559999493,
+  "executed_unique_fits": 1100,
+  "conceptual_arm_fit_references": 1500,
+  "inference": {
+    "paired_fold_rows": 100,
+    "fold_inference_rows": 125,
+    "block_bootstrap_rows": 50,
+    "holm_rows": 175,
+    "inference_protocol_sha256": "9482c116a903e0f3740a7f867c9e58256c6f0fa77026cc9eb7b44f51d18d5fa4"
+  },
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "tensorflow": "2.21.0"
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10",
+  "artifacts": [
+    "metrics_by_seed_fold.csv",
+    "predictions_seed_averaged.csv",
+    "fold_metrics_seed_averaged.csv",
+    "arm_summary.csv",
+    "fit_registry.csv",
+    "paired_fold_contrasts.csv",
+    "fold_inference.csv",
+    "daily_block_bootstrap.csv",
+    "inference_holm_adjusted.csv",
+    "inference_protocol.json"
+  ]
+}

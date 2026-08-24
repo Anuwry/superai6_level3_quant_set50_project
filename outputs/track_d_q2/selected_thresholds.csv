@@ -1,0 +1,11 @@
+model,objective,selected_threshold,selected_mean_net_return,selected_coverage,selected_positive_years,fallback_to_0_50
+lstm,direct,0.5,-0.32471254276259603,1.0,0,True
+lstm,multitask,0.5,-0.42797977272340554,1.0,0,True
+cnn,direct,0.5,-0.3055547253024742,1.0,0,True
+cnn,multitask,0.5,-0.5140665380729894,1.0,0,True
+lstm_cnn,direct,0.5,-0.0669647602932232,1.0,1,True
+lstm_cnn,multitask,0.5,-0.4458832502005771,1.0,0,True
+lstm_attention,direct,0.5,-0.4458832502005771,1.0,0,True
+lstm_attention,multitask,0.5,-0.47273815654393087,1.0,0,True
+lstm_cnn_attention,direct,0.5,-0.33748881746990794,1.0,0,True
+lstm_cnn_attention,multitask,0.5,-0.4458832502005771,1.0,0,True

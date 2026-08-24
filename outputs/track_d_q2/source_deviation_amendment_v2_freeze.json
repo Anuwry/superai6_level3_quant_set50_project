@@ -1,0 +1,23 @@
+{
+  "protocol_version": "track-d-source-deviation-amendment-v2",
+  "frozen_at": "2026-07-31T15:29:24+00:00",
+  "failed_registered_source_observed_before_deviation": true,
+  "alternative_full_series_accessed_before_deviation_freeze": true,
+  "parser_fix_frozen_before_accepted_snapshot": true,
+  "parent_freeze_sha256": {
+    "D:\\SET50_direction_prediction_paper\\outputs\\track_d_q2\\source_deviation_freeze.json": "729a42dddba6e006fe3625ee50076f89249fe8d22fc682ce9a1d104a1dbe1501"
+  },
+  "protocol_sha256": {
+    "D:\\SET50_direction_prediction_paper\\test\\track_d_source_deviation_amendment_v2.md": "847f787cec399b7ba9cf8903263ca4c8e50aad6500e72168c40746ba7cabc439"
+  },
+  "implementation_sha256": {
+    "D:\\SET50_direction_prediction_paper\\models\\track_d_source_deviation_v2.py": "3b056a74cc1f27c3d6e727376d7aa0121d0a333042aa2c5da4e0701496fc68d0",
+    "D:\\SET50_direction_prediction_paper\\tests\\test_track_d_source_deviation_v2.py": "86af7f8e57caf0089ed75696c1dcc35b73b55bb642e79cee77219d7a26566ff4",
+    "D:\\SET50_direction_prediction_paper\\requirements-track-d-deviation.txt": "46bc72ee9989e9f11c317df5f81caac8077900f568fa37ce07bdc0894913c81f"
+  },
+  "failed_source_evidence_sha256": {
+    "D:\\SET50_direction_prediction_paper\\data-raw\\SET50_days.csv": "b77dc67921653a779c4b447d6f07e147004b3807e954a3cccfdf2f5b2617da28",
+    "D:\\SET50_direction_prediction_paper\\models\\track_d_source_deviation.py": "ef3f2b9629117ad1f09ecd1676cb00e2679c81ce89b5a7ef7853531d3a712366",
+    "D:\\SET50_direction_prediction_paper\\outputs\\track_d_q2\\source_deviation_freeze.json": "729a42dddba6e006fe3625ee50076f89249fe8d22fc682ce9a1d104a1dbe1501"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "stage": "track_b_fusion",
+  "model": "lstm_attention",
+  "feature_set": "technical_vmd_news",
+  "sequence_window": 20,
+  "seed": 789,
+  "fold": "fold_2",
+  "train_start_year": 2019,
+  "train_end_year": 2022,
+  "test_year": 2023,
+  "n_train": 969,
+  "n_test": 243,
+  "rmse": 26.202986594121374,
+  "mae": 21.588575487475325,
+  "mape": 2.346262868116128,
+  "r2": 0.6531902081164713,
+  "direction_accuracy": 0.48148148148148145,
+  "runtime_seconds": 9.365732799999023,
+  "news_start_year": 2019
+}

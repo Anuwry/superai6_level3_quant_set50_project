@@ -1,0 +1,56 @@
+{
+  "protocol_version": "track-c-shap-point-in-time-v2",
+  "started_at": "2026-07-31T09:35:54+00:00",
+  "completed_at": "2026-07-31T09:48:16+00:00",
+  "models_completed": [
+    "cnn",
+    "lstm",
+    "lstm_attention",
+    "lstm_cnn",
+    "lstm_cnn_attention"
+  ],
+  "selection_folds": [
+    "fold_1",
+    "fold_2",
+    "fold_3"
+  ],
+  "top_k_grid": [
+    10,
+    20,
+    30,
+    40,
+    60,
+    80,
+    100,
+    122
+  ],
+  "validation_cells": 120,
+  "selected_top_k": {
+    "global": 122,
+    "bull": 30,
+    "sideway": 122,
+    "bear": 80
+  },
+  "selection_frozen": true,
+  "outer_data_used": false,
+  "lime_used_for_selection": false,
+  "ranking_inspected_before_validation_execution": true,
+  "ranking_inspection_effect": "none; grid, gate rule, selectors, and model windows were frozen",
+  "runtime_seconds": 741.6609754000092,
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "tensorflow": "2.21.0"
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10",
+  "artifacts": [
+    "validation_metrics.csv",
+    "runtime_by_cell.csv",
+    "top_k_gate_audit.csv",
+    "selected_top_k.json",
+    "selected_features.csv",
+    "selection_frozen.json"
+  ]
+}

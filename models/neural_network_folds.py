@@ -14,17 +14,30 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 sys.path = [path for path in sys.path if Path(path or ".").resolve() != SCRIPT_DIR]
 
-from models.baseline_common import DATA_FOLDS_DIR, DATE_COLUMN, TARGET_COLUMN, discover_folds
+from models.baseline_common import (
+    DATA_FOLDS_DIR,
+    DATE_COLUMN,
+    TARGET_COLUMN,
+    discover_folds,
+)
+from models.point_in_time_data import LABEL_DATE_COLUMN
 
 NN_DATA_FOLDS_DIR = PROJECT_ROOT / "data-folds-nn"
 SCALER_METADATA_NAME = "minmax_scaler.json"
 
 
 def numeric_columns(frame: pd.DataFrame) -> list[str]:
-    return [column for column in frame.columns if column != DATE_COLUMN]
+    metadata_columns = {DATE_COLUMN, LABEL_DATE_COLUMN}
+    return [
+        column
+        for column in frame.columns
+        if column not in metadata_columns
+    ]
 
 
-def scale_train_test_frames(train: pd.DataFrame, test: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, dict[str, object]]:
+def scale_train_test_frames(
+    train: pd.DataFrame, test: pd.DataFrame
+) -> tuple[pd.DataFrame, pd.DataFrame, dict[str, object]]:
     columns = numeric_columns(train)
     if columns != numeric_columns(test):
         raise ValueError("Train and test numeric columns differ")
@@ -33,8 +46,9 @@ def scale_train_test_frames(train: pd.DataFrame, test: pd.DataFrame) -> tuple[pd
     test_values = scaler.transform(test.loc[:, columns])
     scaled_train = train.copy()
     scaled_test = test.copy()
-    scaled_train.loc[:, columns] = train_values
-    scaled_test.loc[:, columns] = test_values
+    for index, column in enumerate(columns):
+        scaled_train[column] = train_values[:, index]
+        scaled_test[column] = test_values[:, index]
     metadata = {
         "scaler": "MinMaxScaler",
         "feature_range": [0, 1],
@@ -50,7 +64,9 @@ def scale_train_test_frames(train: pd.DataFrame, test: pd.DataFrame) -> tuple[pd
     return scaled_train, scaled_test, metadata
 
 
-def inverse_scaled_target(values: np.ndarray, metadata: dict[str, object]) -> np.ndarray:
+def inverse_scaled_target(
+    values: np.ndarray, metadata: dict[str, object]
+) -> np.ndarray:
     columns = list(metadata["columns"])
     target_index = columns.index(TARGET_COLUMN)
     scale = float(list(metadata["scale"])[target_index])
@@ -76,7 +92,9 @@ def create_neural_network_folds(
     return output_dir
 
 
-def load_scaler_metadata(fold_name: str, data_dir: Path = NN_DATA_FOLDS_DIR) -> dict[str, object]:
+def load_scaler_metadata(
+    fold_name: str, data_dir: Path = NN_DATA_FOLDS_DIR
+) -> dict[str, object]:
     path = data_dir / fold_name / SCALER_METADATA_NAME
     with path.open("r", encoding="utf-8") as file:
         return json.load(file)

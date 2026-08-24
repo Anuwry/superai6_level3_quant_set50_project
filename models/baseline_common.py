@@ -12,7 +12,17 @@ from typing import Callable
 
 import numpy as np
 import pandas as pd
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from sklearn.metrics import (
+    balanced_accuracy_score,
+    confusion_matrix,
+    matthews_corrcoef,
+    mean_absolute_error,
+    mean_squared_error,
+    r2_score,
+)
+from tqdm.auto import tqdm
+
+from models.point_in_time_data import CONTEXT_FILE_NAME, LABEL_DATE_COLUMN
 
 DATE_COLUMN = "Date"
 TARGET_COLUMN = "Target_Next_Close"
@@ -39,6 +49,7 @@ class FoldData:
     train: pd.DataFrame
     test: pd.DataFrame
     feature_columns: list[str]
+    context: pd.DataFrame | None = None
 
 
 def discover_folds(data_dir: Path = DATA_FOLDS_DIR) -> list[FoldSpec]:
@@ -76,7 +87,61 @@ def load_fold(spec: FoldSpec) -> FoldData:
     feature_columns = get_feature_columns(train)
     if feature_columns != get_feature_columns(test):
         raise ValueError(f"Feature columns differ in {spec.fold}")
-    return FoldData(spec=spec, train=train, test=test, feature_columns=feature_columns)
+    context_path = spec.train_path.parent / CONTEXT_FILE_NAME
+    context = read_frame(context_path) if context_path.is_file() else None
+    if context is not None:
+        validate_test_context(
+            train,
+            context,
+            test,
+            feature_columns,
+            spec,
+        )
+    return FoldData(
+        spec=spec,
+        train=train,
+        test=test,
+        feature_columns=feature_columns,
+        context=context,
+    )
+
+
+def validate_test_context(
+    train: pd.DataFrame,
+    context: pd.DataFrame,
+    test: pd.DataFrame,
+    feature_columns: list[str],
+    spec: FoldSpec,
+) -> None:
+    """Validate feature-only history that is excluded from supervised fitting."""
+
+    if context.empty:
+        raise ValueError(f"{spec.fold} has an empty test context")
+    if get_feature_columns(context) != feature_columns:
+        raise ValueError(f"{spec.fold} context feature columns differ")
+    if train[DATE_COLUMN].max() >= context[DATE_COLUMN].min():
+        raise ValueError(f"{spec.fold} context overlaps supervised training")
+    if context[DATE_COLUMN].max() >= test[DATE_COLUMN].min():
+        raise ValueError(f"{spec.fold} context overlaps evaluation dates")
+    combined_dates = pd.concat(
+        [
+            train[DATE_COLUMN],
+            context[DATE_COLUMN],
+            test[DATE_COLUMN],
+        ],
+        ignore_index=True,
+    )
+    if combined_dates.duplicated().any():
+        raise ValueError(f"{spec.fold} context contains duplicate split dates")
+
+
+def sequence_history_features(fold: FoldData) -> np.ndarray:
+    """Return supervised train features plus unsupervised boundary context."""
+
+    frames = [fold.train.loc[:, fold.feature_columns]]
+    if fold.context is not None:
+        frames.append(fold.context.loc[:, fold.feature_columns])
+    return pd.concat(frames, ignore_index=True).to_numpy(dtype=float)
 
 
 def read_frame(path: Path) -> pd.DataFrame:
@@ -84,6 +149,10 @@ def read_frame(path: Path) -> pd.DataFrame:
     validate_fold_frame(frame, path)
     result = frame.copy()
     result[DATE_COLUMN] = pd.to_datetime(result[DATE_COLUMN])
+    if LABEL_DATE_COLUMN in result.columns:
+        result[LABEL_DATE_COLUMN] = pd.to_datetime(
+            result[LABEL_DATE_COLUMN]
+        )
     result = result.sort_values(DATE_COLUMN).reset_index(drop=True)
     return result
 
@@ -111,10 +180,18 @@ def validate_temporal_split(train: pd.DataFrame, test: pd.DataFrame, spec: FoldS
         raise ValueError(f"{spec.fold} train end year mismatch")
     if set(test[DATE_COLUMN].dt.year.unique()) != {spec.test_year}:
         raise ValueError(f"{spec.fold} test year mismatch")
+    if LABEL_DATE_COLUMN in train.columns:
+        label_dates = pd.to_datetime(train[LABEL_DATE_COLUMN], errors="coerce")
+        if label_dates.isna().any():
+            raise ValueError(f"{spec.fold} contains invalid training label dates")
+        if label_dates.max() >= test[DATE_COLUMN].min():
+            raise ValueError(
+                f"{spec.fold} has training labels observed on or after test start"
+            )
 
 
 def get_feature_columns(frame: pd.DataFrame) -> list[str]:
-    excluded = {DATE_COLUMN, TARGET_COLUMN}
+    excluded = {DATE_COLUMN, LABEL_DATE_COLUMN, TARGET_COLUMN}
     features = [column for column in frame.columns if column not in excluded]
     if not features:
         raise ValueError("No feature columns available")
@@ -148,16 +225,108 @@ def regression_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict[str, floa
     }
 
 
-def direction_accuracy(y_true: np.ndarray, y_pred: np.ndarray, current_close: np.ndarray) -> float:
-    true_direction = np.sign(np.asarray(y_true, dtype=float) - np.asarray(current_close, dtype=float))
-    pred_direction = np.sign(np.asarray(y_pred, dtype=float) - np.asarray(current_close, dtype=float))
-    return float(np.mean(true_direction == pred_direction))
+def binary_direction_metrics(
+    y_true: np.ndarray,
+    y_pred: np.ndarray,
+    current_close: np.ndarray,
+) -> dict[str, float | int]:
+    """Evaluate an Up/Down task with explicit tie and abstention handling.
+
+    True no-change observations are outside the binary estimand. A predicted
+    exact no-change is an abstention. Direction coverage uses the number of
+    non-tied actual observations as its denominator.
+    """
+
+    true_values = np.asarray(y_true, dtype=float)
+    pred_values = np.asarray(y_pred, dtype=float)
+    close_values = np.asarray(current_close, dtype=float)
+    if not (
+        true_values.shape == pred_values.shape == close_values.shape
+    ):
+        raise ValueError("Direction metric inputs must have identical shapes")
+    if not (
+        np.isfinite(true_values).all()
+        and np.isfinite(pred_values).all()
+        and np.isfinite(close_values).all()
+    ):
+        raise ValueError("Direction metric inputs contain non-finite values")
+
+    true_direction = np.sign(true_values - close_values).astype(int)
+    pred_direction = np.sign(pred_values - close_values).astype(int)
+    actual_binary = true_direction != 0
+    prediction_available = pred_direction != 0
+    evaluated = actual_binary & prediction_available
+    n_actual_binary = int(actual_binary.sum())
+    n_evaluated = int(evaluated.sum())
+    n_actual_ties = int((~actual_binary).sum())
+    n_abstentions = int((actual_binary & ~prediction_available).sum())
+    coverage = (
+        float(n_evaluated / n_actual_binary)
+        if n_actual_binary
+        else float("nan")
+    )
+
+    if n_evaluated == 0:
+        accuracy = float("nan")
+        balanced_accuracy = float("nan")
+        mcc = float("nan")
+        tn = fp = fn = tp = 0
+        predicted_up_share = float("nan")
+    else:
+        evaluated_true = true_direction[evaluated]
+        evaluated_pred = pred_direction[evaluated]
+        accuracy = float(np.mean(evaluated_true == evaluated_pred))
+        balanced_accuracy = float(
+            balanced_accuracy_score(evaluated_true, evaluated_pred)
+        )
+        mcc = float(matthews_corrcoef(evaluated_true, evaluated_pred))
+        tn, fp, fn, tp = (
+            int(value)
+            for value in confusion_matrix(
+                evaluated_true,
+                evaluated_pred,
+                labels=[-1, 1],
+            ).ravel()
+        )
+        predicted_up_share = float(np.mean(evaluated_pred == 1))
+
+    return {
+        "direction_accuracy": accuracy,
+        "balanced_accuracy": balanced_accuracy,
+        "mcc": mcc,
+        "direction_coverage": coverage,
+        "n_direction_evaluated": n_evaluated,
+        "n_actual_ties": n_actual_ties,
+        "n_predicted_abstentions": n_abstentions,
+        "direction_tn": tn,
+        "direction_fp": fp,
+        "direction_fn": fn,
+        "direction_tp": tp,
+        "predicted_up_share": predicted_up_share,
+    }
+
+
+def direction_accuracy(
+    y_true: np.ndarray,
+    y_pred: np.ndarray,
+    current_close: np.ndarray,
+) -> float:
+    return float(
+        binary_direction_metrics(y_true, y_pred, current_close)[
+            "direction_accuracy"
+        ]
+    )
 
 
 def evaluate_predictions(fold: FoldData, y_pred: np.ndarray) -> dict[str, float | str | int]:
     y_true = fold.test[TARGET_COLUMN].to_numpy(dtype=float)
     current_close = fold.test[CLOSE_COLUMN].to_numpy(dtype=float)
     metrics = regression_metrics(y_true, y_pred)
+    direction_metrics = binary_direction_metrics(
+        y_true,
+        y_pred,
+        current_close,
+    )
     return {
         "fold": fold.spec.fold,
         "train_start_year": fold.spec.train_start_year,
@@ -166,7 +335,7 @@ def evaluate_predictions(fold: FoldData, y_pred: np.ndarray) -> dict[str, float 
         "n_train": int(len(fold.train)),
         "n_test": int(len(fold.test)),
         **metrics,
-        "direction_accuracy": direction_accuracy(y_true, y_pred, current_close),
+        **direction_metrics,
     }
 
 
@@ -181,6 +350,11 @@ def predictions_frame(fold: FoldData, y_pred: np.ndarray) -> pd.DataFrame:
     )
     result["true_direction"] = np.sign(result["y_true"] - result["Close_D"])
     result["pred_direction"] = np.sign(result["y_pred"] - result["Close_D"])
+    result["actual_binary_direction"] = result["true_direction"] != 0
+    result["prediction_available"] = result["pred_direction"] != 0
+    result["direction_evaluated"] = (
+        result["actual_binary_direction"] & result["prediction_available"]
+    )
     return result
 
 
@@ -236,7 +410,7 @@ def run_model_on_folds(
 ) -> pd.DataFrame:
     metrics: list[dict[str, float | str | int]] = []
     predictions: dict[str, pd.DataFrame] = {}
-    for spec in discover_folds(data_dir):
+    for spec in tqdm(discover_folds(data_dir), desc=model_name, unit="fold"):
         fold = load_fold(spec)
         y_pred = np.asarray(predict_fold(fold), dtype=float)
         if y_pred.shape != (len(fold.test),):

@@ -1,0 +1,174 @@
+{
+  "created_at": "2026-07-30T11:26:31+00:00",
+  "model": "gpt-5.6-terra",
+  "prompt_version": "track-b-terra-v1",
+  "completed_pairs": 3,
+  "single_leader_disagreement_rate": 0.3333333333333333,
+  "metrics": [
+    {
+      "method": "single",
+      "pairs": 3,
+      "accuracy": 0.6666666666666666,
+      "macro_f1": 0.5555555555555555,
+      "weighted_f1": 0.5555555555555555,
+      "mcc": 0.6123724356957946,
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "classification_report": {
+        "positive": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1-score": 0.6666666666666666,
+          "support": 1.0
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "negative": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1.0
+        },
+        "accuracy": 0.6666666666666666,
+        "macro avg": {
+          "precision": 0.5,
+          "recall": 0.6666666666666666,
+          "f1-score": 0.5555555555555555,
+          "support": 3.0
+        },
+        "weighted avg": {
+          "precision": 0.5,
+          "recall": 0.6666666666666666,
+          "f1-score": 0.5555555555555555,
+          "support": 3.0
+        }
+      },
+      "log_loss": 0.6418398198025265,
+      "multiclass_brier_score": 0.4184666666666666,
+      "mean_confidence": 0.7266666666666667
+    },
+    {
+      "method": "leader",
+      "pairs": 3,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "weighted_f1": 1.0,
+      "mcc": 1.0,
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "classification_report": {
+        "positive": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1.0
+        },
+        "neutral": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1.0
+        },
+        "negative": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3.0
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3.0
+        }
+      },
+      "log_loss": 0.4218312203247288,
+      "multiclass_brier_score": 0.18833333333333332,
+      "mean_confidence": 0.6566666666666666
+    }
+  ],
+  "runtime_and_cost_by_role": [
+    {
+      "role": "bear",
+      "calls": 3,
+      "runtime_seconds_mean": 5.064456100000068,
+      "runtime_seconds_median": 4.438532699999996,
+      "runtime_seconds_total": 15.193368300000202,
+      "input_tokens_total": 2645,
+      "output_tokens_total": 714,
+      "cost_usd_total": 0.0173225
+    },
+    {
+      "role": "bull",
+      "calls": 3,
+      "runtime_seconds_mean": 4.828866766666731,
+      "runtime_seconds_median": 4.915200700000241,
+      "runtime_seconds_total": 14.486600300000191,
+      "input_tokens_total": 2642,
+      "output_tokens_total": 657,
+      "cost_usd_total": 0.016460000000000002
+    },
+    {
+      "role": "leader",
+      "calls": 3,
+      "runtime_seconds_mean": 3.4624218999999052,
+      "runtime_seconds_median": 3.636572999999771,
+      "runtime_seconds_total": 10.387265699999716,
+      "input_tokens_total": 3841,
+      "output_tokens_total": 519,
+      "cost_usd_total": 0.0173875
+    },
+    {
+      "role": "single",
+      "calls": 3,
+      "runtime_seconds_mean": 3.182088566666607,
+      "runtime_seconds_median": 2.7896418999998787,
+      "runtime_seconds_total": 9.546265699999822,
+      "input_tokens_total": 2765,
+      "output_tokens_total": 338,
+      "cost_usd_total": 0.0119825
+    }
+  ],
+  "tracked_cost_usd": 0.0631525
+}

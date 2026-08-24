@@ -35,10 +35,11 @@
 │ Stage 1 Baseline Training    │
 └──────────────┬───────────────┘
                │
-               ├─ XGBoost
-               ├─ LightGBM
-               ├─ Chronos
-               └─ AutoGluon
+               ├─ Ridge Regression ( Basic Regression Model )
+               ├─ XGBoost, LightGBM ( Gradient Boosting Model)
+               ├─ LSTM ( Deep Learning Model )
+               ├─ Chronos ( Foundation Model )
+               └─ AutoGluon ( AutoML Model ( State-of-the-Art ) )
                │
                ▼
 ┌──────────────────────────────┐

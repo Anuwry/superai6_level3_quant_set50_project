@@ -1,0 +1,9 @@
+﻿component,evidence_status,allowed_claim,blocked_claim,next_action
+Track A causal VMD ablation,corrected confirmatory ablation; low temporal power,VMD effects are model-dependent,VMD universally improves direction prediction,retain mixed results and exact fold uncertainty
+Track B news fusion,corrected paired ablation; domain shift disclosed,predicted news helps selected model/metric cells,news universally improves all five models,keep intrinsic text and downstream fusion claims separate
+Track C regime and SHAP,registered post-hoc robustness; Holm families complete,pipeline response differs by architecture and comparator,three improved models prove SHAP or regime superiority,report descriptive and isolated contrasts separately
+Track C grouped LIME,integrity-passed audit with limited fidelity/stability,LIME provides a qualified agreement audit,LIME independently validates every SHAP explanation,retain low-fidelity failures and structural-close sensitivity
+Track D partial-2026 forward,frozen model protocol with source/parser contingency,forward evaluation exposed weak discrimination and collapse,pristine confirmatory holdout or deployable profitability,treat economics and XAI rankings as exploratory
+Shadow deployment,omitted by author decision,none required,live-market validation completed,no action; partial-2026 forward evidence is more informative than five days
+Five-model improvement wording,metric- and comparator-dependent,"name the exact models, metric, comparator, and effect size",the same three of five models improve throughout the pipeline,use Balanced Accuracy as primary directional decision metric
+Manuscript,not started in this task,evidence package is a pre-writing audit artifact,submission-ready manuscript completed,finish evidence and claim audit before drafting
