@@ -91,4 +91,3 @@ def test_six_model_table_uses_seed_averaged_candidate_probability() -> None:
     assert ours["balanced_accuracy_mean"] == pytest.approx(1.0)
     assert ours["direction_accuracy_mean"] == pytest.approx(1.0)
     assert np.isnan(ours["rmse_mean"])
-

@@ -78,4 +78,3 @@ def test_load_development_frame_is_locked_to_2019_2021_and_122_numeric_features(
         frame.loc[:, [*numeric_features, "prob_bull", "prob_sideway", "prob_bear"]]
         .to_numpy(dtype=float)
     ).all()
-

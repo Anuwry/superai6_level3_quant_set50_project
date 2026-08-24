@@ -177,4 +177,3 @@ def test_freeze_manifest_detects_input_change(tmp_path: Path) -> None:
     source.write_text("value\n2\n", encoding="utf-8")
     with pytest.raises(ValueError, match="hash mismatch"):
         verify_freeze_manifest(tmp_path, manifest)
-

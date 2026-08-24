@@ -116,4 +116,3 @@ def test_full_loss_is_finite_and_backpropagates() -> None:
     }
     assert all(torch.isfinite(value) for value in terms.values())
     assert any(parameter.grad is not None for parameter in model.parameters())
-

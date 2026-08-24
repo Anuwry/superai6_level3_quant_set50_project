@@ -140,4 +140,3 @@ def test_verify_frozen_inputs_detects_hash_change(tmp_path: Path) -> None:
     assert audit["passed"] is True
     with pytest.raises(ValueError, match="hash mismatch"):
         verify_frozen_inputs(tmp_path, manifest)
-

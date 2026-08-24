@@ -201,4 +201,3 @@ def test_model_builds_and_runs_one_graph_fit() -> None:
     assert prediction["scaled_delta"].shape == (3, 1)
     assert prediction["embedding"].shape == (3, 16)
     assert np.isfinite(prediction["embedding"]).all()
-
