@@ -1,0 +1,146 @@
+{
+  "protocol_id": "manuscript-artifacts-v1",
+  "generated_at_utc": "2026-08-03T22:14:14+00:00",
+  "sources": [
+    {
+      "path": "outputs/market_data_governance_v1/paper_data_statements.md",
+      "bytes": 3575,
+      "sha256": "2083aee32728e53427b1a9cc13d09a2570b50df5af22e360ebfa10a7e307e67e"
+    },
+    {
+      "path": "outputs/multimodal_falsification_v1/paper_falsification_table.csv",
+      "bytes": 1596,
+      "sha256": "ad9d6e89390cff5f4cb9ecfc81cacca93b550ac726cff340be9f36e8a3595fe3"
+    },
+    {
+      "path": "outputs/set100_same_exchange_robustness_v1/paper_table.csv",
+      "bytes": 2054,
+      "sha256": "84ebaf701663288525dae0d27ee350397ae19cf2d66180daf26cf2e0d4c18596"
+    },
+    {
+      "path": "outputs/track_a_final_point_in_time_v2/locked_windows.csv",
+      "bytes": 946,
+      "sha256": "47456d5827bcb6a4ca01ce56cff21fce67d065f89c953150552ada3ca9faa55f"
+    },
+    {
+      "path": "outputs/track_a_final_point_in_time_v2/paper_track_a_compact.csv",
+      "bytes": 3889,
+      "sha256": "d80354edf2a7692a241979ded686be0f3c60689ff848badb0580efa0ad822e14"
+    },
+    {
+      "path": "outputs/track_b/llm/compute_matched_v1/paper_compute_matched_table.csv",
+      "bytes": 2080,
+      "sha256": "10e68516878ba31906daa0fd515d1e56ed28c2b6cce302326d93540b3737fd58"
+    },
+    {
+      "path": "outputs/track_c/dual_xai_lime_v1/summary_pooled_by_model_regime.csv",
+      "bytes": 4036,
+      "sha256": "bf223afe39e8d0afc1060c5e024232fa5f5515468a4d235e0a2a8272174dcf26"
+    },
+    {
+      "path": "outputs/track_c/outer_v2/inference_holm_adjusted.csv",
+      "bytes": 23029,
+      "sha256": "b75541ce343a835043f02aa00fc124475a98e7bec79f5c4630d3f935f0ec1a4b"
+    },
+    {
+      "path": "outputs/track_d_q2/paper_economic_primary_10bps.csv",
+      "bytes": 5278,
+      "sha256": "55253570a6ca217c4fdb5438a9d314eb82ec2fa827a910935bd49032ceed1240"
+    },
+    {
+      "path": "outputs/track_d_q2/paper_predictive_summary.csv",
+      "bytes": 3980,
+      "sha256": "2dfe165193289221025b0525ac85be2580454560a74c61e3f6cf84a9ae4ab02b"
+    },
+    {
+      "path": "test/primary_estimand_and_confirmatory_protocol_v1.md",
+      "bytes": 3752,
+      "sha256": "d9ed7a9f5e1dde40fc466658c2d9ec74d1359cb8902f8848466edad54f3e2ed1"
+    },
+    {
+      "path": "test/reliability_extension_protocol_v1.md",
+      "bytes": 3474,
+      "sha256": "77882da53e77191e398f5c140cc356f9c1b1bc161943c718ed5a6b9c786e1685"
+    }
+  ],
+  "generated": [
+    {
+      "path": "table_1_protocol_cohort.csv",
+      "rows": 5,
+      "bytes": 520,
+      "sha256": "1803cc81ad56d7ecd6cb04660412f4e747e94a99453a23fe7129c15f8a649d3d"
+    },
+    {
+      "path": "table_2_numerical_ablation.csv",
+      "rows": 5,
+      "bytes": 1051,
+      "sha256": "5458f083ae4990780304c21b7cd548e2452966aeaa8e769b66d4013bbd525f9d"
+    },
+    {
+      "path": "table_3a_multimodal_falsification.csv",
+      "rows": 10,
+      "bytes": 1450,
+      "sha256": "36a7a192eedce344d84d4e046f612ff4613c6b1610af35df05c4ce668c67fce9"
+    },
+    {
+      "path": "table_3b_llm_intrinsic_separate.csv",
+      "rows": 2,
+      "bytes": 589,
+      "sha256": "75c45cc0a42126ed0ba6e205fc930c8fe1f9edf9638f1507f5a3eb63f0ca990e"
+    },
+    {
+      "path": "table_4_regime_shap.csv",
+      "rows": 50,
+      "bytes": 5767,
+      "sha256": "7a67e102913d32f54ac3c904ca4ab5574c3027e279078dc30c37f663a4126fb8"
+    },
+    {
+      "path": "table_5a_forward_robustness.csv",
+      "rows": 10,
+      "bytes": 1435,
+      "sha256": "de24e112770482c8cc706da27ee1fcf41d3416691dfdc6d396131f6eb0fcfec5"
+    },
+    {
+      "path": "table_5b_set100_transfer.csv",
+      "rows": 5,
+      "bytes": 967,
+      "sha256": "08539c138edd3a366c6d7923f1e86b042355e9913a1cd89025be4363138407f0"
+    },
+    {
+      "path": "supplement_lime_diagnostic.csv",
+      "rows": 15,
+      "bytes": 4351,
+      "sha256": "33535019cf9b1689031bde075983e06ea1efc72350b48614d491b2aab452cba7"
+    },
+    {
+      "path": "supplement_economic_exploratory.csv",
+      "rows": 20,
+      "bytes": 5752,
+      "sha256": "ef608468cfa59938a823f95bdb3b913e47bc317c7e8c81704c1a0414af356bf1"
+    },
+    {
+      "path": "table_index.csv",
+      "rows": 9,
+      "bytes": 991,
+      "sha256": "34e26fe17b3d3bb81314a2a5f64afd3632a0260c41dc01f41b2c7625ffcfe535"
+    },
+    {
+      "path": "claim_hierarchy.json",
+      "rows": 8,
+      "bytes": 288,
+      "sha256": "afd73e05ba43f8822c224774c09808a503b3963797484030de18f680470a3d80"
+    }
+  ],
+  "raw_market_data_included": false,
+  "row_level_predictions_included": false,
+  "claim_hierarchy": {
+    "balanced_accuracy": "primary",
+    "direction_accuracy": "secondary",
+    "mcc": "secondary",
+    "rmse_mae": "secondary",
+    "shap": "main_secondary",
+    "lime": "supplement_diagnostic",
+    "economic_proxy": "supplement_exploratory",
+    "llm_intrinsic": "main_separate_intrinsic"
+  }
+}

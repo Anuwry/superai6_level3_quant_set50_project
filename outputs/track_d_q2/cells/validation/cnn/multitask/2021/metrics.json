@@ -1,0 +1,23 @@
+{
+  "model": "cnn",
+  "objective": "multitask",
+  "seed": 42,
+  "window": 20,
+  "features": 122,
+  "training_sequences": 2096,
+  "trainable_parameters": 12026,
+  "fit_seconds": 8.398801099989214,
+  "inference_seconds": 0.2527817999944091,
+  "return_target_mean": 6.677412584855996e-05,
+  "return_target_std": 0.011484850418544981,
+  "rows": 240,
+  "positive_share": 0.5291666666666667,
+  "direction_accuracy": 0.5291666666666667,
+  "balanced_accuracy": 0.5,
+  "mcc": 0.0,
+  "auc": 0.5,
+  "brier": 0.24947746352888675,
+  "log_loss": 0.6921019572766869,
+  "ece_10": 0.018115131060282397,
+  "validation_year": 2021
+}

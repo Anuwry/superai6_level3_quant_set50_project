@@ -1,0 +1,53 @@
+{
+  "protocol_id": "set100-same-exchange-robustness-v1",
+  "created_at_utc": "2026-08-03T15:32:37.490028+00:00",
+  "scope": "non-reconstructive aggregate outputs only",
+  "private_predictions_excluded": true,
+  "files": [
+    {
+      "path": "outputs/set100_same_exchange_robustness_v1/integrity_audit.json",
+      "bytes": 805,
+      "sha256": "02d76b839b7cdfddb8b1609772d3ea665836e742995561ec335cbe660f38faef"
+    },
+    {
+      "path": "outputs/set100_same_exchange_robustness_v1/market_deltas_by_fold.csv",
+      "bytes": 9169,
+      "sha256": "391ee03aa49aedd0a693e16d3c885fbd35ded16f909ffdc55f7faa6c478f9ae8"
+    },
+    {
+      "path": "outputs/set100_same_exchange_robustness_v1/market_inference.csv",
+      "bytes": 5772,
+      "sha256": "bd1f929ddf11335de5846b30f4a231029eb88d2eb94bb5683a97f736781a68fa"
+    },
+    {
+      "path": "outputs/set100_same_exchange_robustness_v1/market_inference_holm.csv",
+      "bytes": 6082,
+      "sha256": "f08f3d434159ce428ee8b7d25b7a69fab4cedab6c4496180a521201f85dfa029"
+    },
+    {
+      "path": "outputs/set100_same_exchange_robustness_v1/model_market_summary.csv",
+      "bytes": 3317,
+      "sha256": "3c5036fb5fe6b85977fee27798d2efd03b5acfb02ae47120ab4ca07e94331528"
+    },
+    {
+      "path": "outputs/set100_same_exchange_robustness_v1/paper_table.csv",
+      "bytes": 2054,
+      "sha256": "84ebaf701663288525dae0d27ee350397ae19cf2d66180daf26cf2e0d4c18596"
+    },
+    {
+      "path": "outputs/set100_same_exchange_robustness_v1/per_seed_metrics.csv",
+      "bytes": 70867,
+      "sha256": "e4cf5d065773737330600d2e7ebaf46f41290f6623203c7ba7a11c09b3d7c3f8"
+    },
+    {
+      "path": "outputs/set100_same_exchange_robustness_v1/runtime_summary.csv",
+      "bytes": 1548,
+      "sha256": "4f1623b72321747a1284a1aa3c0d39f838f406ca76833d521a49a575ce8f405e"
+    },
+    {
+      "path": "outputs/set100_same_exchange_robustness_v1/seed_averaged_fold_metrics.csv",
+      "bytes": 13307,
+      "sha256": "81642c5c42795230a8487aed2fdc86260a7ff863fd739a616fc225c64776e79d"
+    }
+  ]
+}

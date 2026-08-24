@@ -1,0 +1,5 @@
+fold,prefix_rows,feature_max_abs_difference,membership_max_abs_difference,label_mismatches
+fold_1,2478,0.0,0.0,0
+fold_2,2720,0.0,0.0,0
+fold_3,2964,0.0,0.0,0
+fold_4,3203,0.0,0.0,0

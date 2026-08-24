@@ -1,0 +1,11 @@
+field,dtype,definition,unit
+Date,date,SET session date in Asia/Bangkok,session date
+Close,float,Provider-published price-index close,index points
+Open,float,Provider-published price-index open,index points
+High,float,Provider-published price-index high,index points
+Low,float,Provider-published price-index low,index points
+Volume,float,Vendor-reported volume; K/M/B expanded by 10^3/10^6/10^9,vendor native units
+Change_pct,float,100 * (Close_t / Close_(t-1) - 1),percentage points
+Target_Next_Close,float,Close on the next observed SET trading session,index points
+*_W,float,"Prior completed vendor weekly bar, shifted once before forward fill",column-dependent
+*_M,float,"Prior completed vendor monthly bar, shifted once before forward fill",column-dependent

@@ -15,6 +15,8 @@ if str(PROJECT_ROOT) not in sys.path:
 sys.path = [path for path in sys.path if Path(path or ".").resolve() != SCRIPT_DIR]
 
 from models.baseline_common import DATA_FOLDS_DIR, DATE_COLUMN, TARGET_COLUMN, discover_folds
+from models.neural_network_folds import numeric_columns
+from models.point_in_time_data import LABEL_DATE_COLUMN
 
 FULL_NON_TA_DATA_FOLDS_DIR = PROJECT_ROOT / "data-folds-full-non-ta"
 FULL_NON_TA_NN_DATA_FOLDS_DIR = PROJECT_ROOT / "data-folds-full-non-ta-nn"
@@ -146,7 +148,17 @@ def build_full_non_ta_features(frame: pd.DataFrame) -> pd.DataFrame:
     for window in DIRECTION_WINDOWS:
         data[f"Up_Ratio_{window}"] = up.rolling(window=window, min_periods=window).mean()
         data[f"Down_Ratio_{window}"] = down.rolling(window=window, min_periods=window).mean()
-    selected_columns = [DATE_COLUMN, *FULL_NON_TA_FEATURES, TARGET_COLUMN]
+    metadata_columns = (
+        [LABEL_DATE_COLUMN]
+        if LABEL_DATE_COLUMN in data.columns
+        else []
+    )
+    selected_columns = [
+        DATE_COLUMN,
+        *metadata_columns,
+        *FULL_NON_TA_FEATURES,
+        TARGET_COLUMN,
+    ]
     return data.loc[:, selected_columns]
 
 
@@ -207,7 +219,7 @@ def create_scaled_full_non_ta_nn_folds(
     for spec in discover_folds(source_dir):
         train = pd.read_csv(spec.train_path)
         test = pd.read_csv(spec.test_path)
-        columns = [column for column in train.columns if column != DATE_COLUMN]
+        columns = numeric_columns(train)
         scaler = MinMaxScaler()
         scaled_train = train.copy()
         scaled_test = test.copy()

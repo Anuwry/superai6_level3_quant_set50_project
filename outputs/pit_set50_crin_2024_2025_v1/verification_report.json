@@ -1,0 +1,35 @@
+{
+  "protocol_id": "pit-set50-crin-2024-2025-v1",
+  "verification_passed": true,
+  "evaluation_years_only": [2024, 2025],
+  "training_years_not_in_reported_metrics": true,
+  "registered_cells_expected": 10,
+  "registered_cells_complete": 10,
+  "registered_seeds": [42, 123, 456, 789, 2025],
+  "raw_cell_prediction_rows": 9540,
+  "seed_averaged_prediction_rows": 1908,
+  "seeds_per_date_variant": 5,
+  "all_probabilities_finite": true,
+  "common_cohort": {
+    "2024": 243,
+    "2025": 234,
+    "total": 477
+  },
+  "same_dates_for_all_six_models": true,
+  "minimum_active_members_gate": 35,
+  "test_coverage_mean": {
+    "2024": 0.94,
+    "2025": 0.9679486
+  },
+  "freeze_hash_verified_in_every_cell": true,
+  "outer_result_decision": "PIT-SET50-CRIN v1 rejected as the headline Ours model",
+  "output_sha256": {
+    "six_model_comparison_2024_2025.csv": "2CB4D91DA87DB1E8EF8F77DA710D29DAC2CDC61C7271CC4631F3D4CDA24D60FF",
+    "crin_ablation_2024_2025.csv": "8A3F9DC9EDAC090C18B1D013FA992707F21CBF0E50DD3EDC98BACB71096AFF9E",
+    "variant_metrics_by_year.csv": "A4623AF5C8EC13275527EC362E21BE2ED04CA89F4FD6CF6DDF66131DD7C1C4C2",
+    "frozen_five_metrics_2024_2025.csv": "B898CB69B91A02E52010CFD819CF89D984BF26086FCC5E45FEAE6F9E02C1FD67",
+    "predictions_seed_averaged.csv": "602172EB138E1FECAEEAD89A5B01DAED94C24AB9849697501975A8FA82C44A44",
+    "runtime_summary.csv": "93A7DF0E68AEF18822430C719E55A9F3E72BA300519EE2DC0ECDE178D68C1B97",
+    "run_metadata.json": "780182DC1035EC1AF2501962D9E00C738E8D3CEB75563D6A157A695F010921FE"
+  }
+}

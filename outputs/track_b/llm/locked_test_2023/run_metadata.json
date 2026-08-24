@@ -1,0 +1,32 @@
+{
+  "updated_at": "2026-07-30T12:32:35+00:00",
+  "model": "gpt-5.6-terra",
+  "prompt_version": "track-b-terra-v1",
+  "year": 2023,
+  "selected_pairs": 1333,
+  "completed_pairs": 1333,
+  "include_single": true,
+  "reasoning_effort": "low",
+  "store_api_responses": false,
+  "max_concurrent_items": 1,
+  "maximum_budget_usd": 40.0,
+  "existing_billed_cost_usd": 24.607047499999975,
+  "new_cost_usd": 0.0119025,
+  "tracked_total_cost_usd": 24.618949999999977,
+  "runtime_seconds_this_invocation": 12.400431000000026,
+  "checkpoint_scope": "one JSONL row per API role; raw article omitted",
+  "pricing": {
+    "input_usd_per_million": 2.5,
+    "output_usd_per_million": 15.0,
+    "cached_input_discount_ignored_for_conservative_tracking": true
+  },
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "openai": "2.33.0",
+      "pydantic": "2.12.5",
+      "tiktoken": "0.13.0"
+    }
+  }
+}

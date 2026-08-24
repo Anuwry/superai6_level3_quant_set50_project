@@ -1,0 +1,128 @@
+{
+  "started_at": "2026-07-30T17:36:52+00:00",
+  "completed_at": "2026-07-30T17:37:19+00:00",
+  "experiment": "Track C leakage-free three-state HMM regime labeling",
+  "completed_folds": 4,
+  "total_runtime_seconds": 26.570678300002328,
+  "source_dir": "data-folds-full-ta-vmd",
+  "output_dir": "outputs\\track_c\\regime_labeling",
+  "protocol": {
+    "state_count": 3,
+    "span": 30,
+    "covariance_type": "full",
+    "restart_seeds": [
+      42,
+      123,
+      456,
+      789,
+      2025
+    ],
+    "max_iterations": 200,
+    "tolerance": 0.0001,
+    "minimum_covariance": 1e-05,
+    "minimum_training_regime_share": 0.05,
+    "minimum_self_transition_probability": 0.8,
+    "observations": [
+      "ewma_return",
+      "ewma_volatility"
+    ],
+    "return_definition": "log(Close_D / Close_D_lag1)",
+    "volatility_definition": "sqrt(EWMA(return^2) - EWMA(return)^2)",
+    "scaling": "StandardScaler fit on each fold training observations only",
+    "fit_scope": "each outer fold training period only",
+    "inference": "causal forward-filtered probabilities",
+    "routing_target": "next_trading_day_regime",
+    "routing_probability": "P(S_t+1 | observations_through_t)",
+    "state_mapping": "lowest training EWMA-return mean=Bear; middle=Sideway; highest=Bull",
+    "target_columns_used": false,
+    "outer_test_used_for_selection": false,
+    "smoothed_or_viterbi_test_labels": false
+  },
+  "input_files": [
+    {
+      "fold": "fold_1",
+      "split": "train",
+      "path": "data-folds-full-ta-vmd\\fold_1\\train_2012_2021.csv",
+      "sha256": "B1A112195E988C7CA7FF4A426D13C89E248569312580E0C40DE8D278EAD7873E",
+      "rows": 2359
+    },
+    {
+      "fold": "fold_1",
+      "split": "test",
+      "path": "data-folds-full-ta-vmd\\fold_1\\test_2022.csv",
+      "sha256": "0EC3B72E496F8AA953896FD0DDF5ABB18C8D1FD085405121621C138326D5BB0F",
+      "rows": 241
+    },
+    {
+      "fold": "fold_2",
+      "split": "train",
+      "path": "data-folds-full-ta-vmd\\fold_2\\train_2012_2022.csv",
+      "sha256": "05976B87A40E7E0538988D6E2409E00410687A65D91A2E03C3A39A4BB72E251E",
+      "rows": 2600
+    },
+    {
+      "fold": "fold_2",
+      "split": "test",
+      "path": "data-folds-full-ta-vmd\\fold_2\\test_2023.csv",
+      "sha256": "24ADB7E17FD49DDC999E7278CB1E5A83C93B92C3B8A2F8C18366BACD546B994A",
+      "rows": 243
+    },
+    {
+      "fold": "fold_3",
+      "split": "train",
+      "path": "data-folds-full-ta-vmd\\fold_3\\train_2012_2023.csv",
+      "sha256": "CB72594B537985E6A2D0F1CF48B257D6A3074C945288EA56CEBCA5EEE99E0F9B",
+      "rows": 2843
+    },
+    {
+      "fold": "fold_3",
+      "split": "test",
+      "path": "data-folds-full-ta-vmd\\fold_3\\test_2024.csv",
+      "sha256": "62B8244556D02B649BC3087CE9E5A2D290BC2AC21D118233282915321655424A",
+      "rows": 244
+    },
+    {
+      "fold": "fold_4",
+      "split": "train",
+      "path": "data-folds-full-ta-vmd\\fold_4\\train_2012_2024.csv",
+      "sha256": "359FFDE7FA911C2740A826298E750A4E688DA7B8CFBC4553FC24E70BAC1A1F90",
+      "rows": 3087
+    },
+    {
+      "fold": "fold_4",
+      "split": "test",
+      "path": "data-folds-full-ta-vmd\\fold_4\\test_2025.csv",
+      "sha256": "34FD62B7E497586806F94DE120C5D78631E7513634840B58381CB0C801F159E8",
+      "rows": 234
+    }
+  ],
+  "artifacts": {
+    "fold_summary.csv": "outputs\\track_c\\regime_labeling\\fold_summary.csv",
+    "regime_distribution.csv": "outputs\\track_c\\regime_labeling\\regime_distribution.csv",
+    "state_profiles.csv": "outputs\\track_c\\regime_labeling\\state_profiles.csv",
+    "transition_matrices.csv": "outputs\\track_c\\regime_labeling\\transition_matrices.csv",
+    "restart_diagnostics.csv": "outputs\\track_c\\regime_labeling\\restart_diagnostics.csv"
+  },
+  "versions": {
+    "python": "3.12.10",
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit_learn": "1.8.0",
+    "scipy": "1.17.1",
+    "hmmlearn": "0.3.3"
+  },
+  "paper_sources": [
+    {
+      "citation": "Hamilton (1989)",
+      "doi_or_url": "https://ideas.repec.org/a/ecm/emetrp/v57y1989i2p357-84.html"
+    },
+    {
+      "citation": "Wang, Lin, and Mikhelson (2020)",
+      "doi_or_url": "https://doi.org/10.3390/jrfm13120311"
+    },
+    {
+      "citation": "Werge (2021)",
+      "doi_or_url": "https://arxiv.org/abs/2107.05535"
+    }
+  ]
+}

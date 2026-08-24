@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "protocol_id": "pit-cmm-lstm-exploratory-v1",
+  "freeze_audit": {
+    "passed": true,
+    "protocol_id": "pit-cmm-lstm-exploratory-v1",
+    "verified_inputs": 4,
+    "freeze_file_sha256": "770e76d1a51f733b886f2890319bacbcaba21ec559de1a803ba25ff726cd082c"
+  },
+  "completed_cells": 20,
+  "metric_rows": 80,
+  "fit_rows": 160,
+  "seed_averaged_fold_arm_rows": 16,
+  "all_predictions_finite": true,
+  "minimum_training_sequences": 216,
+  "promotion_passed": false
+}

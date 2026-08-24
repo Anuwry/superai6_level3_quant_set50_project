@@ -1,0 +1,175 @@
+{
+  "protocol_version": "track-d-direction-forward-v1",
+  "created_at_utc": "2026-07-31T22:50:06+07:00",
+  "all_checks_passed": true,
+  "checks": [
+    {
+      "check": "artifact_cardinalities",
+      "passed": true,
+      "detail": {
+        "expected": {
+          "validation_metric_rows": 30,
+          "selected_threshold_rows": 10,
+          "forward_prediction_seed_rows": 6900,
+          "forward_prediction_average_rows": 1380,
+          "forward_metric_rows": 10,
+          "selective_metric_rows": 40,
+          "economic_summary_rows": 240,
+          "economic_daily_rows": 32880,
+          "xai_attribution_rows": 54900,
+          "xai_randomization_rows": 300,
+          "xai_deletion_rows": 150,
+          "xai_random_deletion_rows": 15000
+        },
+        "actual": {
+          "validation_metric_rows": 30,
+          "selected_threshold_rows": 10,
+          "forward_prediction_seed_rows": 6900,
+          "forward_prediction_average_rows": 1380,
+          "forward_metric_rows": 10,
+          "selective_metric_rows": 40,
+          "economic_summary_rows": 240,
+          "economic_daily_rows": 32880,
+          "xai_attribution_rows": 54900,
+          "xai_randomization_rows": 300,
+          "xai_deletion_rows": 150,
+          "xai_random_deletion_rows": 15000
+        }
+      }
+    },
+    {
+      "check": "model_registry",
+      "passed": true,
+      "detail": [
+        "cnn",
+        "lstm",
+        "lstm_attention",
+        "lstm_cnn",
+        "lstm_cnn_attention"
+      ]
+    },
+    {
+      "check": "objective_registry",
+      "passed": true,
+      "detail": [
+        "direct",
+        "multitask"
+      ]
+    },
+    {
+      "check": "seed_registry",
+      "passed": true,
+      "detail": [
+        42,
+        123,
+        456,
+        789,
+        2025
+      ]
+    },
+    {
+      "check": "threshold_registry",
+      "passed": true,
+      "detail": [
+        0.5
+      ]
+    },
+    {
+      "check": "forward_year_only",
+      "passed": true,
+      "detail": [
+        "2026-01-05",
+        "2026-07-30"
+      ]
+    },
+    {
+      "check": "forward_seed_unique",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "check": "forward_average_unique",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "check": "economic_summary_unique",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "check": "xai_attribution_unique",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "check": "xai_random_deletion_unique",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "check": "forward_probability_finite",
+      "passed": true,
+      "detail": [
+        "probability",
+        "y_true"
+      ]
+    },
+    {
+      "check": "forward_metrics_finite",
+      "passed": true,
+      "detail": [
+        "direction_accuracy",
+        "balanced_accuracy",
+        "mcc",
+        "auc",
+        "brier",
+        "log_loss",
+        "ece_10"
+      ]
+    },
+    {
+      "check": "economic_summary_finite",
+      "passed": true,
+      "detail": [
+        "coverage",
+        "round_trip_units",
+        "gross_cumulative_return",
+        "net_cumulative_return",
+        "net_annualized_sharpe",
+        "maximum_drawdown"
+      ]
+    },
+    {
+      "check": "xai_attribution_finite",
+      "passed": true,
+      "detail": [
+        "signed_attribution",
+        "absolute_attribution"
+      ]
+    },
+    {
+      "check": "xai_sanity_finite",
+      "passed": true,
+      "detail": [
+        "absolute_rank_spearman"
+      ]
+    },
+    {
+      "check": "xai_deletion_finite",
+      "passed": true,
+      "detail": [
+        "top_deletion_effect",
+        "faithfulness_percentile"
+      ]
+    },
+    {
+      "check": "freeze_precedes_forward_access",
+      "passed": true,
+      "detail": {
+        "frozen_at": "2026-07-31T15:17:42+00:00",
+        "accessed_at": "2026-07-31T15:29:44+00:00"
+      }
+    }
+  ]
+}

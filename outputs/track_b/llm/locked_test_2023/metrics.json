@@ -1,0 +1,174 @@
+{
+  "created_at": "2026-07-30T12:32:35+00:00",
+  "model": "gpt-5.6-terra",
+  "prompt_version": "track-b-terra-v1",
+  "completed_pairs": 1333,
+  "single_leader_disagreement_rate": 0.16654163540885222,
+  "metrics": [
+    {
+      "method": "single",
+      "pairs": 1333,
+      "accuracy": 0.6984246061515379,
+      "macro_f1": 0.6177580575713343,
+      "weighted_f1": 0.6738967168495923,
+      "mcc": 0.5484486262439493,
+      "confusion_matrix": [
+        [
+          639,
+          11,
+          6
+        ],
+        [
+          216,
+          205,
+          164
+        ],
+        [
+          3,
+          2,
+          87
+        ]
+      ],
+      "classification_report": {
+        "positive": {
+          "precision": 0.7447552447552448,
+          "recall": 0.9740853658536586,
+          "f1-score": 0.8441215323645971,
+          "support": 656.0
+        },
+        "neutral": {
+          "precision": 0.9403669724770642,
+          "recall": 0.3504273504273504,
+          "f1-score": 0.5105853051058531,
+          "support": 585.0
+        },
+        "negative": {
+          "precision": 0.33852140077821014,
+          "recall": 0.9456521739130435,
+          "f1-score": 0.498567335243553,
+          "support": 92.0
+        },
+        "accuracy": 0.6984246061515379,
+        "macro avg": {
+          "precision": 0.674547872670173,
+          "recall": 0.7567216300646842,
+          "f1-score": 0.6177580575713343,
+          "support": 1333.0
+        },
+        "weighted avg": {
+          "precision": 0.8025642072994136,
+          "recall": 0.6984246061515379,
+          "f1-score": 0.6738967168495923,
+          "support": 1333.0
+        }
+      },
+      "log_loss": 0.644427764651431,
+      "multiclass_brier_score": 0.3970117959489875,
+      "mean_confidence": 0.8084388597149176
+    },
+    {
+      "method": "leader",
+      "pairs": 1333,
+      "accuracy": 0.7659414853713429,
+      "macro_f1": 0.7025319333628998,
+      "weighted_f1": 0.7696583562069895,
+      "mcc": 0.6190105360497348,
+      "confusion_matrix": [
+        [
+          590,
+          56,
+          10
+        ],
+        [
+          117,
+          348,
+          120
+        ],
+        [
+          3,
+          6,
+          83
+        ]
+      ],
+      "classification_report": {
+        "positive": {
+          "precision": 0.8309859154929577,
+          "recall": 0.899390243902439,
+          "f1-score": 0.8638360175695461,
+          "support": 656.0
+        },
+        "neutral": {
+          "precision": 0.848780487804878,
+          "recall": 0.5948717948717949,
+          "f1-score": 0.699497487437186,
+          "support": 585.0
+        },
+        "negative": {
+          "precision": 0.38967136150234744,
+          "recall": 0.9021739130434783,
+          "f1-score": 0.5442622950819672,
+          "support": 92.0
+        },
+        "accuracy": 0.7659414853713429,
+        "macro avg": {
+          "precision": 0.6898125882667278,
+          "recall": 0.7988119839392374,
+          "f1-score": 0.7025319333628998,
+          "support": 1333.0
+        },
+        "weighted avg": {
+          "precision": 0.8083369176199924,
+          "recall": 0.7659414853713429,
+          "f1-score": 0.7696583562069895,
+          "support": 1333.0
+        }
+      },
+      "log_loss": 0.5933044040641394,
+      "multiclass_brier_score": 0.34825533083270815,
+      "mean_confidence": 0.7443758439609903
+    }
+  ],
+  "runtime_and_cost_by_role": [
+    {
+      "role": "bear",
+      "calls": 1333,
+      "runtime_seconds_mean": 4.616948368792218,
+      "runtime_seconds_median": 4.094515199999478,
+      "runtime_seconds_total": 6154.392175600026,
+      "input_tokens_total": 997189,
+      "output_tokens_total": 314865,
+      "cost_usd_total": 7.2159475
+    },
+    {
+      "role": "bull",
+      "calls": 1333,
+      "runtime_seconds_mean": 4.151488619129784,
+      "runtime_seconds_median": 3.648030899999867,
+      "runtime_seconds_total": 5533.934329300003,
+      "input_tokens_total": 995856,
+      "output_tokens_total": 279834,
+      "cost_usd_total": 6.68715
+    },
+    {
+      "role": "leader",
+      "calls": 1333,
+      "runtime_seconds_mean": 2.493751070067503,
+      "runtime_seconds_median": 2.2259335999997347,
+      "runtime_seconds_total": 3324.1701763999813,
+      "input_tokens_total": 1522136,
+      "output_tokens_total": 151352,
+      "cost_usd_total": 6.07562
+    },
+    {
+      "role": "single",
+      "calls": 1333,
+      "runtime_seconds_mean": 2.432967011627906,
+      "runtime_seconds_median": 2.1447511999995186,
+      "runtime_seconds_total": 3243.1450264999985,
+      "input_tokens_total": 1050509,
+      "output_tokens_total": 134264,
+      "cost_usd_total": 4.6402325
+    }
+  ],
+  "tracked_cost_usd": 24.61895
+}

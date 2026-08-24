@@ -1,0 +1,82 @@
+{
+  "protocol_id": "track-b-llm-compute-matched-v1",
+  "status": "frozen_before_any_repeated_single_control_call",
+  "frozen_at_utc": "2026-08-03T15:53:07Z",
+  "new_results_seen_before_freeze": false,
+  "new_output_directory_existed_before_freeze": false,
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "low",
+  "prompt_version": "track-b-terra-v1",
+  "test_year": 2023,
+  "pairs": 1333,
+  "unique_articles": 738,
+  "labels": {
+    "negative": 92,
+    "neutral": 585,
+    "positive": 656
+  },
+  "new_replicates": [2, 3, 4],
+  "primary_control_replicates": [1, 2, 3],
+  "secondary_control_replicates": [1, 2, 3, 4],
+  "primary_metric": "accuracy",
+  "cluster_unit": "article_id",
+  "bootstrap_iterations": 5000,
+  "cluster_sign_flip_iterations": 50000,
+  "random_seed": 42,
+  "holm_accuracy_family": [
+    "leader_minus_self_consistency_3",
+    "leader_minus_self_consistency_4"
+  ],
+  "max_output_tokens_per_call": 384,
+  "max_concurrent_calls": 4,
+  "incremental_cost_guard_usd": 18.0,
+  "estimated_incremental_cost_usd": 13.9206975,
+  "near_cost_ratio_tolerance": 0.15,
+  "frozen_inputs": [
+    {
+      "path": "data-raw/track_b/Bilingual_StockTBSA/Thai_Financial_TBSA_dataset_Updated.json",
+      "bytes": 40400223,
+      "sha256": "1e87d6780e210a2d4f8da44680789d79fa07f7644afa791983592d0cdecd83ac"
+    },
+    {
+      "path": "outputs/track_b/llm/locked_test_2023/predictions.jsonl",
+      "bytes": 5081921,
+      "sha256": "1e2af35e9b4ce442c7f77a662d84ec8954cf142115e9bfb43e82328fe7e393c2"
+    },
+    {
+      "path": "outputs/track_b/llm/locked_test_2023/calls.jsonl",
+      "bytes": 4988317,
+      "sha256": "e2ac445cc3777b92671228f9cb992637b3dcc1932bc69c0a0915f24ed7fbebd0"
+    },
+    {
+      "path": "outputs/track_b/llm/locked_test_2023/metrics.json",
+      "bytes": 4872,
+      "sha256": "0e8354a8fc9ba42d4c8c7170257035a40ba008f3896c0c5a596fa3d1f10ffda5"
+    },
+    {
+      "path": "outputs/track_b/llm/locked_test_2023/prompt_manifest.json",
+      "bytes": 5508,
+      "sha256": "787731336c3c52c48f28a60c13a6bc705f670cfd0257eca64b175c2f45015b68"
+    },
+    {
+      "path": "models/track_b_llm.py",
+      "bytes": 14024,
+      "sha256": "e23a9ee8e2ba7411e13c9609a34c5d96901a80cb7a2e33f60426cc1fc60220dc"
+    },
+    {
+      "path": "models/track_b_experiment.py",
+      "bytes": 30119,
+      "sha256": "f8c9a5c480e139b093e48b8470452c36d7383255d0cc2b576d068e2a68063494"
+    },
+    {
+      "path": "models/track_b_analysis.py",
+      "bytes": 22831,
+      "sha256": "d553e4827d0fcbc46c93cbfff351e09fbd3fbaf64f634ab5900a27b38311ed64"
+    },
+    {
+      "path": "test/strong_q2_claims_register_v1.md",
+      "bytes": 7171,
+      "sha256": "b382fd21670af0fc543964907d826c21dda08a3f81532499ad40766764f0c16a"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "source_predictions": "outputs\\integrated_multimodal_posthoc_v1\\predictions_seed_averaged.csv",
+  "source_summary": "outputs\\integrated_multimodal_posthoc_v1\\arm_summary.csv",
+  "source_locked_windows": "outputs\\track_a_final_point_in_time_v2\\locked_windows.csv",
+  "final_arm": "Regime-SHAP-Numeric-News",
+  "models": [
+    "lstm",
+    "cnn",
+    "lstm_cnn",
+    "lstm_attention",
+    "lstm_cnn_attention"
+  ],
+  "rows_per_model": {
+    "cnn": 962,
+    "lstm": 962,
+    "lstm_attention": 962,
+    "lstm_cnn": 962,
+    "lstm_cnn_attention": 962
+  },
+  "date_min": "2022-01-04",
+  "date_max": "2025-12-18",
+  "test_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "folds": [
+    "fold_1",
+    "fold_2",
+    "fold_3",
+    "fold_4"
+  ],
+  "seeds_averaged": 5,
+  "actual_series_identical_across_models": true,
+  "metric_recomputation_checks": {
+    "lstm": {
+      "published_balanced_accuracy": 0.5200702766052748,
+      "recomputed_balanced_accuracy": 0.5200702766052748,
+      "balanced_accuracy_abs_diff": 0.0,
+      "published_direction_accuracy": 0.5198321053015539,
+      "recomputed_direction_accuracy": 0.5198321053015539,
+      "direction_accuracy_abs_diff": 0.0
+    },
+    "cnn": {
+      "published_balanced_accuracy": 0.5149475536974959,
+      "recomputed_balanced_accuracy": 0.5149475536974959,
+      "balanced_accuracy_abs_diff": 0.0,
+      "published_direction_accuracy": 0.5175556688922933,
+      "recomputed_direction_accuracy": 0.5175556688922933,
+      "direction_accuracy_abs_diff": 0.0
+    },
+    "lstm_cnn": {
+      "published_balanced_accuracy": 0.5280963560850032,
+      "recomputed_balanced_accuracy": 0.5280963560850032,
+      "balanced_accuracy_abs_diff": 0.0,
+      "published_direction_accuracy": 0.5211084716533674,
+      "recomputed_direction_accuracy": 0.5211084716533674,
+      "direction_accuracy_abs_diff": 0.0
+    },
+    "lstm_attention": {
+      "published_balanced_accuracy": 0.5261953684317974,
+      "recomputed_balanced_accuracy": 0.5261953684317975,
+      "balanced_accuracy_abs_diff": 1.1102230246251565e-16,
+      "published_direction_accuracy": 0.5239825784209167,
+      "recomputed_direction_accuracy": 0.5239825784209167,
+      "direction_accuracy_abs_diff": 0.0
+    },
+    "lstm_cnn_attention": {
+      "published_balanced_accuracy": 0.5364184116226383,
+      "recomputed_balanced_accuracy": 0.5364184116226383,
+      "balanced_accuracy_abs_diff": 0.0,
+      "published_direction_accuracy": 0.5342766735045051,
+      "recomputed_direction_accuracy": 0.5342766735045051,
+      "direction_accuracy_abs_diff": 0.0
+    }
+  },
+  "ranked_models": [
+    {
+      "Rank": 1,
+      "Model": "LSTM-CNN-Attention",
+      "Balanced Accuracy Mean (%)": 53.64184116226382
+    },
+    {
+      "Rank": 2,
+      "Model": "LSTM-CNN",
+      "Balanced Accuracy Mean (%)": 52.809635608500315
+    },
+    {
+      "Rank": 3,
+      "Model": "LSTM-Attention",
+      "Balanced Accuracy Mean (%)": 52.61953684317974
+    },
+    {
+      "Rank": 4,
+      "Model": "LSTM",
+      "Balanced Accuracy Mean (%)": 52.007027660527484
+    },
+    {
+      "Rank": 5,
+      "Model": "CNN",
+      "Balanced Accuracy Mean (%)": 51.49475536974959
+    }
+  ],
+  "behavior_diagnostics_file": "outputs/final_five_model_prediction_visuals_v1/model_behavior_diagnostics.csv",
+  "behavior_diagnostic_rows": 10
+}

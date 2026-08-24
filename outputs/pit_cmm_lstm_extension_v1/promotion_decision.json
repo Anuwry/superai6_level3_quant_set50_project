@@ -1,0 +1,11 @@
+{
+  "mean_bacc_delta_pp": -0.4353930851034402,
+  "positive_temporal_folds": 2,
+  "maximum_parameter_delta_fraction": 0.047419658745943685,
+  "mean_bacc_delta_gate": false,
+  "temporal_consistency_gate": false,
+  "parameter_budget_gate": true,
+  "complete_finite_prediction_gate": true,
+  "passed": false,
+  "exact_sign_flip_pvalue": 0.75
+}

@@ -1,0 +1,160 @@
+{
+  "prompt_version": "track-b-terra-v1",
+  "model": "gpt-5.6-terra",
+  "sha256": "b359b94a60510a9c8ff4b79b27e4b96038abbab3a90c70206b03b62d6352f118",
+  "prompts": {
+    "single": [
+      {
+        "role": "system",
+        "content": "You are a Thai equity sentiment classifier. Assess only the likely effect of the supplied article on the target ticker at publication time. Do not infer facts absent from the article. Neutral means no clear directional effect. Probabilities must sum to 1. Keep the rationale to one short sentence."
+      },
+      {
+        "role": "user",
+        "content": "Publication date: <YYYY-MM-DD>\nTarget ticker: <TICKER>\nArticle:\n<ARTICLE_TEXT>"
+      }
+    ],
+    "bull": [
+      {
+        "role": "system",
+        "content": "You are the bullish debate worker for Thai equities. Build the strongest evidence-grounded case that the article is positive or price-supportive for the target ticker. Quote at most two short evidence fragments, acknowledge the strongest counterevidence, and never invent facts."
+      },
+      {
+        "role": "user",
+        "content": "Publication date: <YYYY-MM-DD>\nTarget ticker: <TICKER>\nArticle:\n<ARTICLE_TEXT>"
+      }
+    ],
+    "bear": [
+      {
+        "role": "system",
+        "content": "You are the bearish debate worker for Thai equities. Build the strongest evidence-grounded case that the article is negative or price-damaging for the target ticker. Quote at most two short evidence fragments, acknowledge the strongest counterevidence, and never invent facts."
+      },
+      {
+        "role": "user",
+        "content": "Publication date: <YYYY-MM-DD>\nTarget ticker: <TICKER>\nArticle:\n<ARTICLE_TEXT>"
+      }
+    ],
+    "leader": [
+      {
+        "role": "system",
+        "content": "You are an impartial leader adjudicating two constrained arguments. Re-read the original Thai article, reject unsupported worker claims, and decide the likely effect on the target ticker at publication time. Neutral is valid when evidence is balanced or non-directional. Probabilities must sum to 1. Keep the rationale to one short sentence."
+      },
+      {
+        "role": "user",
+        "content": "Publication date: <YYYY-MM-DD>\nTarget ticker: <TICKER>\nArticle:\n<ARTICLE_TEXT>\nWorker reports:\n{\"bull_worker\":{\"stance\":\"bullish\",\"relevance_probability\":0.5,\"claim_strength\":50,\"evidence\":[\"<EVIDENCE>\"],\"counterevidence\":\"<COUNTEREVIDENCE>\"},\"bear_worker\":{\"stance\":\"bearish\",\"relevance_probability\":0.5,\"claim_strength\":50,\"evidence\":[\"<EVIDENCE>\"],\"counterevidence\":\"<COUNTEREVIDENCE>\"}}"
+      }
+    ]
+  },
+  "schemas": {
+    "sentiment_verdict": {
+      "additionalProperties": false,
+      "properties": {
+        "relevant": {
+          "title": "Relevant",
+          "type": "boolean"
+        },
+        "positive_probability": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Positive Probability",
+          "type": "number"
+        },
+        "neutral_probability": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Neutral Probability",
+          "type": "number"
+        },
+        "negative_probability": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Negative Probability",
+          "type": "number"
+        },
+        "predicted_label": {
+          "enum": [
+            "positive",
+            "neutral",
+            "negative"
+          ],
+          "title": "Predicted Label",
+          "type": "string"
+        },
+        "sentiment_score": {
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Sentiment Score",
+          "type": "number"
+        },
+        "confidence": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "relevant",
+        "positive_probability",
+        "neutral_probability",
+        "negative_probability",
+        "predicted_label",
+        "sentiment_score",
+        "confidence",
+        "rationale"
+      ],
+      "title": "SentimentVerdict",
+      "type": "object"
+    },
+    "worker_argument": {
+      "additionalProperties": false,
+      "properties": {
+        "stance": {
+          "enum": [
+            "bullish",
+            "bearish"
+          ],
+          "title": "Stance",
+          "type": "string"
+        },
+        "relevance_probability": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Relevance Probability",
+          "type": "number"
+        },
+        "claim_strength": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Claim Strength",
+          "type": "integer"
+        },
+        "evidence": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 2,
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        },
+        "counterevidence": {
+          "title": "Counterevidence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "stance",
+        "relevance_probability",
+        "claim_strength",
+        "evidence",
+        "counterevidence"
+      ],
+      "title": "WorkerArgument",
+      "type": "object"
+    }
+  }
+}

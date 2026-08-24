@@ -1,0 +1,43 @@
+dataset_id,check_id,status,observed,expected,severity,details
+set50_daily,duplicate_dates,PASS,0,0,critical,Trading-session dates must be unique.
+set50_daily,finite_ohlcv,PASS,0,0,critical,OHLCV values must be finite.
+set50_daily,nonnegative_volume,PASS,0,0,critical,Vendor-reported volume cannot be negative.
+set50_daily,positive_index_levels,PASS,0,0,critical,Index OHLC levels must be positive.
+set50_daily,ohlc_containment,WARN,1,0,warning,Raw vendor rows are retained; anomalies require source verification.
+set50_daily,percent_change_close_to_close,PASS,0,0 at tolerance 0.011,critical,Maximum absolute error was 0.004996748 percentage points.
+set50_daily,frequency_label_convention,PASS,0,0,critical,Monday-Friday session-date labels
+set50_weekly,duplicate_dates,PASS,0,0,critical,Trading-session dates must be unique.
+set50_weekly,finite_ohlcv,PASS,0,0,critical,OHLCV values must be finite.
+set50_weekly,nonnegative_volume,PASS,0,0,critical,Vendor-reported volume cannot be negative.
+set50_weekly,positive_index_levels,PASS,0,0,critical,Index OHLC levels must be positive.
+set50_weekly,ohlc_containment,PASS,0,0,warning,Raw vendor rows are retained; anomalies require source verification.
+set50_weekly,percent_change_close_to_close,PASS,0,0 at tolerance 0.011,critical,Maximum absolute error was 0.004997029 percentage points.
+set50_weekly,frequency_label_convention,PASS,0,0,critical,Sunday vendor period labels
+set50_monthly,duplicate_dates,PASS,0,0,critical,Trading-session dates must be unique.
+set50_monthly,finite_ohlcv,PASS,0,0,critical,OHLCV values must be finite.
+set50_monthly,nonnegative_volume,PASS,0,0,critical,Vendor-reported volume cannot be negative.
+set50_monthly,positive_index_levels,PASS,0,0,critical,Index OHLC levels must be positive.
+set50_monthly,ohlc_containment,PASS,0,0,warning,Raw vendor rows are retained; anomalies require source verification.
+set50_monthly,percent_change_close_to_close,PASS,0,0 at tolerance 0.011,critical,Maximum absolute error was 0.004954303 percentage points.
+set50_monthly,frequency_label_convention,PASS,0,0,critical,first-calendar-day vendor period labels
+set100_daily,duplicate_dates,PASS,0,0,critical,Trading-session dates must be unique.
+set100_daily,finite_ohlcv,PASS,0,0,critical,OHLCV values must be finite.
+set100_daily,nonnegative_volume,PASS,0,0,critical,Vendor-reported volume cannot be negative.
+set100_daily,positive_index_levels,PASS,0,0,critical,Index OHLC levels must be positive.
+set100_daily,ohlc_containment,WARN,1,0,warning,Raw vendor rows are retained; anomalies require source verification.
+set100_daily,percent_change_close_to_close,PASS,0,0 at tolerance 0.011,critical,Maximum absolute error was 0.005003504 percentage points.
+set100_daily,frequency_label_convention,PASS,0,0,critical,Monday-Friday session-date labels
+set100_weekly,duplicate_dates,PASS,0,0,critical,Trading-session dates must be unique.
+set100_weekly,finite_ohlcv,PASS,0,0,critical,OHLCV values must be finite.
+set100_weekly,nonnegative_volume,PASS,0,0,critical,Vendor-reported volume cannot be negative.
+set100_weekly,positive_index_levels,PASS,0,0,critical,Index OHLC levels must be positive.
+set100_weekly,ohlc_containment,PASS,0,0,warning,Raw vendor rows are retained; anomalies require source verification.
+set100_weekly,percent_change_close_to_close,PASS,0,0 at tolerance 0.011,critical,Maximum absolute error was 0.004992113 percentage points.
+set100_weekly,frequency_label_convention,PASS,0,0,critical,Sunday vendor period labels
+set100_monthly,duplicate_dates,PASS,0,0,critical,Trading-session dates must be unique.
+set100_monthly,finite_ohlcv,PASS,0,0,critical,OHLCV values must be finite.
+set100_monthly,nonnegative_volume,PASS,0,0,critical,Vendor-reported volume cannot be negative.
+set100_monthly,positive_index_levels,PASS,0,0,critical,Index OHLC levels must be positive.
+set100_monthly,ohlc_containment,PASS,0,0,warning,Raw vendor rows are retained; anomalies require source verification.
+set100_monthly,percent_change_close_to_close,PASS,0,0 at tolerance 0.011,critical,Maximum absolute error was 0.004968503 percentage points.
+set100_monthly,frequency_label_convention,PASS,0,0,critical,first-calendar-day vendor period labels

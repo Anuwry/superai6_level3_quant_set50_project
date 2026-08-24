@@ -1,0 +1,8 @@
+optuna>=4.7,<5
+xgboost>=3.2,<4
+lightgbm>=4.6,<5
+tensorflow>=2.18,<2.22
+autogluon.tabular==1.5.0
+autogluon.timeseries==1.5.0
+chronos-forecasting>=2.2,<3
+torch>=2.1,<3

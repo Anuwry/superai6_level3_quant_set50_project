@@ -1,0 +1,140 @@
+{
+  "started_at": "2026-07-31T03:40:44+00:00",
+  "completed_at": "2026-07-31T03:40:47+00:00",
+  "experiment": "Track C causal daily multi-timescale semantic regime labeling v2",
+  "completed_folds": 4,
+  "total_runtime_seconds": 2.172805200003495,
+  "source_dir": "data-folds-full-ta-vmd-point-in-time-v2",
+  "output_dir": "outputs\\track_c\\daily_regime_point_in_time_v2",
+  "protocol": {
+    "horizons": [
+      1,
+      3,
+      5,
+      10,
+      20,
+      60
+    ],
+    "weights": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.25
+    ],
+    "volatility_horizons": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      60
+    ],
+    "adx_column": "ADX_14",
+    "smoothing_span": 3,
+    "sideway_quantile": 0.35,
+    "membership_temperature": 0.35,
+    "minimum_training_regime_share": 0.15,
+    "score_definition": "EWMA_3(sum(weight_h * Return_h / (Volatility_ref_h * sqrt(h))) * ADX_14 / 100)",
+    "sideway_definition": "absolute semantic score inside a symmetric training-only 35th-percentile deadband",
+    "threshold_fit_scope": "each fold training period only",
+    "label_time_purge_rule": "source folds retain Label_Date < first evaluation Date",
+    "routing_target": "current_regime_at_t_for_direction_t_plus_1",
+    "membership_interpretation": "distance-based soft memberships; not calibrated posteriors",
+    "target_columns_used": false,
+    "outer_test_used_for_thresholds": false,
+    "future_rows_used_for_features": false,
+    "post_hoc_protocol_correction": true,
+    "post_hoc_note": "The v2 construct was introduced after the HMM v1 outer diagnostic exposed a non-semantic Sideway state. Exact v2 weights and deadband were screened only on 2012-2019 development and 2020-2021 validation data; 2022-2025 results must still be described as post-hoc robustness evidence."
+  },
+  "input_files": [
+    {
+      "fold": "fold_1",
+      "split": "train",
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_1\\train_2012_2021.csv",
+      "sha256": "9E112537BC5A01A616D3215CB6630DCC43DC3D6C545EF0337F1A281BB2E7FC39",
+      "rows": 2358
+    },
+    {
+      "fold": "fold_1",
+      "split": "test",
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_1\\test_2022.csv",
+      "sha256": "C5434FE1F7C2F6D2A74CEC397DE31158E6E8EA84EAD62D86615E29B75306F464",
+      "rows": 241
+    },
+    {
+      "fold": "fold_2",
+      "split": "train",
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_2\\train_2012_2022.csv",
+      "sha256": "A10251C0A8353EEF3020F1281B8723BBF2D3F671D5554A23AAC1459DD906A520",
+      "rows": 2599
+    },
+    {
+      "fold": "fold_2",
+      "split": "test",
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_2\\test_2023.csv",
+      "sha256": "87F2BEE58325792A5B3F0D6CF3E7B8D3A93235DFB7C26F6A012B7829DB358DEE",
+      "rows": 243
+    },
+    {
+      "fold": "fold_3",
+      "split": "train",
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_3\\train_2012_2023.csv",
+      "sha256": "129ED19A70F0751EF59E4ADF02096CD6E240D554B26E4E081250F885840E6816",
+      "rows": 2842
+    },
+    {
+      "fold": "fold_3",
+      "split": "test",
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_3\\test_2024.csv",
+      "sha256": "78A82D3F705BB43CB9EDB587BD331A338AFEDD81D1B99D0470180152529D8AD1",
+      "rows": 244
+    },
+    {
+      "fold": "fold_4",
+      "split": "train",
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_4\\train_2012_2024.csv",
+      "sha256": "F3422A050FFE4E9864656E316DA9AE5658BDB53D1EA8C556AA94A423453C024E",
+      "rows": 3086
+    },
+    {
+      "fold": "fold_4",
+      "split": "test",
+      "path": "data-folds-full-ta-vmd-point-in-time-v2\\fold_4\\test_2025.csv",
+      "sha256": "54EAA480F99AEC3FAAA89354562D3CB01CD968536D76ECF52A288192A22CEE65",
+      "rows": 234
+    }
+  ],
+  "artifacts": {
+    "fold_summary.csv": "outputs\\track_c\\daily_regime_point_in_time_v2\\fold_summary.csv",
+    "regime_distribution.csv": "outputs\\track_c\\daily_regime_point_in_time_v2\\regime_distribution.csv",
+    "semantic_profiles.csv": "outputs\\track_c\\daily_regime_point_in_time_v2\\semantic_profiles.csv",
+    "threshold_stability.csv": "outputs\\track_c\\daily_regime_point_in_time_v2\\threshold_stability.csv",
+    "causality_audit.csv": "outputs\\track_c\\daily_regime_point_in_time_v2\\causality_audit.csv",
+    "sensitivity_analysis.csv": "outputs\\track_c\\daily_regime_point_in_time_v2\\sensitivity_analysis.csv",
+    "protocol_development.csv": "outputs\\track_c\\daily_regime_point_in_time_v2\\protocol_development.csv"
+  },
+  "versions": {
+    "python": "3.12.10",
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit_learn": "1.8.0"
+  },
+  "paper_sources": [
+    {
+      "citation": "Wilder (1978), New Concepts in Technical Trading Systems",
+      "use": "Average Directional Index (ADX)"
+    },
+    {
+      "citation": "Moskowitz, Ooi, and Pedersen (2012), Time Series Momentum",
+      "doi_or_url": "https://doi.org/10.1016/j.jfineco.2011.11.003",
+      "use": "directional return signals over time"
+    },
+    {
+      "citation": "Hamilton (1989)",
+      "doi_or_url": "https://ideas.repec.org/a/ecm/emetrp/v57y1989i2p357-84.html",
+      "use": "HMM v1 baseline"
+    }
+  ]
+}

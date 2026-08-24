@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "arms": 4,
+  "fits": 4,
+  "test_rows": 234,
+  "minimum_training_sequences": 1451,
+  "protocol_id": "multimodal-falsification-v1",
+  "input_manifest": {
+    "passed": true,
+    "files_checked": 6,
+    "inherited_integrated_manifest": {
+      "passed": true,
+      "files_checked": 24
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "protocol_version": "track_a_point_in_time_v2",
+  "created_at": "2026-07-31T04:07:32+00:00",
+  "stage": "window_selection",
+  "model_key": "lstm_cnn",
+  "model": "LSTM-CNN",
+  "feature_set": "full_ta",
+  "feature_set_label": "Full TA",
+  "sequence_window": 3,
+  "seed": 42,
+  "scaled_data_dir": "D:\\SET50_direction_prediction_paper\\data-track-a-window-selection-point-in-time-v2\\full_ta_nn",
+  "original_units_data_dir": "D:\\SET50_direction_prediction_paper\\data-track-a-window-selection-point-in-time-v2\\full_ta",
+  "selection_years": [
+    2018,
+    2019,
+    2020,
+    2021
+  ],
+  "outer_test_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "test_data_used_for_window_selection": false,
+  "selection_rule": "highest mean validation balanced accuracy across both feature sets and all pretest folds; higher direction accuracy, lower RMSE, then shorter window",
+  "direction_metric_contract": {
+    "task": "binary Up versus Down",
+    "actual_ties": "excluded from binary metrics",
+    "predicted_no_change": "abstention",
+    "coverage_denominator": "non-tied actual observations"
+  },
+  "model_parameters": {
+    "epochs": 20,
+    "batch_size": 32,
+    "lstm_units": 16,
+    "conv_filters": 32,
+    "kernel_size": 3,
+    "padding": "causal",
+    "pooling": "GlobalAveragePooling1D",
+    "dense_units": 8,
+    "layer_order": [
+      "LSTM",
+      "Conv1D",
+      "GlobalAveragePooling1D",
+      "Dense"
+    ],
+    "optimizer": "adam",
+    "loss": "mse",
+    "shuffle": false,
+    "scaling": "MinMaxScaler fitted on each train fold only"
+  },
+  "vmd": {
+    "enabled": false,
+    "window": 60,
+    "causal": true
+  },
+  "runtime": {
+    "clock": "time.perf_counter",
+    "scope": "model build + training + evaluation-period inference",
+    "fit_predict_seconds": 27.65038409999397,
+    "total_configuration_seconds": 31.864014300001145
+  },
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "tensorflow": "2.21.0"
+  }
+}

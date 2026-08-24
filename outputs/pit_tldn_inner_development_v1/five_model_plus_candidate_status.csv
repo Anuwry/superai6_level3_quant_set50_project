@@ -1,0 +1,7 @@
+Model,Architecture_Window,Evaluation_Period,Evidence_Scope,Temporal_Folds,Balanced_Accuracy_Mean_pct,Balanced_Accuracy_SD_pp,Direction_Accuracy_Mean_pct,MCC,Directly_Comparable,Headline_Decision
+LSTM-CNN-Attention,20,2022-2025,Frozen outer final arm,4,53.64184116226382,2.4242798395907696,53.42766735045051,0.0892977939972288,No,Retain frozen benchmark rank 1
+LSTM-CNN,20,2022-2025,Frozen outer final arm,4,52.809635608500315,2.28794710191479,52.110847165336736,0.0656697565191076,No,Retain frozen benchmark rank 2
+LSTM-Attention,10,2022-2025,Frozen outer final arm,4,52.61953684317974,1.45832715537106,52.39825784209167,0.0618086941691867,No,Retain frozen benchmark rank 3
+LSTM,5,2022-2025,Frozen outer final arm,4,52.007027660527484,1.6365015841215702,51.98321053015539,0.0443243152962159,No,Retain frozen benchmark rank 4
+CNN,20,2022-2025,Frozen outer final arm,4,51.49475536974959,1.8279794704255898,51.75556688922933,0.0308291982376718,No,Retain frozen benchmark rank 5
+PIT-TLDN,CNN20/LSTM5,2020-2021,Inner architecture development,2,51.99811859800711,2.825766420531564,50.52983539094651,0.04632623935898065,No,Do not insert into headline ranking before comparable outer evaluation

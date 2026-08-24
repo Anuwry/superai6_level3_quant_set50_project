@@ -1,0 +1,7 @@
+{
+  "declared": true,
+  "type": "pre_execution_bookkeeping_count_error",
+  "registered_direction_evaluable_rows": 477,
+  "observed_direction_evaluable_rows": 478,
+  "explanation": "The freeze correctly registered 244 plus 234 test rows but incorrectly stated that one row was an actual zero-return tie. Recalculation from the frozen targets found no actual ties; all 478 rows are evaluable for every model. No row, prediction, threshold, or hyperparameter changed."
+}

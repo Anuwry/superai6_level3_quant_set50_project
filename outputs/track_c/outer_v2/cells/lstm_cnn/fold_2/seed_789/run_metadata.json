@@ -1,0 +1,29 @@
+{
+  "protocol_version": "track-c-shap-point-in-time-v2",
+  "created_at": "2026-07-31T11:47:52+00:00",
+  "model": "lstm_cnn",
+  "fold": "fold_2",
+  "test_year": 2023,
+  "base_seed": 789,
+  "capacity_matched_subseeds": {
+    "bull": 566602380,
+    "sideway": 1412251680,
+    "bear": 1676376697
+  },
+  "window": 20,
+  "arms": [
+    "Global-All",
+    "Global3-All",
+    "Global-SHAP",
+    "Global-Spearman",
+    "Regime-All",
+    "Regime-SHAP",
+    "Regime-Spearman"
+  ],
+  "unique_fits": 11,
+  "conceptual_arm_fits": 15,
+  "cell_wall_seconds": 136.18882710000616,
+  "feature_order": "original source-column order",
+  "regime_threshold_source": "D:\\SET50_direction_prediction_paper\\outputs\\track_c\\daily_regime_point_in_time_v2\\fold_2\\model_parameters.json",
+  "selection_freeze": "D:\\SET50_direction_prediction_paper\\outputs\\track_c\\topk_validation_v2\\selection_frozen.json"
+}

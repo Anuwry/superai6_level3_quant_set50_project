@@ -1,0 +1,48 @@
+{
+  "protocol_id": "sea-lstm-direct-2024-2025-v1",
+  "evidence_status": "frozen_retrospective_architecture_screen",
+  "created_at": "2026-08-07T13:00:25+00:00",
+  "variant": "sea_lstm",
+  "seed": 42,
+  "fold": "fold_4",
+  "test_year": 2025,
+  "train_period": [
+    "2019-01-08",
+    "2024-12-27"
+  ],
+  "test_period": [
+    "2025-01-02",
+    "2025-12-18"
+  ],
+  "configuration": {
+    "window": 5,
+    "feature_count": 130,
+    "standard_lstm_units": 16,
+    "standard_dense_units": 8,
+    "sea_units": 15,
+    "learning_rate": 0.001,
+    "brier_component_weight": 0.05,
+    "memory_mode": "dual"
+  },
+  "epochs": 20,
+  "batch_size": 32,
+  "feature_count": 130,
+  "mask_counts": {
+    "bull": 38,
+    "sideway": 130,
+    "bear": 88
+  },
+  "training_rows": 1448,
+  "test_rows": 234,
+  "inference_parameters": 9691,
+  "runtime_scope": "model build, fit, inference, diagnostics, and artifact write",
+  "wall_seconds": 7.920372100023087,
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "tensorflow": "2.21.0"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0"
+}

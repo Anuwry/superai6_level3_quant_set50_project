@@ -1,0 +1,27 @@
+{
+  "created_at": "2026-07-30T14:45:31+00:00",
+  "model": "lstm_cnn",
+  "feature_set": "technical_vmd",
+  "sequence_window": 20,
+  "seed": 123,
+  "fold": "fold_3",
+  "test_year": 2024,
+  "train_period": [
+    "2019-01-02",
+    "2023-12-28"
+  ],
+  "test_period": [
+    "2024-01-02",
+    "2024-12-30"
+  ],
+  "scaler_fit_scope": "current fold train only",
+  "daily_news_assignment": "strictly next trading day",
+  "sentiment_source": "none",
+  "runtime_scope": "model build + training + test inference",
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "tensorflow": "2.21.0"
+  }
+}

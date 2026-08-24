@@ -1,0 +1,21 @@
+{
+  "protocol_version": "track-d-direction-forward-v1",
+  "completed_at_utc": "2026-07-31T15:49:03+00:00",
+  "models": [
+    "lstm",
+    "cnn",
+    "lstm_cnn",
+    "lstm_attention",
+    "lstm_cnn_attention"
+  ],
+  "instances_per_model": 30,
+  "background_sequences": 100,
+  "nsamples": 200,
+  "top_k": 10,
+  "random_deletion_repeats": 100,
+  "deterministic_environment": {
+    "TF_DETERMINISTIC_OPS": "1",
+    "TF_ENABLE_ONEDNN_OPTS": "0"
+  },
+  "runtime_seconds": 117.95233779998671
+}

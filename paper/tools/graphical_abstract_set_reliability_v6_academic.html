@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=2400, initial-scale=1">
+<title>SET reliability graphical abstract - academic style</title>
+<style>
+  :root{
+    --ink:#222;
+    --muted:#5e6265;
+    --rule:#6d7173;
+    --light-rule:#c8ced0;
+    --cream:#f5f1e7;
+    --blue:#dce8f1;
+    --green:#e2ecd9;
+    --grey:#f3f4f4;
+    --good:#477451;
+    --warn:#9b5b39;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;width:2400px;height:1000px;overflow:hidden;background:#fff}
+  body{font-family:"Times New Roman",Times,serif;color:var(--ink)}
+  .page{width:2400px;height:1000px;padding:45px 52px 30px;display:grid;grid-template-rows:1fr 56px;gap:18px;background:#fff}
+  .main{position:relative;display:grid;grid-template-columns:520px 990px 650px;gap:68px;min-height:0}
+  .connector{position:absolute;top:410px;color:#555;font-size:56px;line-height:1}
+  .connector.one{left:533px}.connector.two{left:1593px}
+  .section{min-width:0}
+  .heading{height:54px;border-bottom:2px solid var(--rule);display:flex;align-items:center;font-size:31px;font-weight:bold;letter-spacing:.4px}
+  .box{border:1.7px solid var(--rule);background:#fff;padding:22px}
+  .label{font-size:20px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:bold}
+  .box h2{margin:7px 0 10px;font-size:31px;line-height:1.1}
+  .box p{margin:0;font-size:21px;line-height:1.32;color:#414548}
+
+  /* input */
+  .input-body{padding-top:24px;display:grid;grid-template-rows:440px 245px;gap:26px}
+  .market{background:var(--cream)}
+  .meta{display:flex;gap:18px;margin:13px 0 17px;font-size:20px;font-weight:bold;color:#303538}
+  .meta span{border-right:1px solid #8d9193;padding-right:18px}.meta span:last-child{border:0}
+  .plot{width:100%;height:196px;object-fit:cover;object-position:center;border:1px solid #999;background:#fff;display:block}
+  .caption{margin-top:12px;font-size:18px;line-height:1.25;color:var(--muted)}
+  .news{background:#fafafa;display:grid;grid-template-columns:108px 1fr;gap:24px;align-items:center}
+  .paper-icon{width:94px;height:122px;border:2px solid #555;background:white;padding:14px 12px}
+  .paper-icon b{display:block;font-family:Arial,sans-serif;font-size:16px;color:var(--warn);margin-bottom:14px}
+  .paper-icon i{display:block;height:4px;background:#adb7ba;margin:10px 0}.paper-icon i:nth-of-type(2){width:65%}
+
+  /* method */
+  .method-body{padding-top:24px;display:grid;grid-template-rows:145px 32px 275px 32px 128px 32px 72px;align-items:stretch}
+  .timeline{border:1.7px solid var(--rule);background:var(--grey);padding:17px 20px}
+  .timeline-head{display:flex;justify-content:space-between;font-size:21px;margin-bottom:15px}.timeline-head strong{font-size:24px}.timeline-head span{color:var(--muted)}
+  .folds{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .foldbar{display:grid;grid-template-columns:1fr 30px;gap:4px}.train{height:29px;border:1px solid #7f9279;background:repeating-linear-gradient(90deg,#dce8d6 0,#dce8d6 18px,#bdceb6 19px,#bdceb6 21px)}.test{height:29px;border:1px solid #6e899f;background:#c4d7e7}.foldbar small{grid-column:1/3;text-align:center;font-size:17px;margin-top:5px}
+  .down{text-align:center;font-size:30px;color:#555;line-height:30px}
+  .audit-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px 17px}
+  .audit{border:1.5px solid #777;padding:15px 17px;display:grid;grid-template-columns:48px 1fr;gap:13px;align-content:start}
+  .audit:nth-child(1){background:var(--blue)}.audit:nth-child(2){background:var(--cream)}.audit:nth-child(3){background:var(--green)}.audit:nth-child(4){background:var(--grey)}
+  .letter{width:42px;height:42px;border:1.5px solid #555;background:#fff;display:grid;place-items:center;font-family:Arial,sans-serif;font-size:20px;font-weight:bold}
+  .audit h3{margin:0 0 6px;font-size:23px}.audit p{grid-column:2;margin:0;font-size:18px;line-height:1.25;color:#4d5153}
+  .models{border:1.7px solid var(--rule);padding:15px 18px;background:#fff;display:grid;grid-template-columns:170px 1fr;gap:16px;align-items:center}
+  .models strong{font-size:22px}.model-list{display:flex;flex-wrap:wrap;gap:7px 13px;font-size:18px}.model-list span{background:var(--green);border:1px solid #89977f;padding:6px 10px}
+  .outcome{border:2px solid #4e6170;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:bold}.outcome span{margin-left:15px;font-family:Arial,sans-serif;font-size:22px}
+
+  /* findings */
+  .findings-body{padding-top:24px}
+  .results{border:1.8px solid var(--rule);background:#fff}
+  .result-row{min-height:114px;padding:18px 21px;border-bottom:1px solid var(--light-rule);display:grid;grid-template-columns:1fr 205px;gap:18px;align-items:center}
+  .result-row:first-child{min-height:146px;background:var(--green)}
+  .result-row:last-child{border-bottom:0}
+  .result-row h3{margin:0 0 6px;font-size:24px}.result-row p{margin:0;font-size:18px;line-height:1.25;color:#505457}
+  .value{text-align:right;font-family:Arial,sans-serif;font-size:36px;font-weight:bold;color:var(--good)}
+  .value.orange{color:var(--warn);font-size:31px}
+  .robust{margin-top:22px;border:1.7px solid var(--rule);padding:20px 22px;background:#fafafa}
+  .robust h3{margin:0 0 14px;font-size:25px}.robust ul{margin:0;padding-left:24px}.robust li{font-size:19px;line-height:1.3;margin:8px 0}
+  .interpret{margin-top:18px;padding-top:14px;border-top:1px solid #999;font-size:20px;line-height:1.3;font-style:italic}
+  .footer{border-top:1.5px solid var(--rule);display:flex;align-items:center;justify-content:center;gap:18px;font-size:20px;color:#373b3d}
+  .footer span+span:before{content:"\2022";margin-right:18px;color:#777}
+</style>
+</head>
+<body>
+<div class="page">
+  <main class="main">
+    <div class="connector one">&#8594;</div>
+    <div class="connector two">&#8594;</div>
+
+    <section class="section">
+      <div class="heading">Input data</div>
+      <div class="input-body">
+        <article class="box market">
+          <div class="label">Market series</div>
+          <h2>SET50 daily index</h2>
+          <div class="meta"><span>2012-2025</span><span>116 TA features</span><span>t+1 target</span></div>
+          <img class="plot" src="../assets/graphical_abstract_v5_market_trace.png" alt="Observed and predicted SET50 series">
+          <div class="caption">Numerical inputs are reconstructed using only information available by the close of day t.</div>
+        </article>
+        <article class="box news">
+          <div class="paper-icon"><b>NEWS</b><i></i><i></i><i></i><i></i></div>
+          <div><div class="label">Second modality</div><h2>Dated financial news</h2><p>Out-of-sample sentiment with date, ticker and relevance filtering.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="heading">Point-in-time evaluation</div>
+      <div class="method-body">
+        <div class="timeline">
+          <div class="timeline-head"><strong>Expanding-window outer folds</strong><span>Train-only transforms and purged labels</span></div>
+          <div class="folds">
+            <div class="foldbar"><div class="train"></div><div class="test"></div><small>2022</small></div>
+            <div class="foldbar"><div class="train"></div><div class="test"></div><small>2023</small></div>
+            <div class="foldbar"><div class="train"></div><div class="test"></div><small>2024</small></div>
+            <div class="foldbar"><div class="train"></div><div class="test"></div><small>2025</small></div>
+          </div>
+        </div>
+        <div class="down">&#8595;</div>
+        <div class="audit-grid">
+          <article class="audit"><div class="letter">V</div><div><h3>Causal VMD</h3><p>Rolling 60-day decomposition compared with matched Full-TA inputs.</p></div></article>
+          <article class="audit"><div class="letter">N</div><div><h3>News and LLM</h3><p>Market-only controls and a separate Bull/Bear/Leader sentiment audit.</p></div></article>
+          <article class="audit"><div class="letter">R</div><div><h3>Regime and XAI</h3><p>Bull, Sideway and Bear routing with train-only SHAP and a LIME fidelity check.</p></div></article>
+          <article class="audit"><div class="letter">F</div><div><h3>Forward and transfer</h3><p>Later-period stress testing and frozen SET100 evaluation.</p></div></article>
+        </div>
+        <div class="down">&#8595;</div>
+        <div class="models"><strong>Fixed model panel</strong><div class="model-list"><span>LSTM</span><span>CNN</span><span>LSTM-CNN</span><span>LSTM-Attention</span><span>LSTM-CNN-Attention</span></div></div>
+        <div class="down">&#8595;</div>
+        <div class="outcome">Next-session SET direction <span>UP / DOWN</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="heading">Summary of findings</div>
+      <div class="findings-body">
+        <div class="results">
+          <div class="result-row"><div><h3>Best mean balanced accuracy</h3><p>LSTM-CNN-Attention; four held-out years and five seeds.</p></div><div class="value">53.64%</div></div>
+          <div class="result-row"><div><h3>Regime-SHAP</h3><p>Largest selective forecasting gain, observed for CNN.</p></div><div class="value">+1.46 pp</div></div>
+          <div class="result-row"><div><h3>Leader sentiment</h3><p>Gain over equal-call and near-cost controls; intrinsic endpoint.</p></div><div class="value orange">+5.93 / +6.00 pp</div></div>
+          <div class="result-row"><div><h3>Causal VMD</h3><p>Architecture-dependent change in balanced accuracy.</p></div><div class="value orange">-0.60 to +0.35 pp</div></div>
+        </div>
+        <div class="robust">
+          <h3>Robustness interpretation</h3>
+          <ul>
+            <li>Predicted news did not provide a consistent directional gain.</li>
+            <li>Frozen SET100 transfer was weaker across all five models.</li>
+            <li>Observed benefits depended on architecture and endpoint.</li>
+          </ul>
+          <div class="interpret">The audit identifies selective improvements while preventing a model-specific gain from being presented as universal superiority.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><span>962 held-out sessions</span><span>four outer test years</span><span>five fixed seeds</span><span>paired comparisons</span><span>Holm-adjusted inference</span></footer>
+</div>
+</body>
+</html>

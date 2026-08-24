@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "audited_at": "2026-07-31T13:38:31+00:00",
+  "complete_cells": 100,
+  "metric_rows": 700,
+  "prediction_files": 700,
+  "seed_averaged_prediction_rows": 33670,
+  "fit_registry_rows": 1100,
+  "paired_fold_contrast_rows": 100,
+  "fold_inference_rows": 125,
+  "block_bootstrap_rows": 50,
+  "holm_rows": 175,
+  "freeze_hashes_match": true,
+  "all_predictions_finite": true,
+  "all_arm_dates_aligned": true,
+  "all_cells_have_expected_fit_registry": true,
+  "artifact_sha256": {
+    "metrics_by_seed_fold.csv": "d24796790519dcda57e32f1219014e84bf560c38e1ca9dccadbc3e88cbd8ac1f",
+    "predictions_seed_averaged.csv": "dee15fb7a0899b598ddda8c9f9f7e845c492e1651b51535ba6197eda8a4f20bb",
+    "fold_metrics_seed_averaged.csv": "a2d679b37b0f6019a9b7cd81935ad41f9258affc552c39229cda1b034c910e5d",
+    "arm_summary.csv": "e28ffc17820fa8e4031fb891dbe412a51734a1e3ee83f48d1e2aa8972ebe55a3",
+    "fit_registry.csv": "38357c8b08a001a3910ca1d24aa3db217c565743988b22a4678b4bb6f7d69045",
+    "paired_fold_contrasts.csv": "032cfb9fde82fa7f4a376373e62a372468dfccb064bb263d8355d60647c2648a",
+    "fold_inference.csv": "22289c73fb573e3be891d061730cd8b755804e1015fad7242958456588419ada",
+    "daily_block_bootstrap.csv": "a25c96174582b8c395ddcb0d5a8e9fc4f235dfc38f9f022a50374f832bb60bce",
+    "inference_holm_adjusted.csv": "b75541ce343a835043f02aa00fc124475a98e7bec79f5c4630d3f935f0ec1a4b",
+    "inference_protocol.json": "9482c116a903e0f3740a7f867c9e58256c6f0fa77026cc9eb7b44f51d18d5fa4",
+    "run_metadata.json": "6d718c1066ad4a34a000ffc5275e59c66d33994d0a47ad040825aea73a1d95af"
+  },
+  "operational_note": "A redundant deterministic worker was stopped during the final model; complete-cell structure, identifiers, dates, targets, finiteness, fit registries, and aggregate uniqueness all passed."
+}

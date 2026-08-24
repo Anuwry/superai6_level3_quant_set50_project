@@ -1,0 +1,51 @@
+{
+  "protocol_id": "multimodal-falsification-v1",
+  "completed_at_utc": "2026-08-03T22:12:34+00:00",
+  "evidence_status": "pre_frozen_retrospective_falsification",
+  "incremental_api_cost_usd": 0,
+  "models": [
+    "lstm",
+    "cnn",
+    "lstm_cnn",
+    "lstm_attention",
+    "lstm_cnn_attention"
+  ],
+  "folds": [
+    "fold_1",
+    "fold_2",
+    "fold_3",
+    "fold_4"
+  ],
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    2025
+  ],
+  "new_arms": [
+    "News-Only",
+    "Global-Numeric-Shuffled-News",
+    "Global-Numeric-Lagged-News",
+    "Global-Numeric-Random-Features"
+  ],
+  "reference_arms": {
+    "Global-Numeric": "Market-Only",
+    "Global-Numeric-News": "Observed-News"
+  },
+  "primary_endpoint": "balanced_accuracy",
+  "primary_falsification_contrast": "observed_vs_shuffled",
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "tensorflow": "2.21.0"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "source_hashes": {
+    "multimodal_falsification.py": "1f47936841075897a1f18c8367fca4894b276f9f78567196e53ebaf19fba289a",
+    "multimodal_falsification_runner.py": "9233d7b1c44314032fbe68e68bcb76d1043166644bdd0e00eb523e8767233151"
+  }
+}

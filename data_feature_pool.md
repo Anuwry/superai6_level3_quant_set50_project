@@ -379,6 +379,5 @@ First Step Mapping:
 Stage 1 Naive ทุกตัวใช้ Raw D/W/M OHLCV
 Stage 2 Full Non-TA Feature Pool
 Stage 3 Full + TA Feature Pool
-Stage 4 Full + TA Feature Pool
-Stage 5 Only 30 SHAP Top
-Stage 6 SHAP Protocol Refinement
+Stage 4 Only 30 SHAP Top
+Stage 5 SHAP Protocol Refinement

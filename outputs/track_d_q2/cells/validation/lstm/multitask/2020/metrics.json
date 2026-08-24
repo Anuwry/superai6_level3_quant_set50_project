@@ -1,0 +1,23 @@
+{
+  "model": "lstm",
+  "objective": "multitask",
+  "seed": 42,
+  "window": 5,
+  "features": 122,
+  "training_sequences": 1869,
+  "trainable_parameters": 9050,
+  "fit_seconds": 6.731153500004439,
+  "inference_seconds": 0.5005824999971082,
+  "return_target_mean": 0.0001335804925221767,
+  "return_target_std": 0.009369900907236087,
+  "rows": 242,
+  "positive_share": 0.48760330578512395,
+  "direction_accuracy": 0.48760330578512395,
+  "balanced_accuracy": 0.49876981957353744,
+  "mcc": -0.005664950423350851,
+  "auc": 0.5565882996172772,
+  "brier": 0.2555694287812049,
+  "log_loss": 0.7046919295929489,
+  "ece_10": 0.09086812219836492,
+  "validation_year": 2020
+}

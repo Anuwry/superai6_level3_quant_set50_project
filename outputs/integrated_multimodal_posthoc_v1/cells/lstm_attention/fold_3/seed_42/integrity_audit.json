@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "arms": 4,
+  "unique_fits": 8,
+  "test_rows": 244,
+  "minimum_training_sequences": 334,
+  "protocol_id": "integrated-multimodal-posthoc-v1",
+  "input_manifest_passed": true,
+  "feature_counts_passed": true,
+  "regime_training_sequence_counts": {
+    "bull": 334,
+    "sideway": 462,
+    "bear": 405
+  }
+}

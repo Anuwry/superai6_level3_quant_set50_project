@@ -1,0 +1,33 @@
+{
+  "protocol_id": "sea-lstm-direct-2024-2025-v1",
+  "created_at": "2026-08-07T13:02:38+00:00",
+  "freeze_audit": {
+    "passed": true,
+    "protocol_id": "sea-lstm-direct-2024-2025-v1",
+    "checked_files": 13,
+    "input_sha256": {
+      "data-folds-full-ta-vmd-point-in-time-v2/fold_3/train_2012_2023.csv": "129ED19A70F0751EF59E4ADF02096CD6E240D554B26E4E081250F885840E6816",
+      "data-folds-full-ta-vmd-point-in-time-v2/fold_3/test_2024.csv": "78A82D3F705BB43CB9EDB587BD331A338AFEDD81D1B99D0470180152529D8AD1",
+      "data-folds-full-ta-vmd-point-in-time-v2/fold_3/context_before_test.csv": "127990B61C3AA1E4669E31FC4CFA3B53F9B438E6ABB7828099475C2392A3F443",
+      "data-folds-full-ta-vmd-point-in-time-v2/fold_4/train_2012_2024.csv": "F3422A050FFE4E9864656E316DA9AE5658BDB53D1EA8C556AA94A423453C024E",
+      "data-folds-full-ta-vmd-point-in-time-v2/fold_4/test_2025.csv": "54EAA480F99AEC3FAAA89354562D3CB01CD968536D76ECF52A288192A22CEE65",
+      "data-folds-full-ta-vmd-point-in-time-v2/fold_4/context_before_test.csv": "B6CB0E4220B5EC954D2935DEDBED18F5AB3756D9662B70FA20B73E14F52A1B83",
+      "outputs/track_b/forward_news/daily_news_features_2019_2025.csv": "13D3FC66A94C58BED5D5B49992BB63EEC8E15336ED4F37BCE0F29143089AB6F0",
+      "outputs/track_c/daily_regime_point_in_time_v2/fold_3/train_regimes.csv": "8C6839A9DD4D18C65947E734C94BA4CCE466F1A3CFD1B869513657CE0DB7FF8D",
+      "outputs/track_c/daily_regime_point_in_time_v2/fold_3/test_regimes.csv": "BB51D7B2CDC018363A645F2FAAB4190485B051EA1C6FF8AE9210F02453BF7E28",
+      "outputs/track_c/daily_regime_point_in_time_v2/fold_4/train_regimes.csv": "E7E110006C62A3A7BBA86E640CDBCB65C3B163708D2DA1751AAEAEBB7C8C4BE8",
+      "outputs/track_c/daily_regime_point_in_time_v2/fold_4/test_regimes.csv": "8261093EA49617E322903E1AFC16C9A9E4AC15D52251FDC92E8E1AED091DE9C4",
+      "outputs/track_c/topk_validation_v2/selected_features.csv": "533E0EC56D5008C95C8D77B4E98BFB510B449544EF09FC0E565F5F78A1C0C441",
+      "outputs/final_five_model_prediction_visuals_v1/final_arm_prediction_series.csv": "A35D405FC11FD7154AF8C8C08BDE75C9077C83ABA60593B9CB878C6C19D20AE7"
+    }
+  },
+  "code_sha256": {
+    "models/sea_lstm.py": "18a0f4f26d0b4a4a1e63edbee1213155f66047d9ac8dba8926adf2ebf23d86ef",
+    "models/sea_lstm_runner.py": "f242e6da4d9e1cfba91ab4bf87632eb54cdd6547fa736a0334daccac61e0a506"
+  },
+  "total_wall_seconds": 311.3582073000143,
+  "tensorflow_devices": [
+    "/physical_device:CPU:0"
+  ],
+  "incremental_api_cost_usd": 0
+}

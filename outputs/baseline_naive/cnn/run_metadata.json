@@ -1,0 +1,44 @@
+{
+  "model_name": "cnn",
+  "created_at": "2026-07-24T07:21:02Z",
+  "python": "3.11.15 | packaged by conda-forge | (main, Mar  5 2026, 16:36:00) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "config": {
+    "experiment": "naive_baseline",
+    "model": "Keras 1D CNN",
+    "hyperparameter_tuning": false,
+    "model_parameters": {
+      "sequence_length": 20,
+      "epochs": 20,
+      "batch_size": 32,
+      "conv_filters": 32,
+      "kernel_size": 3,
+      "padding": "causal",
+      "pooling": "GlobalAveragePooling1D",
+      "dense_units": 8,
+      "optimizer": "adam",
+      "loss": "mse",
+      "shuffle": false,
+      "scaling": "MinMaxScaler fitted on each train fold only",
+      "scaled_data_dir": "D:\\SET50_direction_prediction_paper\\data-folds-nn"
+    }
+  },
+  "packages": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "tensorflow": "2.21.0"
+  },
+  "summary_mean_metrics": {
+    "train_start_year": 2012.0,
+    "train_end_year": 2022.5,
+    "test_year": 2023.5,
+    "n_train": 2782.25,
+    "n_test": 240.5,
+    "rmse": 30.789533741145313,
+    "mae": 25.917933579072617,
+    "mape": 2.980029948796468,
+    "r2": 0.30413367900034727,
+    "direction_accuracy": 0.47596649373125277
+  }
+}

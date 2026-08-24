@@ -1,0 +1,12 @@
+{
+  "passed": false,
+  "conditions": {
+    "beats_required_inner_baselines": false,
+    "aligned_beats_placebo_each_fold": false,
+    "gate_is_nontrivial_each_fold": true,
+    "parameter_budget_within_15_percent": true,
+    "integrity_passed": true
+  },
+  "matched_control_mean_balanced_accuracy": 0.5042769641045506,
+  "parameter_increase_fraction": 0.03384581351620396
+}

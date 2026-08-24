@@ -1,0 +1,12 @@
+{
+  "model": "cnn",
+  "stage": "xai_sanity",
+  "instances": 30,
+  "features": 122,
+  "trained_shap_seconds": 0.7843821999995271,
+  "random_initialization_shap_seconds": 0.7492767999938224,
+  "permuted_label_fit_seconds": 8.178008000002592,
+  "permuted_label_shap_seconds": 0.7031741999962833,
+  "deletion_seconds": 3.3664660999929765,
+  "weight_reproduction_max_abs_error": 0.0
+}

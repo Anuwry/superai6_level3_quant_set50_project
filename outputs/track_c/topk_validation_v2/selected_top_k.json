@@ -1,0 +1,14 @@
+{
+  "protocol_version": "track-c-shap-point-in-time-v2",
+  "selected_at": "2026-07-31T09:48:16+00:00",
+  "rule": "smallest k within one SE plus paired BA, model, RMSE, and temporal Jaccard guardrails",
+  "selected_top_k": {
+    "global": 122,
+    "bull": 30,
+    "sideway": 122,
+    "bear": 80
+  },
+  "spearman_k_matched_to_shap": true,
+  "outer_data_used": false,
+  "lime_used_for_selection": false
+}

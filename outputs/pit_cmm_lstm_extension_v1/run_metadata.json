@@ -1,0 +1,53 @@
+{
+  "protocol_id": "pit-cmm-lstm-exploratory-v1",
+  "completed_at": "2026-08-04T13:48:41+00:00",
+  "evidence_status": "post_freeze_exploratory_architecture_extension",
+  "models_in_comparison": [
+    "lstm",
+    "cnn",
+    "lstm_cnn",
+    "lstm_attention",
+    "lstm_cnn_attention",
+    "pit_cmm_lstm"
+  ],
+  "new_model_only_executed": true,
+  "folds": [
+    "fold_1",
+    "fold_2",
+    "fold_3",
+    "fold_4"
+  ],
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    2025
+  ],
+  "arms": [
+    "Global-Numeric",
+    "Global-Numeric-News",
+    "Regime-SHAP-Numeric",
+    "Regime-SHAP-Numeric-News"
+  ],
+  "window": 5,
+  "primary_metric": "balanced_accuracy",
+  "primary_arm": "Regime-SHAP-Numeric-News",
+  "primary_comparator": "lstm",
+  "incremental_api_cost_usd": 0,
+  "freeze_file_sha256": "770e76d1a51f733b886f2890319bacbcaba21ec559de1a803ba25ff726cd082c",
+  "source_hashes": {
+    "pit_cmm_lstm.py": "e2c0504ef41f81b160940eb425acd799f1481383f998c22d6bc018baacb5e995",
+    "pit_cmm_extension.py": "d74ffdaffb9aeffaf8934af943e673df3976fbb36106efc1824794e34beb9f15",
+    "pit_cmm_extension_runner.py": "3bdea4c141895147baf698f186c05b9ed46a55eb4ab59e3ed33a3b16451f7cef"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "tensorflow": "2.21.0"
+  }
+}

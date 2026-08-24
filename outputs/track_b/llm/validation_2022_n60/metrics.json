@@ -1,0 +1,174 @@
+{
+  "created_at": "2026-07-30T11:31:19+00:00",
+  "model": "gpt-5.6-terra",
+  "prompt_version": "track-b-terra-v1",
+  "completed_pairs": 60,
+  "single_leader_disagreement_rate": 0.11666666666666667,
+  "metrics": [
+    {
+      "method": "single",
+      "pairs": 60,
+      "accuracy": 0.7166666666666667,
+      "macro_f1": 0.6899893076717456,
+      "weighted_f1": 0.6899893076717455,
+      "mcc": 0.5997506281417989,
+      "confusion_matrix": [
+        [
+          18,
+          2,
+          0
+        ],
+        [
+          8,
+          7,
+          5
+        ],
+        [
+          2,
+          0,
+          18
+        ]
+      ],
+      "classification_report": {
+        "positive": {
+          "precision": 0.6428571428571429,
+          "recall": 0.9,
+          "f1-score": 0.75,
+          "support": 20.0
+        },
+        "neutral": {
+          "precision": 0.7777777777777778,
+          "recall": 0.35,
+          "f1-score": 0.4827586206896552,
+          "support": 20.0
+        },
+        "negative": {
+          "precision": 0.782608695652174,
+          "recall": 0.9,
+          "f1-score": 0.8372093023255814,
+          "support": 20.0
+        },
+        "accuracy": 0.7166666666666667,
+        "macro avg": {
+          "precision": 0.734414538762365,
+          "recall": 0.7166666666666667,
+          "f1-score": 0.6899893076717456,
+          "support": 60.0
+        },
+        "weighted avg": {
+          "precision": 0.7344145387623648,
+          "recall": 0.7166666666666667,
+          "f1-score": 0.6899893076717455,
+          "support": 60.0
+        }
+      },
+      "log_loss": 0.6270951199665777,
+      "multiclass_brier_score": 0.3695827333333333,
+      "mean_confidence": 0.8307833333333332
+    },
+    {
+      "method": "leader",
+      "pairs": 60,
+      "accuracy": 0.7333333333333333,
+      "macro_f1": 0.7280423280423282,
+      "weighted_f1": 0.728042328042328,
+      "mcc": 0.6063493831678937,
+      "confusion_matrix": [
+        [
+          17,
+          3,
+          0
+        ],
+        [
+          5,
+          11,
+          4
+        ],
+        [
+          3,
+          1,
+          16
+        ]
+      ],
+      "classification_report": {
+        "positive": {
+          "precision": 0.68,
+          "recall": 0.85,
+          "f1-score": 0.7555555555555555,
+          "support": 20.0
+        },
+        "neutral": {
+          "precision": 0.7333333333333333,
+          "recall": 0.55,
+          "f1-score": 0.6285714285714286,
+          "support": 20.0
+        },
+        "negative": {
+          "precision": 0.8,
+          "recall": 0.8,
+          "f1-score": 0.8,
+          "support": 20.0
+        },
+        "accuracy": 0.7333333333333333,
+        "macro avg": {
+          "precision": 0.7377777777777778,
+          "recall": 0.7333333333333334,
+          "f1-score": 0.7280423280423282,
+          "support": 60.0
+        },
+        "weighted avg": {
+          "precision": 0.7377777777777778,
+          "recall": 0.7333333333333333,
+          "f1-score": 0.728042328042328,
+          "support": 60.0
+        }
+      },
+      "log_loss": 0.6516346741593421,
+      "multiclass_brier_score": 0.37244023333333337,
+      "mean_confidence": 0.75645
+    }
+  ],
+  "runtime_and_cost_by_role": [
+    {
+      "role": "bear",
+      "calls": 60,
+      "runtime_seconds_mean": 4.342430998333339,
+      "runtime_seconds_median": 3.946920500000033,
+      "runtime_seconds_total": 260.5458599000003,
+      "input_tokens_total": 45336,
+      "output_tokens_total": 13545,
+      "cost_usd_total": 0.316515
+    },
+    {
+      "role": "bull",
+      "calls": 60,
+      "runtime_seconds_mean": 3.987225931666679,
+      "runtime_seconds_median": 3.805439100000058,
+      "runtime_seconds_total": 239.23355590000074,
+      "input_tokens_total": 45276,
+      "output_tokens_total": 13581,
+      "cost_usd_total": 0.316905
+    },
+    {
+      "role": "leader",
+      "calls": 60,
+      "runtime_seconds_mean": 2.3897766216667,
+      "runtime_seconds_median": 2.212597249999817,
+      "runtime_seconds_total": 143.386597300002,
+      "input_tokens_total": 69272,
+      "output_tokens_total": 6772,
+      "cost_usd_total": 0.27476
+    },
+    {
+      "role": "single",
+      "calls": 60,
+      "runtime_seconds_mean": 2.4346707016666795,
+      "runtime_seconds_median": 2.2348005999999714,
+      "runtime_seconds_total": 146.08024210000076,
+      "input_tokens_total": 47736,
+      "output_tokens_total": 6445,
+      "cost_usd_total": 0.21601499999999998
+    }
+  ],
+  "tracked_cost_usd": 1.124195
+}

@@ -1,0 +1,71 @@
+{
+  "protocol_version": "track-c-shap-point-in-time-v2",
+  "created_at": "2026-07-31T08:43:47+00:00",
+  "model": "lstm_cnn",
+  "selection_fold": "fold_1",
+  "training_years": [
+    2012,
+    2017
+  ],
+  "ranking_year": 2018,
+  "validation_year": 2019,
+  "window": 20,
+  "seed": 42,
+  "features": 122,
+  "training_sequences": 1366,
+  "training_regime_sequences": {
+    "bull": 577,
+    "sideway": 481,
+    "bear": 308
+  },
+  "ranking_rows_before_label_purge": 245,
+  "ranking_rows_after_label_purge": 244,
+  "ranking_boundary_purged_rows": 1,
+  "background_sequences": 100,
+  "model_fit_seconds": 7.21093899999687,
+  "cells": {
+    "global": {
+      "available_sequences": 244,
+      "explained_sequences": 128,
+      "rseed": 1152452783,
+      "nsamples": 200,
+      "runtime_seconds": 3.5099113000032958,
+      "finite": true
+    },
+    "bull": {
+      "available_sequences": 72,
+      "explained_sequences": 72,
+      "rseed": 265471049,
+      "nsamples": 200,
+      "runtime_seconds": 1.7141765999986092,
+      "finite": true,
+      "fallback": "none"
+    },
+    "sideway": {
+      "available_sequences": 94,
+      "explained_sequences": 94,
+      "rseed": 100239165,
+      "nsamples": 200,
+      "runtime_seconds": 2.2327077999943867,
+      "finite": true,
+      "fallback": "none"
+    },
+    "bear": {
+      "available_sequences": 78,
+      "explained_sequences": 78,
+      "rseed": 386986505,
+      "nsamples": 200,
+      "runtime_seconds": 1.9191190999990795,
+      "finite": true,
+      "fallback": "none"
+    }
+  },
+  "input_files": {
+    "scaled_train": "D:\\SET50_direction_prediction_paper\\data-track-a-window-selection-point-in-time-v2\\full_ta_vmd_nn\\fold_1\\train_2012_2017.csv",
+    "scaled_rank": "D:\\SET50_direction_prediction_paper\\data-track-a-window-selection-point-in-time-v2\\full_ta_vmd_nn\\fold_1\\test_2018.csv",
+    "original_train": "D:\\SET50_direction_prediction_paper\\data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_1\\train_2012_2017.csv",
+    "original_rank": "D:\\SET50_direction_prediction_paper\\data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_1\\test_2018.csv",
+    "validation": "D:\\SET50_direction_prediction_paper\\data-track-a-window-selection-point-in-time-v2\\full_ta_vmd\\fold_2\\test_2019.csv",
+    "scaler": "D:\\SET50_direction_prediction_paper\\data-track-a-window-selection-point-in-time-v2\\full_ta_vmd_nn\\fold_1\\minmax_scaler.json"
+  }
+}

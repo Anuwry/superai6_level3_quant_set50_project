@@ -1,0 +1,10 @@
+{
+  "balanced_accuracy": "primary",
+  "direction_accuracy": "secondary",
+  "mcc": "secondary",
+  "rmse_mae": "secondary",
+  "shap": "main_secondary",
+  "lime": "supplement_diagnostic",
+  "economic_proxy": "supplement_exploratory",
+  "llm_intrinsic": "main_separate_intrinsic"
+}

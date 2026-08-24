@@ -1,0 +1,54 @@
+{
+  "protocol_id": "fcta-lstm-retrospective-2024-2025-v1",
+  "evidence_status": "frozen_retrospective_architecture_screen",
+  "created_at": "2026-08-07T15:00:31+00:00",
+  "variant": "direction_consistency",
+  "seed": 456,
+  "fold": "fold_3",
+  "test_year": 2024,
+  "train_period": [
+    "2019-01-08",
+    "2023-12-27"
+  ],
+  "test_period": [
+    "2024-01-02",
+    "2024-12-30"
+  ],
+  "train_rows": 1204,
+  "test_rows": 244,
+  "feature_count": 130,
+  "mask_counts": {
+    "bull": 38,
+    "sideway": 130,
+    "bear": 88
+  },
+  "epochs": 20,
+  "batch_size": 32,
+  "shuffle": false,
+  "config": {
+    "window": 5,
+    "feature_count": 130,
+    "lstm_units": 16,
+    "attention_heads": 2,
+    "attention_key_dim": 8,
+    "dense_units": 8,
+    "learning_rate": 0.001,
+    "direction_weight": 0.1,
+    "mask_augmentation_weight": 0.25,
+    "faithfulness_weight": 0.1,
+    "direction_temperature": 0.010349780321121216,
+    "variant": "direction_consistency"
+  },
+  "inference_parameters": 10705,
+  "fit_seconds": 9.397091799997725,
+  "inference_seconds": 0.16588600000250153,
+  "wall_seconds": 10.53735090000555,
+  "python": "3.12.10",
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "tensorflow": "2.21.0"
+  },
+  "incremental_api_cost_usd": 0
+}

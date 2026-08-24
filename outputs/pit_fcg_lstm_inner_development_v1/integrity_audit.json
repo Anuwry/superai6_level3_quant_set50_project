@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "protocol_id": "pit-fcg-lstm-inner-development-v1",
+  "completed_cells": 10,
+  "metric_rows": 50,
+  "prediction_rows": 12075,
+  "seed_averaged_prediction_rows": 2415,
+  "control_pair_rows": 11760,
+  "outer_years_accessed": [],
+  "parameter_increase_fraction": 0.03384581351620396,
+  "promotion_passed": false
+}

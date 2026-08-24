@@ -1,0 +1,3 @@
+inner_fold,validation_year,seed,variant,aligned_balanced_accuracy,placebo_balanced_accuracy,aligned_gate_mean,aligned_gate_median,placebo_gate_mean,placebo_gate_median,final_epoch_gate_target_rate
+inner_2020,2020,123,random_control_fcg,0.5,0.5,0.3749827742576599,0.41076087951660156,0.38112592697143555,0.4080221951007843,0.36328125
+inner_2020,2020,123,matched_control_fcg,0.5,0.5,0.3072949945926666,0.32520225644111633,0.29394105076789856,0.27138999104499817,0.33984375

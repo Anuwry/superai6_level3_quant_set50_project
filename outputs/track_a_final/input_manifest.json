@@ -1,0 +1,178 @@
+{
+  "created_at": "2026-07-27T21:23:02+00:00",
+  "selection_years": [
+    2018,
+    2019,
+    2020,
+    2021
+  ],
+  "outer_test_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "selection_uses_outer_test": false,
+  "files": [
+    {
+      "path": "data-folds-full-ta-vmd\\fold_1\\test_2022.csv",
+      "sha256": "0ec3b72e496f8aa953896fd0ddf5abb18c8d1fd085405121621c138326d5bb0f",
+      "bytes": 415798
+    },
+    {
+      "path": "data-folds-full-ta-vmd\\fold_1\\train_2012_2021.csv",
+      "sha256": "b1a112195e988c7ca7ff4a426d13c89e248569312580e0c40de8d278ead7873e",
+      "bytes": 4051192
+    },
+    {
+      "path": "data-folds-full-ta-vmd\\fold_2\\test_2023.csv",
+      "sha256": "24adb7e17fd49ddc999e7278cb1e5a83c93b92c3b8a2f8c18366bacd546b994a",
+      "bytes": 418784
+    },
+    {
+      "path": "data-folds-full-ta-vmd\\fold_2\\train_2012_2022.csv",
+      "sha256": "05976b87a40e7e0538988d6e2409e00410687a65d91a2e03c3a39a4bb72e251e",
+      "bytes": 4465498
+    },
+    {
+      "path": "data-folds-full-ta-vmd\\fold_3\\test_2024.csv",
+      "sha256": "62b8244556d02b649bc3087ce9e5a2d290bc2ac21d118233282915321655424a",
+      "bytes": 418819
+    },
+    {
+      "path": "data-folds-full-ta-vmd\\fold_3\\train_2012_2023.csv",
+      "sha256": "cb72594b537985e6a2d0f1cf48b257d6a3074c945288ea56cebca5eee99e0f9b",
+      "bytes": 4882790
+    },
+    {
+      "path": "data-folds-full-ta-vmd\\fold_4\\test_2025.csv",
+      "sha256": "34fd62b7e497586806f94de120c5d78631e7513634840b58381cb0c801f159e8",
+      "bytes": 399106
+    },
+    {
+      "path": "data-folds-full-ta-vmd\\fold_4\\train_2012_2024.csv",
+      "sha256": "359ffde7fa911c2740a826298e750a4e688da7b8cfbc4553fc24e70bac1a1f90",
+      "bytes": 5300117
+    },
+    {
+      "path": "data-folds-full-ta\\fold_1\\test_2022.csv",
+      "sha256": "1147c7bbc5f7243f8eb5da857373704b8775edd3275c199ff9ae41de3c708200",
+      "bytes": 387703
+    },
+    {
+      "path": "data-folds-full-ta\\fold_1\\train_2012_2021.csv",
+      "sha256": "48e19122dee89193e7a5b91029842f84aaa6244d6d010f2e138c4c1c98706f9b",
+      "bytes": 3777345
+    },
+    {
+      "path": "data-folds-full-ta\\fold_2\\test_2023.csv",
+      "sha256": "7482a4f88b69e6dead89062248684186ac56f5617e86ed185ccf0f9b6b3c7993",
+      "bytes": 390623
+    },
+    {
+      "path": "data-folds-full-ta\\fold_2\\train_2012_2022.csv",
+      "sha256": "6f8f6b1137f4c5c1ecaa7993fbf3bb7202c326079dff4929c78c998f16a49c38",
+      "bytes": 4163638
+    },
+    {
+      "path": "data-folds-full-ta\\fold_3\\test_2024.csv",
+      "sha256": "3bb34399d3dbe67a362665ada74778260f00cdf3a6d28fa691b2348b6ed27e00",
+      "bytes": 390422
+    },
+    {
+      "path": "data-folds-full-ta\\fold_3\\train_2012_2023.csv",
+      "sha256": "b0948beeec7b5595c12db674e74aa0a1605e0d95da4cd97143d8ea82662c6227",
+      "bytes": 4552851
+    },
+    {
+      "path": "data-folds-full-ta\\fold_4\\test_2025.csv",
+      "sha256": "9be7c64f6565d4ca1f8da4fe95d61dfe9bc67bbd204f14cb6442ea8c361ec6c0",
+      "bytes": 372120
+    },
+    {
+      "path": "data-folds-full-ta\\fold_4\\train_2012_2024.csv",
+      "sha256": "6ee58f106f3f155deb0d58879b8d9626936bdea933d2c616ff1ad42e912cdfe6",
+      "bytes": 4941863
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta\\fold_1\\test_2018.csv",
+      "sha256": "668fd9c57a8cdb19e922f94d470a47ed11766840a8dd1479a5e26ed66054385c",
+      "bytes": 386375
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta\\fold_1\\train_2012_2017.csv",
+      "sha256": "18182fe5961eec3f359aed453f816425d5b611de2099a9aa14f004f6f911a06d",
+      "bytes": 2139505
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta\\fold_2\\test_2019.csv",
+      "sha256": "da016ac8613d0094c941db7bdf7726f4c829ac292522486d53641e88fe3fc3d1",
+      "bytes": 385016
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta\\fold_2\\train_2012_2018.csv",
+      "sha256": "1f74e44d53c787faa04e8a975648e2a7749b9561ae00138bf60fb5a2294a820e",
+      "bytes": 2524470
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta\\fold_3\\test_2020.csv",
+      "sha256": "926fc747c23264ea85f10ff7217d0926d24d89bb4419640ee2e91746eff1cde8",
+      "bytes": 376711
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta\\fold_3\\train_2012_2019.csv",
+      "sha256": "235f4b1e38ffda82f9de66f36589237cf62d405e1ce7a1a9f16b02f669bd00d3",
+      "bytes": 2908076
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta\\fold_4\\test_2021.csv",
+      "sha256": "1e265fa62f422ac2a52b670cd50fefe54bbdef9834ba41f3a0392f73b9a5926c",
+      "bytes": 372197
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta\\fold_4\\train_2012_2020.csv",
+      "sha256": "cf7463561091007f563c21bc16c2cf48a7336e90002ae72b2bd2dc4dfd3abbde",
+      "bytes": 3283377
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta_vmd\\fold_1\\test_2018.csv",
+      "sha256": "9df884cccceccda994764dfbeb36b9de628bbc77292a624e01ba816436289c14",
+      "bytes": 414957
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta_vmd\\fold_1\\train_2012_2017.csv",
+      "sha256": "777f1d4df7e4e91937118b2afb6ccc158638a026ca52d19b82927cd35c1d5154",
+      "bytes": 2299184
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta_vmd\\fold_2\\test_2019.csv",
+      "sha256": "0e62e1f6ec4adbabc8fda5babd944aed24aa3b7741c966828f0787afcf87ad0e",
+      "bytes": 413471
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta_vmd\\fold_2\\train_2012_2018.csv",
+      "sha256": "6f4a458e1ea7b7f86a714985e30729af66fb192a715fb78fbb70a1000f6d1e2f",
+      "bytes": 2712649
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta_vmd\\fold_3\\test_2020.csv",
+      "sha256": "caa79768a8187c44c79f76853a84c6b4a50396a5d6ecdeefe1e19267c11c4540",
+      "bytes": 404582
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta_vmd\\fold_3\\train_2012_2019.csv",
+      "sha256": "e1846bb15ecbd68c96184690759d7d7bfc460ebd9a2e230935196f4c7760339d",
+      "bytes": 3124628
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta_vmd\\fold_4\\test_2021.csv",
+      "sha256": "ea02197b5fa54acf81ed0ea24a21172fde03c567bceeb9ce37b7417a97bb1086",
+      "bytes": 399888
+    },
+    {
+      "path": "data-track-a-window-selection\\full_ta_vmd\\fold_4\\train_2012_2020.csv",
+      "sha256": "8133554d6d07ea935f5f6d658b24c4653ac1481fa087591cad0eb22e33ba4272",
+      "bytes": 3527718
+    }
+  ]
+}

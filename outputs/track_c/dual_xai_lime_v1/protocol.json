@@ -1,0 +1,33 @@
+{
+  "protocol_version": "track-c-dual-xai-lime-v1",
+  "frozen_addendum": "D:\\SET50_direction_prediction_paper\\test\\track_c_dual_xai_lime_addendum.md",
+  "frozen_addendum_sha256": "28c20ef157713fabf08bd39a0352e0a30340a75a76f11f73c6e8893ad65d582c",
+  "structural_close_sensitivity": "D:\\SET50_direction_prediction_paper\\test\\track_c_dual_xai_structural_close_sensitivity.md",
+  "structural_close_sensitivity_sha256": "f0cdbdfb6d41b588e1f1c030184146f774cd4e9d12b5499f739165c7dc2a90c6",
+  "config": {
+    "protocol_version": "track-c-dual-xai-lime-v1",
+    "n_perturbations": 1024,
+    "presence_probability": 0.5,
+    "repeat_seeds": [
+      42,
+      123,
+      456,
+      789,
+      2025
+    ],
+    "samples_per_regime_fold": 6,
+    "top_k": 10,
+    "ridge_alpha": 1.0,
+    "kernel_width_multiplier": 0.75,
+    "minimum_fidelity_r2": 0.7,
+    "selection_role": "post_selection_audit_only"
+  },
+  "config_sha256": "ae1cc93c12af73739a1910191ec4a6ba9efa573c5c0ea0a6054d161e4ae8f8ce",
+  "audited_outer_arm": "Global-All",
+  "audited_base_seed": 42,
+  "feature_space": "full 122-feature numerical Global-All pool",
+  "explanation_target": "predicted next-close minus current close in original units",
+  "selection_role": "post-selection audit only",
+  "outcome_used_for_instance_selection": false,
+  "agreement_policy": "retain all rows; exclude fidelity R2 below 0.70 from substantive SHAP-LIME agreement summaries"
+}

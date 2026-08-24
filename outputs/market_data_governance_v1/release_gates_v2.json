@@ -1,0 +1,29 @@
+{
+  "protocol_version": "market-data-release-gates-v2",
+  "created_at_utc": "2026-08-03T17:08:00Z",
+  "supersedes_status_only": "outputs/market_data_governance_v1/release_gates.json",
+  "market_data_governance_protocol": "market-data-governance-v1",
+  "internal_research_gate": "PASS",
+  "set50_data_gate": "PASS",
+  "set100_data_gate": "PASS",
+  "set100_benchmark_status": "COMPLETE_100_OF_100_FITS",
+  "timezone_gate": "PASS",
+  "timezone": "Asia/Bangkok",
+  "decision_time_bangkok": "17:00:00",
+  "adjustment_gate": "PASS_WITH_RETAINED_VENDOR_WARNINGS",
+  "raw_redistribution_gate": "EXCLUDED_PROVIDER_TERMS_APPLY",
+  "clean_public_package_gate": "PASS",
+  "clean_package_manifest": "release/public_replication_package_v2/PUBLIC_MANIFEST.json",
+  "clean_package_protocol": "public-replication-package-v2",
+  "clean_package_sha256": "38f402c55e18486c9d7a1e804d4647ca44ff1232ea5f4f5b50b1285c29ac712e",
+  "working_repository_history_gate": "RESTRICTED_DATA_REMAINS_IN_PRIVATE_WORKING_HISTORY",
+  "public_release_gate": "PASS_CLEAN_PACKAGE_ONLY_PROVIDER_TERMS_APPLY",
+  "license_policy": {
+    "status": "publicly_accessible_provider_download",
+    "evidence_status": "verified_public_provider_pages",
+    "evidence_location": "provider_historical_pages_and_terms_urls",
+    "raw_redistribution_allowed": false,
+    "derived_results_publication_allowed": true
+  },
+  "scope_statement": "SET100 is a same-exchange transfer audit, not independent external-market replication."
+}

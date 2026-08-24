@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=2400, initial-scale=1">
+<title>SET reliability graphical abstract v5</title>
+<style>
+  :root {
+    --ink:#18324b;
+    --text:#273943;
+    --muted:#667881;
+    --line:#cad8dc;
+    --paper:#f7f9f9;
+    --panel:#ffffff;
+    --soft:#eaf2f2;
+    --blue:#dce9f2;
+    --teal:#4f8078;
+    --green:#5f8969;
+    --green-soft:#e4eee6;
+    --orange:#b86d43;
+    --orange-soft:#f4e7df;
+    --red:#9d5752;
+    --shadow:0 10px 28px rgba(34,61,72,.07);
+  }
+  * { box-sizing:border-box; }
+  html, body { margin:0; width:2400px; height:960px; overflow:hidden; background:var(--paper); }
+  body { font-family:Arial, Helvetica, sans-serif; color:var(--text); }
+  .canvas { width:2400px; height:960px; padding:42px 48px 30px; display:grid; grid-template-rows:1fr 82px; gap:22px; background:linear-gradient(180deg,#fbfcfc 0%,#f4f7f7 100%); }
+  .flow { display:grid; grid-template-columns:500px 1fr 690px; gap:58px; min-height:0; position:relative; }
+  .zone { min-width:0; height:100%; }
+  .zone-head { height:56px; display:flex; align-items:center; gap:15px; color:var(--ink); font-weight:800; font-size:33px; letter-spacing:1.1px; }
+  .step { width:38px; height:38px; border-radius:50%; display:grid; place-items:center; color:#fff; background:var(--ink); font-size:22px; }
+  .panel { background:var(--panel); border:2px solid var(--line); border-radius:26px; box-shadow:var(--shadow); }
+  .arrow { position:absolute; top:380px; width:58px; height:58px; border-radius:50%; background:var(--ink); display:grid; place-items:center; color:#fff; font-size:38px; line-height:1; box-shadow:0 8px 18px rgba(24,50,75,.18); }
+  .arrow.a1 { left:510px; }
+  .arrow.a2 { right:700px; }
+
+  /* inputs */
+  .input-stack { display:grid; grid-template-rows:430px 250px; gap:22px; height:calc(100% - 56px); }
+  .market { padding:24px 26px 20px; display:grid; grid-template-rows:auto auto 1fr auto; gap:15px; }
+  .eyebrow { font-size:22px; font-weight:800; color:var(--teal); letter-spacing:1.2px; text-transform:uppercase; }
+  .title { font-size:34px; font-weight:800; color:var(--ink); line-height:1.12; }
+  .chips { display:flex; gap:10px; flex-wrap:wrap; }
+  .chip { border-radius:18px; padding:7px 14px; font-size:20px; font-weight:700; color:var(--ink); background:var(--soft); border:1px solid #bfd0d3; }
+  .trace { width:100%; height:166px; object-fit:cover; object-position:center; border:1px solid #d6e0e4; border-radius:14px; background:#fff; }
+  .small-note { font-size:20px; color:var(--muted); line-height:1.3; }
+  .news { padding:24px 28px; display:grid; grid-template-columns:112px 1fr; align-items:center; gap:25px; }
+  .news-icon { width:106px; height:128px; border:4px solid var(--ink); border-radius:12px; padding:15px 13px; position:relative; background:#fafcfc; }
+  .news-icon:before { content:"NEWS"; display:block; font-size:17px; font-weight:900; color:var(--orange); margin-bottom:14px; }
+  .news-line { height:5px; border-radius:4px; background:#b8c7cc; margin:10px 0; }
+  .news-line.short { width:63%; }
+  .news .title { font-size:31px; }
+  .news p { margin:10px 0 0; font-size:21px; line-height:1.35; color:var(--muted); }
+
+  /* method */
+  .method-box { height:calc(100% - 56px); padding:24px 26px; display:grid; grid-template-rows:150px 100px 1fr 72px; gap:17px; }
+  .pit { border-radius:18px; background:var(--soft); border:1.5px solid #bfd0d3; padding:17px 20px; }
+  .pit-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:13px; }
+  .pit-title { font-size:24px; font-weight:800; color:var(--ink); }
+  .pit-note { font-size:18px; color:var(--muted); }
+  .folds { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  .fold { display:grid; grid-template-columns:1fr 38px; gap:5px; align-items:center; }
+  .train { height:28px; border-radius:6px; background:repeating-linear-gradient(90deg,#d7e5d2 0,#d7e5d2 18px,#b9ccb3 19px,#b9ccb3 21px); border:1px solid #98ae92; }
+  .test { height:28px; border-radius:6px; background:#b9cee0; border:1px solid #829db4; }
+  .fold label { grid-column:1/3; text-align:center; font-size:17px; font-weight:700; color:var(--muted); }
+  .models { border-top:1px solid #d9e2e5; border-bottom:1px solid #d9e2e5; display:grid; grid-template-columns:190px 1fr; align-items:center; gap:18px; }
+  .models strong { font-size:22px; color:var(--ink); }
+  .model-pills { display:flex; gap:8px; flex-wrap:wrap; }
+  .model { padding:9px 13px; border-radius:10px; background:var(--green-soft); border:1px solid #a9c0ae; font-size:18px; font-weight:700; color:#315345; }
+  .audits { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+  .audit { border:1.5px solid var(--line); border-radius:18px; padding:18px 19px 15px; background:#fff; display:grid; grid-template-columns:52px 1fr; gap:14px; align-content:start; }
+  .audit-icon { width:48px; height:48px; border-radius:13px; display:grid; place-items:center; font-weight:900; font-size:21px; color:#fff; background:var(--teal); }
+  .audit h3 { margin:1px 0 7px; font-size:23px; color:var(--ink); line-height:1.1; }
+  .audit p { grid-column:2; margin:0; font-size:18px; line-height:1.25; color:var(--muted); }
+  .audit.orange .audit-icon { background:var(--orange); }
+  .audit.green .audit-icon { background:var(--green); }
+  .audit.blue .audit-icon { background:#527794; }
+  .target { border-radius:16px; background:var(--ink); color:#fff; display:flex; align-items:center; justify-content:center; gap:20px; font-size:25px; font-weight:800; letter-spacing:.3px; }
+  .target span { color:#bfe1d7; }
+
+  /* evidence */
+  .evidence-stack { height:calc(100% - 56px); display:grid; grid-template-rows:190px 185px 1fr; gap:18px; }
+  .best { padding:24px 28px; display:grid; grid-template-columns:250px 1fr; gap:18px; align-items:center; background:linear-gradient(135deg,#ffffff 0%,#edf5f1 100%); border-color:#b7d0c1; }
+  .big { font-size:58px; font-weight:900; letter-spacing:-2px; color:var(--green); white-space:nowrap; }
+  .best h2 { margin:0 0 6px; color:var(--ink); font-size:27px; line-height:1.08; }
+  .best p { margin:0; font-size:21px; line-height:1.3; color:var(--muted); }
+  .gain-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .gain { padding:21px 23px; }
+  .gain .num { font-size:40px; line-height:1.02; font-weight:900; color:var(--teal); margin-bottom:8px; white-space:nowrap; }
+  .gain.orange .num { color:var(--orange); font-size:34px; }
+  .gain h3 { margin:0 0 7px; font-size:22px; color:var(--ink); }
+  .gain p { margin:0; font-size:16.5px; line-height:1.25; color:var(--muted); }
+  .mixed { padding:23px 26px; display:grid; grid-template-rows:auto auto 1fr; gap:14px; }
+  .mixed h2 { margin:0; font-size:27px; color:var(--ink); }
+  .range { display:flex; align-items:baseline; gap:15px; }
+  .range strong { font-size:39px; color:var(--orange); }
+  .range span { font-size:20px; color:var(--muted); }
+  .facts { display:grid; gap:10px; }
+  .fact { display:grid; grid-template-columns:16px 1fr; gap:10px; align-items:start; font-size:19px; line-height:1.25; color:var(--text); }
+  .dot { width:12px; height:12px; border-radius:50%; background:var(--red); margin-top:6px; }
+  .dot.green { background:var(--green); }
+  .takeaway { margin-top:4px; padding:11px 14px; border-radius:12px; background:var(--orange-soft); color:#74442d; font-size:20px; font-weight:800; text-align:center; }
+
+  .footer { border-top:2px solid #c6d4d8; display:flex; align-items:center; justify-content:center; gap:20px; color:var(--ink); font-weight:700; font-size:22px; letter-spacing:.2px; }
+  .footer .sep { color:#93a5ad; }
+  @media print { html, body, .canvas { width:2400px; height:960px; } }
+</style>
+</head>
+<body>
+<main class="canvas">
+  <section class="flow">
+    <div class="arrow a1">&#8594;</div>
+    <div class="arrow a2">&#8594;</div>
+
+    <section class="zone">
+      <header class="zone-head"><span class="step">1</span> INPUTS</header>
+      <div class="input-stack">
+        <article class="panel market">
+          <div class="eyebrow">Point-in-time market data</div>
+          <div class="title">SET50 daily index</div>
+          <div class="chips"><span class="chip">2012-2025</span><span class="chip">116 TA features</span><span class="chip">t &#8594; t+1</span></div>
+          <img class="trace" src="../assets/graphical_abstract_v5_market_trace.png" alt="Observed and predicted SET50 trace from the held-out 2025 fold">
+          <div class="small-note">Observed and forecast traces are evaluated only after the next session becomes available.</div>
+        </article>
+        <article class="panel news">
+          <div class="news-icon"><div class="news-line"></div><div class="news-line short"></div><div class="news-line"></div><div class="news-line short"></div></div>
+          <div>
+            <div class="eyebrow">Second modality</div>
+            <div class="title">Dated financial news</div>
+            <p>Out-of-sample sentiment with date, ticker and relevance controls</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="zone">
+      <header class="zone-head"><span class="step">2</span> POINT-IN-TIME RELIABILITY AUDIT</header>
+      <article class="panel method-box">
+        <div class="pit">
+          <div class="pit-top"><span class="pit-title">Expanding-window outer evaluation</span><span class="pit-note">Train-only transforms; purged labels</span></div>
+          <div class="folds">
+            <div class="fold"><div class="train"></div><div class="test"></div><label>Outer 2022</label></div>
+            <div class="fold"><div class="train"></div><div class="test"></div><label>Outer 2023</label></div>
+            <div class="fold"><div class="train"></div><div class="test"></div><label>Outer 2024</label></div>
+            <div class="fold"><div class="train"></div><div class="test"></div><label>Outer 2025</label></div>
+          </div>
+        </div>
+
+        <div class="models">
+          <strong>Five frozen architectures</strong>
+          <div class="model-pills">
+            <span class="model">LSTM</span><span class="model">CNN</span><span class="model">LSTM-CNN</span><span class="model">LSTM-Attention</span><span class="model">LSTM-CNN-Attention</span>
+          </div>
+        </div>
+
+        <div class="audits">
+          <article class="audit blue"><div class="audit-icon">V</div><div><h3>Causal VMD</h3><p>Rolling 60-day decomposition vs matched Full-TA inputs</p></div></article>
+          <article class="audit orange"><div class="audit-icon">N</div><div><h3>News and LLM</h3><p>Market-only controls plus Bull/Bear/Leader sentiment audit</p></div></article>
+          <article class="audit green"><div class="audit-icon">R</div><div><h3>Regime and XAI</h3><p>Bull/Sideway/Bear routing; train-only SHAP and LIME fidelity check</p></div></article>
+          <article class="audit"><div class="audit-icon">F</div><div><h3>Forward and transfer</h3><p>Later-period stress test and frozen SET100 robustness check</p></div></article>
+        </div>
+
+        <div class="target">Next-session direction <span>UP or DOWN</span></div>
+      </article>
+    </section>
+
+    <section class="zone">
+      <header class="zone-head"><span class="step">3</span> KEY EVIDENCE</header>
+      <div class="evidence-stack">
+        <article class="panel best">
+          <div class="big">53.64%</div>
+          <div><h2>Highest mean balanced accuracy</h2><p>LSTM-CNN-Attention across four held-out years and five seeds</p></div>
+        </article>
+        <div class="gain-grid">
+          <article class="panel gain"><div class="num">+1.46 pp</div><h3>CNN Regime-SHAP</h3><p>Selective forecasting gain; not shared by all architectures</p></article>
+          <article class="panel gain orange"><div class="num">+5.93/+6.00 pp</div><h3>Leader sentiment</h3><p>Versus equal-call and near-cost controls; intrinsic endpoint</p></article>
+        </div>
+        <article class="panel mixed">
+          <h2>Robustness findings</h2>
+          <div class="range"><strong>-0.60 to +0.35 pp</strong><span>VMD effect across architectures</span></div>
+          <div class="facts">
+            <div class="fact"><span class="dot"></span><span>Predicted news and SET100 transfer showed no consistent directional gain.</span></div>
+            <div class="fact"><span class="dot green"></span><span>Benefits depended on architecture, endpoint and evaluation period.</span></div>
+            <div class="takeaway">Reliable conclusions require temporal, falsification and transfer checks.</div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </section>
+
+  <footer class="footer">
+    <span>962 held-out sessions</span><span class="sep">&#8226;</span><span>4 outer test years</span><span class="sep">&#8226;</span><span>5 fixed seeds</span><span class="sep">&#8226;</span><span>Paired comparisons</span><span class="sep">&#8226;</span><span>Holm-adjusted inference</span>
+  </footer>
+</main>
+</body>
+</html>

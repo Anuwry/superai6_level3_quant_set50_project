@@ -1,0 +1,19 @@
+{
+  "observations": 244,
+  "direction_evaluable": 244,
+  "direction_accuracy": 0.47950819672131145,
+  "balanced_accuracy": 0.48956861161585574,
+  "mcc": -0.02394061836962479,
+  "predicted_up_share": 0.7459016393442623,
+  "tn": 31,
+  "fp": 96,
+  "fn": 31,
+  "tp": 86,
+  "fit_seconds": 6.005122899980051,
+  "inference_seconds": 0.46799050000845455,
+  "inference_parameters": 9691,
+  "mean_up_evidence": 0.0,
+  "mean_down_evidence": 0.007529833120116915,
+  "nonzero_up_share": 0.0,
+  "nonzero_down_share": 0.16010928961748633
+}

@@ -1,0 +1,37 @@
+{
+  "config": {
+    "horizons": [
+      1,
+      3,
+      5,
+      10,
+      20,
+      60
+    ],
+    "weights": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.25
+    ],
+    "volatility_horizons": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      60
+    ],
+    "adx_column": "ADX_14",
+    "smoothing_span": 3,
+    "sideway_quantile": 0.35,
+    "membership_temperature": 0.35,
+    "minimum_training_regime_share": 0.15
+  },
+  "sideway_threshold": 0.0641012118979708,
+  "score_definition": "EWMA_3(sum(weight_h * Return_h / (Volatility_ref_h * sqrt(h))) * ADX_14 / 100)",
+  "hard_rule": "Bull if score > threshold; Bear if score < -threshold; otherwise Sideway",
+  "threshold_fit_scope": "fold_training_only"
+}

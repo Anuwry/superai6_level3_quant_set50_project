@@ -1,0 +1,15 @@
+{
+  "protocol_id": "track-b-llm-compute-matched-v1",
+  "created_at_utc": "2026-08-03T16:55:50.946631+00:00",
+  "passed": true,
+  "expected_calls": 3999,
+  "observed_calls": 3999,
+  "unique_items": 1333,
+  "replicates": [
+    2,
+    3,
+    4
+  ],
+  "duplicate_response_ids": false,
+  "non_finite_metric_values": false
+}

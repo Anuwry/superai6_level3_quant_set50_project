@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-07-27T19:13:23+00:00",
+  "python": "3.11.15 | packaged by conda-forge | (main, Mar  5 2026, 16:36:00) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "machine": "AMD64",
+  "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+  "tensorflow": "2.21.0",
+  "physical_devices": [
+    {
+      "name": "/physical_device:CPU:0",
+      "device_type": "CPU"
+    }
+  ],
+  "gpu_available": false,
+  "runtime_clock": "time.perf_counter",
+  "runtime_scope": "model build + training + test inference",
+  "framework_startup_excluded": true,
+  "deterministic_operations_enabled": true,
+  "notes": "TensorFlow is imported and warmed before timed model runs; data loading, inverse scaling, and metric calculation are excluded."
+}

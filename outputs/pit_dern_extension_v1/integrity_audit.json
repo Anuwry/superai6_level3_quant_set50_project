@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "protocol_id": "pit-dern-exploratory-v1",
+  "freeze_audit": {
+    "passed": true,
+    "protocol_id": "pit-dern-exploratory-v1",
+    "verified_inputs": 12,
+    "freeze_file_sha256": "879c70e8fa1b4a4fa251faee3e158864fc1020e83b73bc3cb3e9aded232ceefa"
+  },
+  "completed_cells": 20,
+  "metric_rows": 80,
+  "ablation_metric_rows": 400,
+  "fit_rows": 80,
+  "seed_averaged_fold_arm_rows": 16,
+  "all_predictions_finite": true,
+  "minimum_training_sequences": 723,
+  "promotion_passed": false
+}

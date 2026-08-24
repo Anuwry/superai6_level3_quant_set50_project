@@ -1,0 +1,16 @@
+{
+  "passed": false,
+  "conditions": {
+    "full_beats_every_ablation_each_inner_year": false,
+    "mean_margin_over_lstm_anchor_at_least_0_5pp": false,
+    "integrity_passed": true
+  },
+  "mean_balanced_accuracy": {
+    "cnn_residual": 0.5075822484466328,
+    "latent_turn_gate": 0.4914766608126287,
+    "lstm_anchor": 0.508968017347164,
+    "supervised_turn_gate": 0.504649906874735,
+    "tcrc_full": 0.5020883207808113
+  },
+  "full_minus_anchor_pp": -0.6879696566352678
+}

@@ -1,0 +1,61 @@
+{
+  "started_at": "2026-07-30T14:21:54+00:00",
+  "completed_at": "2026-07-30T14:24:00+00:00",
+  "total_runtime_seconds": 126.19104530000004,
+  "random_seed": 42,
+  "relevance_threshold": 0.5,
+  "headline_fallback_tokens": 24,
+  "frozen_training_end_year": 2023,
+  "forward_training_years": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023
+  ],
+  "pseudo_label_retraining": false,
+  "optuna_tuning": false,
+  "temporal_assignment": "strictly_next_trading_date",
+  "raw_forward_rows": 69824,
+  "point_in_time_set50_rows": 4619,
+  "selected_forward_rows": 2792,
+  "prediction_rows": 17348,
+  "selected_prediction_rows": 12226,
+  "daily_rows": 1690,
+  "daily_start": "2019-01-02",
+  "daily_end": "2025-12-18",
+  "dataset_path": "data-raw\\track_b\\Bilingual_StockTBSA\\Thai_Financial_TBSA_dataset_Updated.json",
+  "dataset_sha256": "1E87D6780E210A2D4F8DA44680789D79FA07F7644AFA791983592D0CDECD83AC",
+  "membership_path": "data-raw\\track_b\\SET50_membership_2024_2025\\set50_membership_intervals.csv",
+  "membership_sha256": "6A5AB897A186C2626173E5498B2117F4AC3702E8CA97F3C1E7AD730BE2972100",
+  "news_manifest_sha256": "AB3749E294111BDA54BA1A14B1B3424C268D603D9C568D83362D92B8A0AEB751",
+  "news_inputs": [
+    {
+      "year": 2024,
+      "path": "data-raw\\track_b\\SET_company_news_2024_2025\\set_company_news_2024_th.csv",
+      "sha256": "AA45107BD83D866AFF1FD37D0B99B279393DE044E614FA14B3160B46F900D2C8"
+    },
+    {
+      "year": 2025,
+      "path": "data-raw\\track_b\\SET_company_news_2024_2025\\set_company_news_2025_th.csv",
+      "sha256": "FDB42D65364DED90B1B563AEC736DD229C8D7E0B361E373D9698CF4A1C0ECFF9"
+    }
+  ],
+  "outputs": {
+    "all_predictions": "outputs\\track_b\\forward_news\\headline_predictions_all_2019_2025.csv",
+    "selected_predictions": "outputs\\track_b\\forward_news\\headline_predictions_selected_2019_2025.csv",
+    "daily_news": "outputs\\track_b\\forward_news\\daily_news_features_2019_2025.csv",
+    "intrinsic_metrics": "outputs\\track_b\\forward_news\\headline_proxy_intrinsic_metrics.csv",
+    "runtime": "outputs\\track_b\\forward_news\\runtime_by_fit.csv",
+    "domain_shift": "outputs\\track_b\\forward_news\\domain_shift_audit.csv"
+  },
+  "versions": {
+    "python": "3.12.10",
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit_learn": "1.8.0",
+    "scipy": "1.17.1",
+    "pypdf": "6.14.2"
+  }
+}

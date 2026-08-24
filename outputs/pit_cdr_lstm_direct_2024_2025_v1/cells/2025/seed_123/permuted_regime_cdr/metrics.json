@@ -1,0 +1,21 @@
+{
+  "observations": 234,
+  "direction_evaluable": 234,
+  "direction_accuracy": 0.5170940170940171,
+  "balanced_accuracy": 0.5171052631578947,
+  "mcc": 0.03419927840283847,
+  "predicted_up_share": 0.5,
+  "tn": 62,
+  "fp": 58,
+  "fn": 55,
+  "tp": 59,
+  "fit_seconds": 20.439299599995138,
+  "inference_seconds": 0.5408229000167921,
+  "training_pairs": 2896,
+  "counter_pairs": 1448,
+  "transport_pairs": 1448,
+  "active_counter_pairs": 1448,
+  "active_transport_pairs": 1448,
+  "inference_parameters": 9553,
+  "training_parameters": 9553
+}

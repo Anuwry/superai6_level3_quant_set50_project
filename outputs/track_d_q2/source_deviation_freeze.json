@@ -1,0 +1,27 @@
+{
+  "protocol_version": "track-d-source-deviation-2026-07-31-v1",
+  "frozen_at": "2026-07-31T15:26:05+00:00",
+  "failed_registered_source_observed_before_deviation": true,
+  "alternative_full_series_accessed_before_deviation_freeze": false,
+  "alternative_source": {
+    "page": "https://www.investing.com/indices/set-50-historical-data",
+    "endpoint": "https://api.investing.com/api/financialdata/historical/41049",
+    "instrument_id": 41049
+  },
+  "parent_freeze_sha256": {
+    "D:\\SET50_direction_prediction_paper\\outputs\\track_d_q2\\freeze_manifest.json": "70542c4fdadeaab4fa2ddd088a267bbf26e51d7b3f84f921065367db861b8a84"
+  },
+  "protocol_sha256": {
+    "D:\\SET50_direction_prediction_paper\\test\\track_d_source_deviation_2026-07-31.md": "0365e98d9ecafac2a22ba9235c68b596dee5a8a0d5d9d09b816b6f816cc27a2c"
+  },
+  "implementation_sha256": {
+    "D:\\SET50_direction_prediction_paper\\models\\track_d_source_deviation.py": "ef3f2b9629117ad1f09ecd1676cb00e2679c81ce89b5a7ef7853531d3a712366",
+    "D:\\SET50_direction_prediction_paper\\tests\\test_track_d_source_deviation.py": "cc9b75e0697d7930e6adaac07b164aa0eb2744a086becf235a82b1b550603d10",
+    "D:\\SET50_direction_prediction_paper\\requirements-track-d-deviation.txt": "46bc72ee9989e9f11c317df5f81caac8077900f568fa37ce07bdc0894913c81f"
+  },
+  "failed_source_evidence_sha256": {
+    "D:\\SET50_direction_prediction_paper\\data-track-d\\source\\yahoo_chart_response.json": "e39db06fdeeb819f8b02112c59b70d07485ada0da4edf7624dd14f57b5c8ca80",
+    "D:\\SET50_direction_prediction_paper\\data-track-d\\source\\yahoo_set50_daily.csv": "43d35d82003491d35babe2041aebc9949e84f26b207ac0726e1e5ad17c4b27d0",
+    "D:\\SET50_direction_prediction_paper\\data-track-d\\source\\data_access_ledger.json": "83861bd57394c5be1b47978017679184b985b144ce10ce8a69e083af381334bc"
+  }
+}

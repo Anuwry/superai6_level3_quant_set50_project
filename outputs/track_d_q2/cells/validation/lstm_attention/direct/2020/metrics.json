@@ -1,0 +1,23 @@
+{
+  "model": "lstm_attention",
+  "objective": "direct",
+  "seed": 42,
+  "window": 10,
+  "features": 122,
+  "training_sequences": 1864,
+  "trainable_parameters": 10129,
+  "fit_seconds": 10.961173700008658,
+  "inference_seconds": 0.4750133000052301,
+  "return_target_mean": 0.00014078800593442302,
+  "return_target_std": 0.009353894194226348,
+  "rows": 242,
+  "positive_share": 0.48760330578512395,
+  "direction_accuracy": 0.48760330578512395,
+  "balanced_accuracy": 0.5,
+  "mcc": 0.0,
+  "auc": 0.49894067796610175,
+  "brier": 0.25062820765754795,
+  "log_loss": 0.6944040271933408,
+  "ece_10": 0.02610535587161039,
+  "validation_year": 2020
+}

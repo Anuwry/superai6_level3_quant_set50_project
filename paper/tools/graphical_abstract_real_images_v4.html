@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SET reliability graphical abstract — real evidence panels</title>
+<style>
+  @page { size: 12in 6in; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    width: 1200px;
+    height: 600px;
+    overflow: hidden;
+    background: #fbfcfc;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #26373f;
+  }
+  .canvas {
+    width: 1200px;
+    height: 600px;
+    padding: 22px 26px;
+    display: grid;
+    grid-template-columns: 318px 56px 384px 56px 334px;
+    gap: 0;
+    align-items: stretch;
+  }
+  .group {
+    height: 556px;
+    border: 1px solid #d4dfe2;
+    border-radius: 20px;
+    padding: 14px;
+    background: #f5f8f8;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .group.method { background: #edf3f5; }
+  .card {
+    min-height: 0;
+    border: 1px solid #d4dfe2;
+    border-radius: 12px;
+    background: #ffffff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .card img {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    flex: 1 1 auto;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 4px 5px 1px;
+  }
+  .caption {
+    flex: 0 0 25px;
+    min-height: 25px;
+    padding: 6px 9px 5px;
+    border-top: 1px solid #e3e9eb;
+    color: #476674;
+    font-size: 11px;
+    line-height: 13px;
+    font-weight: 700;
+    letter-spacing: .05px;
+    background: #fbfcfc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .left-primary { height: 326px; }
+  .left-secondary { height: 178px; }
+  .method-card { height: 168px; }
+  .evidence-heatmap { height: 235px; }
+  .evidence-xai { height: 165px; }
+  .evidence-table { height: 112px; }
+  .arrow {
+    position: relative;
+    height: 556px;
+  }
+  .arrow::before {
+    content: "";
+    position: absolute;
+    top: 276px;
+    left: 9px;
+    width: 32px;
+    height: 3px;
+    border-radius: 2px;
+    background: #7896a3;
+  }
+  .arrow::after {
+    content: "";
+    position: absolute;
+    top: 268px;
+    right: 8px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 14px solid #7896a3;
+  }
+</style>
+</head>
+<body>
+  <main class="canvas">
+    <section class="group">
+      <article class="card left-primary">
+        <img src="file:///D:/SET50_direction_prediction_paper/outputs/final_five_model_prediction_visuals_v1/actual_vs_predicted_oos_2025_zoom.png" alt="Observed and predicted SET50 series in 2025">
+        <div class="caption">SET50 forecasts (2025 OOS)</div>
+      </article>
+      <article class="card left-secondary">
+        <img src="file:///D:/SET50_direction_prediction_paper/paper/assets/figure5_separated_audits_v2.png" alt="News forecasting and LLM sentiment audits">
+        <div class="caption">Dated news + Bull/Bear/Leader</div>
+      </article>
+    </section>
+
+    <div class="arrow" aria-hidden="true"></div>
+
+    <section class="group method">
+      <article class="card method-card">
+        <img src="file:///D:/SET50_direction_prediction_paper/paper/figures/methods_v2_simple/figure3_point_in_time_expanding_window_design.png" alt="Point-in-time expanding-window protocol">
+        <div class="caption">Point-in-time expanding folds</div>
+      </article>
+      <article class="card method-card">
+        <img src="file:///D:/SET50_direction_prediction_paper/paper/figures/methods_v2_simple/figure4_vmd_and_registered_architectures.png" alt="VMD and registered neural architectures">
+        <div class="caption">Causal VMD + five frozen models</div>
+      </article>
+      <article class="card method-card">
+        <img src="file:///D:/SET50_direction_prediction_paper/paper/figures/methods_v2_simple/figure6_regime_shap_and_inference.png" alt="Regime-aware SHAP pipeline">
+        <div class="caption">Causal regime routing + XAI</div>
+      </article>
+    </section>
+
+    <div class="arrow" aria-hidden="true"></div>
+
+    <section class="group">
+      <article class="card evidence-heatmap">
+        <img src="file:///D:/SET50_direction_prediction_paper/paper/assets/figure7_heatmap_summary.png" alt="Cross-track result heatmap">
+        <div class="caption">Cross-track effects</div>
+      </article>
+      <article class="card evidence-xai">
+        <img src="file:///D:/SET50_direction_prediction_paper/paper/assets/figure10_shap_lime_result_audit.png" alt="SHAP and LIME result audit">
+        <div class="caption">SHAP/LIME diagnostics</div>
+      </article>
+      <article class="card evidence-table">
+        <img src="file:///D:/SET50_direction_prediction_paper/outputs/final_five_model_prediction_visuals_v1/final_five_model_results_table.png" alt="Final five-model result table">
+        <div class="caption">Final five-model held-out panel</div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

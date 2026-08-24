@@ -1,0 +1,24 @@
+{
+  "protocol_version": "track-c-shap-point-in-time-v2",
+  "selection_seed": 42,
+  "background_cap": 100,
+  "explanation_cap": 128,
+  "minimum_training_regime_sequences": 200,
+  "minimum_ranking_sequences": 40,
+  "shap_nsamples": 200,
+  "top_k_grid": [
+    10,
+    20,
+    30,
+    40,
+    60,
+    80,
+    100,
+    122
+  ],
+  "attribution_target": "predicted next-close minus current close in original units",
+  "consensus": "mean normalized rank across models and temporal folds",
+  "raw_magnitude_pooled_across_models": false,
+  "outer_data_used": false,
+  "lime_used_for_selection": false
+}

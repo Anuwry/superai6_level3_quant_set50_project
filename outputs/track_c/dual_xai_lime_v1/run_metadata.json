@@ -1,0 +1,51 @@
+{
+  "protocol_version": "track-c-dual-xai-lime-v1",
+  "started_at": "2026-07-31T13:28:16+00:00",
+  "completed_at": "2026-07-31T13:30:31+00:00",
+  "models_completed": [
+    "cnn",
+    "lstm",
+    "lstm_attention",
+    "lstm_cnn",
+    "lstm_cnn_attention"
+  ],
+  "folds_completed": [
+    "fold_1",
+    "fold_2",
+    "fold_3",
+    "fold_4"
+  ],
+  "outer_results_verified_complete": true,
+  "outer_run_metadata_sha256": "6d718c1066ad4a34a000ffc5275e59c66d33994d0a47ad040825aea73a1d95af",
+  "lime_outer_explanations_generated": true,
+  "audit_instances": 360,
+  "local_explanation_rows": 263520,
+  "agreement_rows": 1800,
+  "low_fidelity_rows": 1293,
+  "runtime_seconds": 134.47040639999614,
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "shap": "0.52.0",
+    "tensorflow": "2.21.0"
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10",
+  "artifacts": [
+    "protocol.json",
+    "selected_instances.csv",
+    "local_explanations.csv",
+    "agreement_by_instance.csv",
+    "lime_stability_by_instance.csv",
+    "summary_by_model_fold_regime.csv",
+    "summary_pooled_by_model_regime.csv",
+    "agreement_excluding_structural_close.csv",
+    "summary_excluding_structural_close.csv",
+    "low_fidelity_audit.csv",
+    "runtime_summary.csv",
+    "error_analysis_summary.csv",
+    "deviation_log.csv"
+  ]
+}

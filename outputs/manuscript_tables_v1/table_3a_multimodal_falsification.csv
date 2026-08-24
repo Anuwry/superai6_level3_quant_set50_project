@@ -1,0 +1,11 @@
+model,contrast,metric,point_estimate,ci95_lower,ci95_upper,two_sided_pvalue,two_sided_pvalue_holm,daily_rows
+lstm,observed_news_effect,balanced_accuracy_delta_pp,-1.5819622552959918,-5.311479285091557,2.1084441068866666,0.4042,1.0,960
+lstm,observed_vs_shuffled,balanced_accuracy_delta_pp,-3.2386084244948394,-5.952133152179021,-0.4727226983258502,0.022,0.098,960
+cnn,observed_news_effect,balanced_accuracy_delta_pp,-0.008730377515774,-2.1141670955705982,1.9888350800011323,0.9928,1.0,960
+cnn,observed_vs_shuffled,balanced_accuracy_delta_pp,-1.7151078790800118,-3.678508711690166,0.0485560913622945,0.057,0.171,960
+lstm_cnn,observed_news_effect,balanced_accuracy_delta_pp,-0.1724547130505377,-1.7836473480764288,1.3922852916942123,0.839,1.0,960
+lstm_cnn,observed_vs_shuffled,balanced_accuracy_delta_pp,1.0197933546720606,-0.8760904769812526,3.0764370521121727,0.3082,0.6164,960
+lstm_attention,observed_news_effect,balanced_accuracy_delta_pp,-1.894906554356068,-4.752049992319167,0.8350344900290684,0.1752,0.7008,960
+lstm_attention,observed_vs_shuffled,balanced_accuracy_delta_pp,0.1276135934050127,-1.3706933487387207,1.5599214492045954,0.8528,0.8528,960
+lstm_cnn_attention,observed_news_effect,balanced_accuracy_delta_pp,-1.2240104739193505,-2.7958138235750725,0.220436262637665,0.0962,0.481,960
+lstm_cnn_attention,observed_vs_shuffled,balanced_accuracy_delta_pp,-1.7845348662663445,-3.423200568591336,-0.2702704450173339,0.0196,0.098,960

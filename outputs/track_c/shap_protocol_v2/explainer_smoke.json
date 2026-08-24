@@ -1,0 +1,93 @@
+{
+  "created_at": "2026-07-31T04:05:28+00:00",
+  "protocol_version": "track-c-shap-point-in-time-v2",
+  "ranking_generated": false,
+  "explainer": "shap.GradientExplainer",
+  "attribution_target": "predicted next-close minus current close in original units",
+  "smoke_nsamples": 20,
+  "registered_nsamples": 200,
+  "random_seed": 42,
+  "results": [
+    {
+      "model": "lstm",
+      "input_shape": [
+        2,
+        3,
+        6
+      ],
+      "shap_shape": [
+        2,
+        3,
+        6
+      ],
+      "finite": true,
+      "repeat_max_abs_diff": 0.0,
+      "repeat_exact": true
+    },
+    {
+      "model": "cnn",
+      "input_shape": [
+        2,
+        3,
+        6
+      ],
+      "shap_shape": [
+        2,
+        3,
+        6
+      ],
+      "finite": true,
+      "repeat_max_abs_diff": 0.0,
+      "repeat_exact": true
+    },
+    {
+      "model": "lstm_cnn",
+      "input_shape": [
+        2,
+        3,
+        6
+      ],
+      "shap_shape": [
+        2,
+        3,
+        6
+      ],
+      "finite": true,
+      "repeat_max_abs_diff": 0.0,
+      "repeat_exact": true
+    },
+    {
+      "model": "lstm_attention",
+      "input_shape": [
+        2,
+        3,
+        6
+      ],
+      "shap_shape": [
+        2,
+        3,
+        6
+      ],
+      "finite": true,
+      "repeat_max_abs_diff": 0.0,
+      "repeat_exact": true
+    },
+    {
+      "model": "lstm_cnn_attention",
+      "input_shape": [
+        2,
+        3,
+        6
+      ],
+      "shap_shape": [
+        2,
+        3,
+        6
+      ],
+      "finite": true,
+      "repeat_max_abs_diff": 0.0,
+      "repeat_exact": true
+    }
+  ],
+  "all_models_passed": true
+}

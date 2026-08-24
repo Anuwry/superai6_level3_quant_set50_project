@@ -1,0 +1,12 @@
+{
+  "model": "lstm",
+  "stage": "xai_sanity",
+  "instances": 30,
+  "features": 122,
+  "trained_shap_seconds": 1.0706955999921774,
+  "random_initialization_shap_seconds": 0.9541508999973303,
+  "permuted_label_fit_seconds": 10.349814300003345,
+  "permuted_label_shap_seconds": 0.8465876999980537,
+  "deletion_seconds": 3.319820900011109,
+  "weight_reproduction_max_abs_error": 5.551115123125783e-17
+}

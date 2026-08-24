@@ -1,0 +1,62 @@
+{
+  "protocol_id": "tcrc-lstm-posthoc-development-v1",
+  "created_at": "2026-08-07T00:45:00+07:00",
+  "result_access_at_freeze": false,
+  "post_hoc_architecture_motivation": true,
+  "inner_development_years": [2020, 2021],
+  "outer_years_if_promoted": [2022, 2023, 2024, 2025],
+  "seeds": [42, 123, 456, 789, 2025],
+  "windows": {"cnn": 20, "lstm": 5},
+  "variants": [
+    "lstm_anchor",
+    "cnn_residual",
+    "latent_turn_gate",
+    "supervised_turn_gate",
+    "tcrc_full"
+  ],
+  "training": {
+    "epochs": 20,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "shuffle": false,
+    "gradient_clip_norm": 1.0
+  },
+  "primary_metric": "seed-averaged balanced accuracy from reconstructed return sign",
+  "promotion": {
+    "full_beats_every_ablation_each_inner_year": true,
+    "mean_bacc_margin_over_lstm_anchor_pp": 0.5,
+    "integrity_required": true
+  },
+  "inputs": [
+    {
+      "path": "outputs/track_a_final_point_in_time_v2/input_manifest.json",
+      "bytes": 10866,
+      "sha256": "a434716d32a2c29ae6eb51027d49b6ab0d2cd56d070a89840f93486b5b173b51"
+    },
+    {
+      "path": "outputs/track_a_final_point_in_time_v2/locked_windows.csv",
+      "bytes": 946,
+      "sha256": "47456d5827bcb6a4ca01ce56cff21fce67d065f89c953150552ada3ca9faa55f"
+    },
+    {
+      "path": "outputs/final_five_model_prediction_visuals_v1/final_five_model_metrics.csv",
+      "bytes": 888,
+      "sha256": "f83c090a8e21bc2f9aaa97ca8236125a600cffc5078e3254c17b0731c25306b1"
+    },
+    {
+      "path": "outputs/track_b/forward_news/daily_news_features_2019_2025.csv",
+      "bytes": 135901,
+      "sha256": "13d3fc66a94c58bed5d5b49992bb63eec8e15336ed4f37bce0f29143089ab6f0"
+    },
+    {
+      "path": "outputs/track_c/topk_validation_v2/selected_features.csv",
+      "bytes": 36865,
+      "sha256": "533e0ec56d5008c95c8d77b4e98bfb510b449544ef09fc0e565f5f78a1c0c441"
+    },
+    {
+      "path": "outputs/track_c/daily_regime_point_in_time_v2/fold_1/train_regimes.csv",
+      "bytes": 1261945,
+      "sha256": "085308b3cd6dc941b788e6b46ab8593d03198f29e3b862874b399e1e27ccafbb"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "protocol_version": "market-data-governance-v1",
+  "created_at_utc": "2026-08-03T14:43:47+00:00",
+  "internal_research_gate": "PASS",
+  "public_release_gate": "PENDING_REPOSITORY_REMEDIATION",
+  "raw_redistribution_gate": "EXCLUDED_PROVIDER_TERMS_APPLY",
+  "set50_data_gate": "PASS",
+  "set100_data_gate": "PASS",
+  "set100_benchmark_status": "NOT_STARTED_DATA_READY",
+  "timezone_gate": "PASS",
+  "timezone": "Asia/Bangkok",
+  "decision_time_bangkok": "17:00:00",
+  "adjustment_gate": "PASS_WITH_RETAINED_VENDOR_WARNINGS",
+  "set100_common_date_coverage": {
+    "reference_used": true,
+    "required_dates": 3381,
+    "matched_dates": 3360,
+    "missing_dates": 21,
+    "coverage": 0.9937888198757764,
+    "missing_date_sample": [
+      "2012-02-01",
+      "2012-02-02",
+      "2012-02-03",
+      "2012-02-06",
+      "2012-02-07",
+      "2012-02-08",
+      "2012-02-09",
+      "2012-02-10",
+      "2012-02-13",
+      "2012-02-14"
+    ],
+    "reference_path": "D:\\SET50_direction_prediction_paper\\data-prepared\\SET50_aligned.csv",
+    "reference_sha256": "1550879775d856fa2e9493661398c46d8baa9684367b7d2ab7e6c39a7a2017a0"
+  },
+  "set100_minimum_common_date_coverage": 0.99,
+  "license_policy": {
+    "status": "publicly_accessible_provider_download",
+    "evidence_status": "verified_public_provider_pages",
+    "raw_redistribution_allowed": false,
+    "derived_results_publication_allowed": true
+  },
+  "repository_distribution": {
+    "repository_root": "D:\\SET50_direction_prediction_paper",
+    "tracked_restricted_file_count": 7,
+    "history_restricted_file_count": 7,
+    "repository_distribution_gate": "REVIEW_REQUIRED_TRACKED_RESTRICTED_DATA",
+    "git_history_audit": "REVIEW_REQUIRED_RESTRICTED_DATA_IN_HISTORY"
+  }
+}

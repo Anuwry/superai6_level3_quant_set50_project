@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "status": "passed_with_declared_bookkeeping_deviation",
+  "protocol_id": "pit-cdr-lstm-direct-2024-2025-v1",
+  "cohort": {
+    "passed": true,
+    "rows_per_variant_seed": 478,
+    "candidate_cells": 30,
+    "frozen_models": 5
+  },
+  "expected_test_rows": {
+    "2024": 244,
+    "2025": 234
+  },
+  "registered_direction_evaluable_rows": 477,
+  "observed_direction_evaluable_rows": 478,
+  "protocol_deviation": {
+    "declared": true,
+    "type": "pre_execution_bookkeeping_count_error",
+    "registered_direction_evaluable_rows": 477,
+    "observed_direction_evaluable_rows": 478,
+    "explanation": "The freeze correctly registered 244 plus 234 test rows but incorrectly stated that one row was an actual zero-return tie. Recalculation from the frozen targets found no actual ties; all 478 rows are evaluable for every model. No row, prediction, threshold, or hyperparameter changed."
+  },
+  "candidate_cells": 60,
+  "variants": [
+    "direct_lstm",
+    "random_relations",
+    "counter_direction_only",
+    "cross_state_only",
+    "pit_cdr_lstm",
+    "permuted_regime_cdr"
+  ],
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    2025
+  ],
+  "test_years": [
+    2024,
+    2025
+  ],
+  "mechanism_supported": false
+}
