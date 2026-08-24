@@ -1,0 +1,15 @@
+{
+  "observations": 234,
+  "direction_evaluable": 234,
+  "direction_accuracy": 0.48717948717948717,
+  "balanced_accuracy": 0.5,
+  "mcc": 0.0,
+  "predicted_up_share": 1.0,
+  "tn": 0,
+  "fp": 120,
+  "fn": 0,
+  "tp": 114,
+  "fit_seconds": 5.541328399995109,
+  "inference_seconds": 0.3723059000039939,
+  "inference_parameters": 9553
+}

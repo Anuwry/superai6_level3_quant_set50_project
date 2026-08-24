@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "protocol_id": "sea-lstm-direct-2024-2025-v1",
+  "cohort": {
+    "passed": true,
+    "rows_per_variant_seed": 478,
+    "candidate_cells": 20,
+    "frozen_models": 5
+  },
+  "expected_test_rows": {
+    "2024": 244,
+    "2025": 234
+  },
+  "observed_direction_evaluable_rows": 478,
+  "candidate_cells": 40,
+  "variants": [
+    "standard_lstm",
+    "positive_memory_only",
+    "negative_memory_only",
+    "sea_lstm"
+  ],
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    2025
+  ],
+  "test_years": [
+    2024,
+    2025
+  ],
+  "promoted": false
+}

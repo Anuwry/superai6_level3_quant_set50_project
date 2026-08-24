@@ -1,0 +1,16 @@
+{
+  "promoted": false,
+  "conditions": {
+    "beats_attention_control_mean": true,
+    "beats_direction_consistency_mean": false,
+    "beats_mask_augmentation_mean": false,
+    "beats_attention_control_in_2024": true,
+    "beats_attention_control_in_2025": false,
+    "beats_best_frozen_model_mean": false,
+    "lower_jsd_than_attention_control": false,
+    "higher_top1_fidelity_than_attention_control": false
+  },
+  "fcta_balanced_accuracy_mean": 0.49868248376847635,
+  "best_frozen_balanced_accuracy_mean": 0.5370310302811339,
+  "failure_action": "close_without_tuning_or_second_run"
+}

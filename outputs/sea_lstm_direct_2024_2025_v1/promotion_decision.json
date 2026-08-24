@@ -1,0 +1,14 @@
+{
+  "promoted": false,
+  "conditions": {
+    "beats_standard_lstm_mean": true,
+    "beats_positive_memory_only_mean": false,
+    "beats_negative_memory_only_mean": true,
+    "beats_standard_lstm_in_2024": true,
+    "beats_standard_lstm_in_2025": true,
+    "beats_best_frozen_model_mean": false
+  },
+  "sea_lstm_balanced_accuracy_mean": 0.5095000681847968,
+  "best_frozen_balanced_accuracy_mean": 0.5370310302811339,
+  "failure_action": "close_without_tuning_or_second_run"
+}
