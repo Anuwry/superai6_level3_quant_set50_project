@@ -1,0 +1,6 @@
+model,selected_sequence_window,outer_test_years,outer_folds,seeds_per_fold,primary_metric,information_timezone,information_cutoff,numerical_features,news_features
+lstm,5,2022-2025,4,5,balanced_accuracy,Asia/Bangkok,17:00,122,8
+cnn,20,2022-2025,4,5,balanced_accuracy,Asia/Bangkok,17:00,122,8
+lstm_cnn,20,2022-2025,4,5,balanced_accuracy,Asia/Bangkok,17:00,122,8
+lstm_attention,10,2022-2025,4,5,balanced_accuracy,Asia/Bangkok,17:00,122,8
+lstm_cnn_attention,20,2022-2025,4,5,balanced_accuracy,Asia/Bangkok,17:00,122,8
