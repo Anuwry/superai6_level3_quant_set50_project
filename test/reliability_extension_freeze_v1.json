@@ -1,0 +1,23 @@
+{
+  "protocol_id": "multimodal-falsification-v1",
+  "frozen_at_utc": "2026-08-03T21:17:58Z",
+  "status": "frozen_before_control_results",
+  "evidence_status": "pre_frozen_retrospective_falsification",
+  "incremental_api_cost_usd": 0,
+  "primary_endpoint": "balanced_accuracy",
+  "primary_contrast": "observed_vs_shuffled",
+  "models": ["lstm", "cnn", "lstm_cnn", "lstm_attention", "lstm_cnn_attention"],
+  "folds": ["fold_1", "fold_2", "fold_3", "fold_4"],
+  "seeds": [42, 123, 456, 789, 2025],
+  "news_lag_trading_rows": 5,
+  "bootstrap_block_length": 10,
+  "bootstrap_replicates": 10000,
+  "inputs": [
+    {"path": "models/multimodal_falsification.py", "bytes": 8703, "sha256": "1f47936841075897a1f18c8367fca4894b276f9f78567196e53ebaf19fba289a"},
+    {"path": "models/multimodal_falsification_runner.py", "bytes": 27511, "sha256": "9233d7b1c44314032fbe68e68bcb76d1043166644bdd0e00eb523e8767233151"},
+    {"path": "test/integrated_multimodal_freeze_v1.json", "bytes": 4635, "sha256": "30400c1051dad84910bd20c39af4b0d5ab1d62257f19f5379cbb599af9c4b954"},
+    {"path": "outputs/integrated_multimodal_posthoc_v1/predictions_seed_averaged.csv", "bytes": 1816221, "sha256": "dbe354f711872eb97f17fadc1c50efee3203b9fc75753f6f00d500d0f59f1158"},
+    {"path": "outputs/track_b/forward_news/daily_news_features_2019_2025.csv", "bytes": 135901, "sha256": "13d3fc66a94c58bed5d5b49992bb63eec8e15336ed4f37bce0f29143089ab6f0"},
+    {"path": "outputs/track_a_final_point_in_time_v2/locked_windows.csv", "bytes": 946, "sha256": "47456d5827bcb6a4ca01ce56cff21fce67d065f89c953150552ada3ca9faa55f"}
+  ]
+}
