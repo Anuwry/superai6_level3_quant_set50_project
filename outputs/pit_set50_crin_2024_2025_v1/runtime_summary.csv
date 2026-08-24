@@ -1,0 +1,2 @@
+cells,total_runtime_seconds,cell_runtime_seconds_mean,bottom_fit_seconds_total,leader_fit_seconds_total,top_only_fit_seconds_total,bottom_parameters,leader_parameters
+10,3983.455215000009,398.3455215000009,3726.1309591999743,41.61227880000661,51.073438300009,586,63

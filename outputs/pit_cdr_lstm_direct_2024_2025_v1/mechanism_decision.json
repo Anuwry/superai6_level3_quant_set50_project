@@ -1,0 +1,19 @@
+{
+  "supported": false,
+  "conditions": {
+    "beats_direct_lstm": false,
+    "beats_random_relations": true,
+    "beats_counter_direction_only": false,
+    "beats_cross_state_only": false,
+    "beats_permuted_regime_cdr": false
+  },
+  "pit_cdr_lstm_balanced_accuracy_mean": 0.48634010576613146,
+  "deltas_pp": {
+    "direct_lstm": -0.7711257752699929,
+    "random_relations": 0.950321176958141,
+    "counter_direction_only": -0.3328237183914784,
+    "cross_state_only": -2.500057558594654,
+    "permuted_regime_cdr": -4.9055773392698345
+  },
+  "reporting_rule": "mechanism supported only if every registered control is beaten; otherwise report as unsupported performance change"
+}
