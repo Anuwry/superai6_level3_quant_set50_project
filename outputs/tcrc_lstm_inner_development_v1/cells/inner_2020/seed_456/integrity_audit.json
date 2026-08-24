@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "protocol_id": "tcrc-lstm-posthoc-development-v1",
+  "freeze_verified": true,
+  "train_precedes_validation": true,
+  "finite_predictions": true,
+  "variants": 5,
+  "feature_count": 134
+}

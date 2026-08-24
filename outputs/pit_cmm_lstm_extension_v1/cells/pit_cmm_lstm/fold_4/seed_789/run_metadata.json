@@ -1,0 +1,48 @@
+{
+  "protocol_id": "pit-cmm-lstm-exploratory-v1",
+  "evidence_status": "post_freeze_exploratory_architecture_extension",
+  "created_at": "2026-08-04T13:34:54+00:00",
+  "model": "pit_cmm_lstm",
+  "model_label": "PIT-CMM-LSTM",
+  "fold": "fold_4",
+  "test_year": 2025,
+  "base_seed": 789,
+  "window": 5,
+  "arms": [
+    "Global-Numeric",
+    "Global-Numeric-News",
+    "Regime-SHAP-Numeric",
+    "Regime-SHAP-Numeric-News"
+  ],
+  "unique_fits": 8,
+  "cell_wall_seconds": 85.09779060000437,
+  "runtime_scope": "model build, fit, and test inference",
+  "incremental_api_cost_usd": 0,
+  "config": {
+    "protocol_id": "pit-cmm-lstm-exploratory-v1",
+    "model": "PIT-CMM-LSTM",
+    "evidence_status": "post_freeze_exploratory_architecture_extension",
+    "hyperparameter_tuning": false,
+    "model_parameters": {
+      "sequence_window": 5,
+      "hidden_units": 12,
+      "memory_rank": 4,
+      "dense_units": 8,
+      "epochs": 20,
+      "batch_size": 32,
+      "optimizer": "adam",
+      "loss": "mse",
+      "shuffle": false,
+      "negative_control_consistency_implemented": false
+    }
+  },
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "tensorflow": "2.21.0"
+  }
+}

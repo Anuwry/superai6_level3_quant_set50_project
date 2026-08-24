@@ -1,0 +1,5 @@
+model,arm,executed_fits,fit_seconds_total,fit_seconds_mean,inference_seconds_total,trainable_parameters_mean,training_sequences_min,training_sequences_max
+pit_cmm_lstm,Global-Numeric,20,206.1267684000195,10.306338420000975,18.637599000008777,9462.0,723,1451
+pit_cmm_lstm,Global-Numeric-News,20,205.05300110000826,10.252650055000412,18.461230899993097,10006.0,723,1451
+pit_cmm_lstm,Regime-SHAP-Numeric,60,481.033024299948,8.0172170716658,55.63469170004828,6424.666666666667,216,559
+pit_cmm_lstm,Regime-SHAP-Numeric-News,60,477.2183390000573,7.953638983334288,56.53527509995911,6968.666666666667,216,559

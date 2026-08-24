@@ -1,0 +1,42 @@
+{
+  "protocol_id": "pit-cmm-lstm-exploratory-v1",
+  "evidence_status": "post_freeze_exploratory_architecture_extension",
+  "result_access_at_freeze": false,
+  "model_key": "pit_cmm_lstm",
+  "window": 5,
+  "seeds": [42, 123, 456, 789, 2025],
+  "folds": ["fold_1", "fold_2", "fold_3", "fold_4"],
+  "arms": [
+    "Global-Numeric",
+    "Global-Numeric-News",
+    "Regime-SHAP-Numeric",
+    "Regime-SHAP-Numeric-News"
+  ],
+  "architecture": {
+    "hidden_units": 12,
+    "memory_rank": 4,
+    "dense_units": 8,
+    "epochs": 20,
+    "batch_size": 32,
+    "optimizer": "adam",
+    "loss": "mse",
+    "shuffle": false
+  },
+  "primary_metric": "balanced_accuracy",
+  "primary_arm": "Regime-SHAP-Numeric-News",
+  "primary_comparator": "lstm",
+  "promotion_gates": {
+    "minimum_bacc_delta_pp": 1.0,
+    "minimum_positive_temporal_folds": 3,
+    "maximum_parameter_delta_fraction": 0.15,
+    "require_finite_complete_predictions": true
+  },
+  "negative_control_consistency_implemented": false,
+  "input_sha256": {
+    "integrated_freeze_manifest": "30400c1051dad84910bd20c39af4b0d5ab1d62257f19f5379cbb599af9c4b954",
+    "locked_windows": "47456d5827bcb6a4ca01ce56cff21fce67d065f89c953150552ada3ca9faa55f",
+    "daily_news_features": "13d3fc66a94c58bed5d5b49992bb63eec8e15336ed4f37bce0f29143089ab6f0",
+    "regime_shap_selections": "533e0ec56d5008c95c8d77b4e98bfb510b449544ef09fc0e565f5f78a1c0c441"
+  }
+}
+

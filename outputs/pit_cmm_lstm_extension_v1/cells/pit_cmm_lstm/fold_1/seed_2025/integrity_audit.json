@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "arms": 4,
+  "unique_fits": 8,
+  "test_rows": 241,
+  "minimum_training_sequences": 216,
+  "protocol_id": "pit-cmm-lstm-exploratory-v1",
+  "extension_freeze_passed": true,
+  "integrated_freeze_passed": true,
+  "regime_training_sequence_counts": {
+    "bull": 216,
+    "sideway": 286,
+    "bear": 220
+  }
+}
