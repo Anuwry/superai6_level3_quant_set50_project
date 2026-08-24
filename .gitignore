@@ -32,6 +32,7 @@ data-raw/track_b/
 # Manuscript render checks and local build intermediates.
 paper/qa/
 paper/_qa*/
+paper/figures/_chrome_profile/
 tmp/
 outputs/graphical_abstract_set_reliability_v*/
 outputs/*.pptx.inspect.ndjson
@@ -53,6 +54,7 @@ outputs/**/.cache/
 # Operating-system metadata.
 .DS_Store
 Thumbs.db
+~$*
 
 # Private working evidence and generated public-release bundles.
 private/

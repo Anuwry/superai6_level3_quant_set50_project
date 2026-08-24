@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=2400, initial-scale=1">
+<title>SET reliability graphical abstract - submission candidate</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;width:2400px;height:960px;overflow:hidden;background:#fff}
+  body{font-family:"Times New Roman",Times,serif;color:#111}
+  .page{width:2400px;height:960px;padding:30px 40px 18px;display:grid;grid-template-rows:1fr 48px;gap:12px;background:#fff}
+  .main{display:grid;grid-template-columns:480px 1100px 630px;gap:55px;position:relative;min-height:0}
+  .connector{position:absolute;top:430px;font-size:46px;line-height:1}.connector.left{left:486px}.connector.right{left:1641px}
+  .heading{height:50px;border-bottom:2px solid #111;display:flex;align-items:center;font-size:30px;font-weight:bold}
+  .box{border:1.5px solid #111;background:#fff}
+  h2,h3,p{margin-top:0}.caps{text-transform:uppercase;letter-spacing:.7px;font-size:18px;font-weight:bold}
+
+  /* input */
+  .input-body{height:calc(100% - 50px);padding-top:18px;display:grid;grid-template-rows:426px 274px;gap:20px}
+  .market{padding:18px 20px}.market h2{font-size:29px;margin:6px 0 10px}.meta{display:flex;gap:13px;font-size:18px;font-weight:bold;margin-bottom:13px}.meta span+span{border-left:1px solid #111;padding-left:13px}
+  .plot{display:block;width:100%;height:205px;object-fit:cover;object-position:center;border:1px solid #555;filter:grayscale(1)}
+  .note{font-size:17.5px;line-height:1.28;margin-top:11px}
+  .news{padding:18px 20px}.news h2{font-size:27px;margin:6px 0 13px}.news-flow{display:grid;grid-template-columns:1fr 23px 1fr 23px 1fr;align-items:center;gap:5px;margin:13px 0 15px}.news-node{border:1px solid #111;min-height:64px;padding:9px 7px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:16.5px;line-height:1.15}.arrow{text-align:center;font-size:23px}.news p{font-size:17.5px;line-height:1.28;margin:0}
+
+  /* method */
+  .method-body{height:calc(100% - 50px);padding-top:18px;display:grid;grid-template-rows:274px 22px 202px 22px 105px 22px 64px}
+  .outer{padding:14px 16px}.outer-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}.outer-top strong{font-size:22px}.outer-top span{font-size:17px}.contract{text-align:center;font-size:17px;margin:2px 0 10px}
+  .fold-table{display:grid;grid-template-rows:repeat(4,30px);gap:5px}.fold-row{display:grid;grid-template-columns:90px 1fr;gap:9px;align-items:center}.fold-label{font-size:16.5px;font-weight:bold}.years{display:grid;grid-template-columns:repeat(14,1fr);gap:3px}.cell{height:28px;border:1px solid #8a8a8a}.train{background:#e6e6e6}.test{border:1.5px solid #111;background:repeating-linear-gradient(135deg,#fff 0,#fff 5px,#777 6px,#777 7px)}.empty{border-color:#ccc;background:#fff}
+  .year-axis{margin-left:99px;display:grid;grid-template-columns:repeat(14,1fr);font-size:13.5px;text-align:center;margin-top:5px}.legend{display:flex;justify-content:center;gap:24px;font-size:15px;margin-top:7px}.swatch{display:inline-block;width:24px;height:14px;border:1px solid #777;vertical-align:-2px;margin-right:6px}.swatch.tr{background:#e6e6e6}.swatch.te{border:1.5px solid #111;background:repeating-linear-gradient(135deg,#fff 0,#fff 4px,#777 5px,#777 6px)}
+  .down{text-align:center;font-size:23px;line-height:22px}
+  .audits{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}.audit{border:1.3px solid #111;padding:12px 14px}.audit h3{font-size:21px;margin-bottom:5px}.audit p{font-size:16.5px;line-height:1.2;margin:0}
+  .models{border:1.5px solid #111;padding:12px 14px;display:grid;grid-template-columns:145px 1fr;gap:12px;align-items:center}.models strong{font-size:20px}.model-list{display:flex;flex-wrap:wrap;gap:7px 10px}.model-list span{border:1px solid #111;padding:5px 8px;font-size:16.5px}
+  .target{border:2px solid #111;display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:bold}.target b{margin-left:14px}
+
+  /* findings */
+  .findings{height:calc(100% - 50px);padding-top:18px;display:grid;grid-template-rows:480px 220px;gap:18px}
+  .results{border:1.5px solid #111}.result{height:120px;padding:14px 18px;border-bottom:1px solid #111;display:grid;grid-template-columns:1fr 205px;gap:12px;align-items:center}.result:last-child{border-bottom:0}.result h3{font-size:22px;margin-bottom:5px}.result p{font-size:16.5px;line-height:1.22;margin:0}.value{text-align:right;font-size:35px;font-weight:bold;line-height:1.02}.value.long{font-size:27px}.value.lime{font-size:31px}
+  .robust{border:1.5px solid #111;padding:15px 18px}.robust h3{font-size:22px;margin-bottom:9px}.robust p{font-size:16.5px;line-height:1.22;margin:6px 0}.conclusion{border-top:1px solid #111;margin-top:10px!important;padding-top:10px;font-size:19px!important;font-weight:bold}
+  .footer{border-top:1.4px solid #111;display:flex;justify-content:center;align-items:center;gap:17px;font-size:18px}.footer span+span:before{content:"\2022";margin-right:17px}
+
+  /* Optional restrained-colour rendering. The default file remains black and white. */
+  body.subtle-color{color:#182b3a}
+  body.subtle-color .heading{color:#1f4057;border-bottom-color:#1f4057}
+  body.subtle-color .connector,
+  body.subtle-color .down{color:#1f4057}
+  body.subtle-color .market{background:#fbfaf4}
+  body.subtle-color .news{background:#f7f9fa}
+  body.subtle-color .outer{background:#f7f9fa;border-color:#486176}
+  body.subtle-color .train{background:#dfe8d9;border-color:#7e9276}
+  body.subtle-color .test{border-color:#486176;background:repeating-linear-gradient(135deg,#e7eef3 0,#e7eef3 5px,#7891a2 6px,#7891a2 7px)}
+  body.subtle-color .swatch.tr{background:#dfe8d9;border-color:#7e9276}
+  body.subtle-color .swatch.te{border-color:#486176;background:repeating-linear-gradient(135deg,#e7eef3 0,#e7eef3 4px,#7891a2 5px,#7891a2 6px)}
+  body.subtle-color .audit{border-color:#596e7c}
+  body.subtle-color .audit:nth-child(1),
+  body.subtle-color .audit:nth-child(4){background:#f3f7f9}
+  body.subtle-color .audit:nth-child(2),
+  body.subtle-color .audit:nth-child(3){background:#fafaf6}
+  body.subtle-color .models{background:#fbfcfc;border-color:#486176}
+  body.subtle-color .target{border-color:#1f4057;background:#eef3f6}
+  body.subtle-color .results{border-color:#486176}
+  body.subtle-color .result:first-child{background:#edf3e9}
+  body.subtle-color .value{color:#3f7050}
+  body.subtle-color .result:nth-child(3) .value,
+  body.subtle-color .result:nth-child(4) .value{color:#8a593c}
+  body.subtle-color .robust{background:#fbfaf6;border-color:#596e7c}
+  body.subtle-color .conclusion{color:#1f4057;border-top-color:#596e7c}
+  body.subtle-color .footer{color:#243a49;border-top-color:#486176}
+
+  /* Submission colour version: larger type for legibility at journal scale. */
+  body.subtle-color .heading{font-size:34px}
+  body.subtle-color .caps{font-size:20px}
+  body.subtle-color .market h2{font-size:32px}
+  body.subtle-color .meta{font-size:19.5px}
+  body.subtle-color .note{font-size:19px}
+  body.subtle-color .news h2{font-size:29px}
+  body.subtle-color .news-node{font-size:17.5px}
+  body.subtle-color .news p{font-size:18.5px}
+  body.subtle-color .outer-top strong{font-size:24px}
+  body.subtle-color .outer-top span{font-size:18px}
+  body.subtle-color .contract{font-size:18px}
+  body.subtle-color .fold-label{font-size:17.5px}
+  body.subtle-color .year-axis{font-size:14.5px}
+  body.subtle-color .legend{font-size:16px}
+  body.subtle-color .audit h3{font-size:22.5px}
+  body.subtle-color .audit p{font-size:17.5px}
+  body.subtle-color .models strong{font-size:21.5px}
+  body.subtle-color .model-list span{font-size:17.5px}
+  body.subtle-color .target{font-size:25px}
+  body.subtle-color .result h3{font-size:23.5px}
+  body.subtle-color .result p{font-size:17.5px}
+  body.subtle-color .value{font-size:38px}
+  body.subtle-color .value.long{font-size:29px}
+  body.subtle-color .value.lime{font-size:34px}
+  body.subtle-color .robust h3{font-size:23.5px}
+  body.subtle-color .robust p{font-size:17px}
+  body.subtle-color .conclusion{font-size:19.5px!important}
+  body.subtle-color .footer{font-size:19px}
+
+  /* Palette matched to the manuscript figures:
+     cream (sources), pale green (features), pale blue (models/results),
+     grey (controls), and the same green/red result accents. */
+  body.paper-color{color:#1f2b31}
+  body.paper-color .heading{color:#111;border-bottom-color:#626262}
+  body.paper-color .connector,
+  body.paper-color .down{color:#626262}
+  body.paper-color .market{background:#f5f1e7;border-color:#626262}
+  body.paper-color .news{background:#fff;border-color:#626262}
+  body.paper-color .news-node{border-color:#626262}
+  body.paper-color .news-node:nth-child(1){background:#f5f1e7}
+  body.paper-color .news-node:nth-child(3){background:#e2ecd7}
+  body.paper-color .news-node:nth-child(5){background:#d7e5f2}
+  body.paper-color .outer{background:#f1f1f1;border-color:#626262}
+  body.paper-color .train{background:#e2ecd7;border-color:#87967b}
+  body.paper-color .test{border-color:#5d7487;background:repeating-linear-gradient(135deg,#d7e5f2 0,#d7e5f2 5px,#7390a7 6px,#7390a7 7px)}
+  body.paper-color .swatch.tr{background:#e2ecd7;border-color:#87967b}
+  body.paper-color .swatch.te{border-color:#5d7487;background:repeating-linear-gradient(135deg,#d7e5f2 0,#d7e5f2 4px,#7390a7 5px,#7390a7 6px)}
+  body.paper-color .audit{border-color:#626262}
+  body.paper-color .audit:nth-child(1){background:#e2ecd7}
+  body.paper-color .audit:nth-child(2){background:#f5f1e7}
+  body.paper-color .audit:nth-child(3){background:#e2ecd7}
+  body.paper-color .audit:nth-child(4){background:#f1f1f1}
+  body.paper-color .models{background:#d7e5f2;border-color:#626262}
+  body.paper-color .model-list span{background:#fff;border-color:#626262}
+  body.paper-color .target{background:#d7e5f2;border-color:#5d7487}
+  body.paper-color .results{border-color:#626262}
+  body.paper-color .result{background:#fff;border-bottom-color:#626262}
+  body.paper-color .result:first-child{background:#d7e5f2}
+  body.paper-color .result:nth-child(2){background:#e2ecd7}
+  body.paper-color .result:nth-child(3){background:#e2ecd7}
+  body.paper-color .result:nth-child(4){background:#fff4ea}
+  body.paper-color .result:nth-child(-n+3) .value{color:#4c956c}
+  body.paper-color .result:nth-child(4) .value{color:#c65d57}
+  body.paper-color .robust{background:#f1f1f1;border-color:#626262}
+  body.paper-color .conclusion{color:#3f5f74;border-top-color:#626262}
+  body.paper-color .footer{color:#333;border-top-color:#626262}
+
+  /* Larger journal-display type: uses the remaining space without changing content. */
+  body.large-type .heading{font-size:38px}
+  body.large-type .input-body{grid-template-rows:426px 294px}
+  body.large-type .findings{grid-template-rows:480px 240px}
+  body.large-type .caps{font-size:22px}
+  body.large-type .market h2{font-size:35px}
+  body.large-type .meta{font-size:21px}
+  body.large-type .note{font-size:20.5px}
+  body.large-type .news h2{font-size:32px}
+  body.large-type .news-node{font-size:19px}
+  body.large-type .news p{font-size:20px}
+  body.large-type .arrow{font-size:26px}
+  body.large-type .outer-top strong{font-size:27px}
+  body.large-type .outer-top span{font-size:19.5px}
+  body.large-type .contract{font-size:19.5px}
+  body.large-type .fold-row{grid-template-columns:100px 1fr}
+  body.large-type .fold-label{font-size:19px}
+  body.large-type .year-axis{margin-left:109px;font-size:15.5px}
+  body.large-type .legend{font-size:17px}
+  body.large-type .audit h3{font-size:25px}
+  body.large-type .audit p{font-size:18.5px}
+  body.large-type .models strong{font-size:23.5px}
+  body.large-type .model-list span{font-size:19px}
+  body.large-type .target{font-size:28px}
+  body.large-type .result{grid-template-columns:1fr 220px}
+  body.large-type .result h3{font-size:26px}
+  body.large-type .result p{font-size:19px}
+  body.large-type .value{font-size:42px}
+  body.large-type .value.long{font-size:32px}
+  body.large-type .value.lime{font-size:38px}
+  body.large-type .robust h3{font-size:25.5px}
+  body.large-type .robust p{font-size:17.5px}
+  body.large-type .conclusion{font-size:20.5px!important}
+  body.large-type .footer{font-size:20.5px}
+</style>
+</head>
+<body>
+<div class="page">
+  <main class="main">
+    <div class="connector left">&#8594;</div><div class="connector right">&#8594;</div>
+
+    <section>
+      <div class="heading">Input data</div>
+      <div class="input-body">
+        <article class="box market">
+          <div class="caps">Market series</div>
+          <h2>SET50 daily index</h2>
+          <div class="meta"><span>2012-2025</span><span>116 TA features</span><span>t+1 target</span></div>
+          <img class="plot" src="../assets/graphical_abstract_v8_set50_actual_2012_2025.png" alt="Observed SET50 daily closing index from 2012 to 2025">
+          <div class="note">All numerical features are reconstructed using only information available by the close of day t.</div>
+        </article>
+        <article class="box news">
+          <div class="caps">Financial-news modality</div>
+          <h2>Dated news to out-of-sample sentiment</h2>
+          <div class="news-flow"><div class="news-node">Dated articles</div><div class="arrow">&#8594;</div><div class="news-node">Date, ticker and relevance filter</div><div class="arrow">&#8594;</div><div class="news-node">Expanding OOS sentiment</div></div>
+          <p>Sentiment is generated without using labels from the subsequent forecasting period.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="heading">Point-in-time reliability evaluation</div>
+      <div class="method-body">
+        <article class="box outer">
+          <div class="outer-top"><strong>Expanding-window outer folds</strong><span>Train-only transforms; purged labels</span></div>
+          <div class="contract">Features through day t &#8594; predict day t+1 &#8594; observe the label after day t+1</div>
+          <div class="fold-table">
+            <div class="fold-row"><div class="fold-label">Outer 2022</div><div class="years"><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell test"></i><i class="cell empty"></i><i class="cell empty"></i><i class="cell empty"></i></div></div>
+            <div class="fold-row"><div class="fold-label">Outer 2023</div><div class="years"><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell test"></i><i class="cell empty"></i><i class="cell empty"></i></div></div>
+            <div class="fold-row"><div class="fold-label">Outer 2024</div><div class="years"><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell test"></i><i class="cell empty"></i></div></div>
+            <div class="fold-row"><div class="fold-label">Outer 2025</div><div class="years"><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell train"></i><i class="cell test"></i></div></div>
+          </div>
+          <div class="year-axis"><span>2012</span><span></span><span></span><span>2015</span><span></span><span></span><span>2018</span><span></span><span></span><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span></div>
+          <div class="legend"><span><i class="swatch tr"></i>expanding training data</span><span><i class="swatch te"></i>held-out test year</span></div>
+        </article>
+        <div class="down">&#8595;</div>
+        <div class="audits">
+          <article class="audit"><h3>Causal VMD</h3><p>Rolling 60-day decomposition versus matched technical inputs.</p></article>
+          <article class="audit"><h3>News and LLM</h3><p>Downstream controls and a separate Bull/Bear/Leader sentiment audit.</p></article>
+          <article class="audit"><h3>Regime and XAI</h3><p>Causal Bull/Sideway/Bear routing, train-only SHAP and LIME fidelity.</p></article>
+          <article class="audit"><h3>Forward and transfer</h3><p>Partial-2026 stress testing and frozen SET100 evaluation.</p></article>
+        </div>
+        <div class="down">&#8595;</div>
+        <div class="models"><strong>Five fixed models</strong><div class="model-list"><span>LSTM</span><span>CNN</span><span>LSTM-CNN</span><span>LSTM-Attention</span><span>LSTM-CNN-Attention</span></div></div>
+        <div class="down">&#8595;</div>
+        <div class="target">Next-session SET direction <b>UP / DOWN</b></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="heading">Main findings</div>
+      <div class="findings">
+        <div class="results">
+          <div class="result"><div><h3>Best mean balanced accuracy</h3><p>LSTM-CNN-Attention; four held-out years and five seeds.</p></div><div class="value">53.64%</div></div>
+          <div class="result"><div><h3>CNN with Regime-SHAP</h3><p>Largest selective forecasting gain.</p></div><div class="value">+1.46 pp</div></div>
+          <div class="result"><div><h3>Leader sentiment</h3><p>Versus equal-call and near-cost controls; intrinsic endpoint.</p></div><div class="value long">+5.93 / +6.00 pp</div></div>
+          <div class="result"><div><h3>LIME fidelity stress test</h3><p>Share of repeated explanations classified as low fidelity.</p></div><div class="value lime">71.83%</div></div>
+        </div>
+        <div class="robust">
+          <h3>Robustness results</h3>
+          <p>VMD effect: -0.60 to +0.35 percentage points.</p>
+          <p>Predicted news: no consistent adjusted forecasting gain.</p>
+          <p>Partial-2026 stress test: one-sided collapse in several objectives.</p>
+          <p>SET100 transfer: lower mean balanced accuracy for all five models.</p>
+          <p class="conclusion">Observed improvements were architecture- and endpoint-dependent rather than universal.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><span>962 held-out sessions</span><span>four outer test years</span><span>five fixed seeds</span><span>paired comparisons</span><span>Holm-adjusted inference</span></footer>
+</div>
+<script>
+  if (new URLSearchParams(window.location.search).get('color') === '1') {
+    document.body.classList.add('subtle-color');
+  }
+  if (new URLSearchParams(window.location.search).get('palette') === 'paper') {
+    document.body.classList.add('subtle-color', 'paper-color');
+  }
+  if (new URLSearchParams(window.location.search).get('type') === 'large') {
+    document.body.classList.add('large-type');
+  }
+</script>
+</body>
+</html>

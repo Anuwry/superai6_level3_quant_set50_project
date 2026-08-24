@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SET50 reliability framework progress deck</title>
+<style>
+  :root {
+    --ink: #151718;
+    --muted: #555b60;
+    --rule: #b8bcc4;
+    --panel: #ededed;
+    --soft: #f7f7f5;
+    --orange: #ff6b35;
+    --pale-orange: #fff0e9;
+    --blue: #dce7ef;
+    --green: #e0ead8;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--ink);
+  }
+  .slide { position: relative; width: 1280px; height: 720px; display: none; overflow: hidden; background: #fff; }
+  .slide.active { display: block; }
+  .orange-rule { position: absolute; left: 48px; top: 34px; width: 58px; height: 5px; background: var(--orange); }
+  .kicker { position: absolute; left: 120px; top: 24px; font-size: 16px; line-height: 24px; font-weight: 700; color: var(--muted); letter-spacing: .6px; }
+  .page { position: absolute; right: 49px; top: 24px; font-size: 17px; line-height: 24px; font-weight: 700; color: var(--muted); }
+  .title { position: absolute; left: 48px; top: 62px; width: 1170px; font-size: 48px; line-height: 1.06; font-weight: 700; letter-spacing: -1.2px; white-space: nowrap; }
+  .footer-rule { position: absolute; left: 48px; right: 48px; bottom: 32px; height: 1px; background: var(--rule); }
+  .footer { position: absolute; left: 48px; bottom: 10px; font-size: 14px; color: var(--muted); }
+  .img-frame { background: #fff; border: 1px solid var(--rule); overflow: hidden; }
+  .img-frame img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .body { font-size: 24px; line-height: 1.32; color: var(--muted); }
+  .subhead { font-size: 32px; line-height: 1.12; font-weight: 700; }
+  .metric { font-size: 43px; line-height: 1; font-weight: 700; color: var(--orange); }
+  .metric-label { margin-top: 9px; font-size: 20px; line-height: 1.25; color: var(--muted); }
+  .thin-rule { height: 1px; background: var(--rule); }
+  .accent-band { background: var(--pale-orange); border-left: 7px solid var(--orange); }
+
+  /* Cover */
+  .cover-label { position: absolute; left: 52px; top: 43px; font-size: 18px; font-weight: 700; letter-spacing: 1.4px; color: var(--orange); }
+  .cover-title { position: absolute; left: 52px; top: 112px; width: 655px; font-size: 68px; line-height: 0.98; font-weight: 700; letter-spacing: -2.4px; }
+  .cover-subtitle { position: absolute; left: 54px; top: 538px; width: 620px; font-size: 24px; line-height: 1.22; color: var(--muted); }
+  .cover-meta { position: absolute; left: 54px; bottom: 29px; width: 610px; font-size: 18px; color: var(--muted); }
+  .cover-visual { position: absolute; right: 44px; top: 58px; width: 505px; height: 560px; background: #f4f6f6; overflow: hidden; border: 1px solid var(--rule); }
+  .cover-visual img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .cover-bottom { position: absolute; left: 733px; right: 44px; bottom: 52px; font-size: 17px; font-weight: 700; color: var(--ink); text-align: center; }
+
+  /* Slide 2 */
+  .problem-copy { position: absolute; left: 49px; top: 153px; width: 334px; }
+  .problem-copy .lead { font-size: 32px; line-height: 1.15; font-weight: 700; color: var(--ink); margin-bottom: 28px; }
+  .problem-copy .item { font-size: 23px; line-height: 1.3; color: var(--muted); margin: 23px 0; }
+  .problem-visual { position: absolute; left: 424px; top: 143px; width: 806px; height: 486px; }
+  .problem-question { position: absolute; left: 49px; top: 557px; width: 333px; padding: 16px 18px; font-size: 21px; line-height: 1.25; font-weight: 700; }
+
+  /* Slide 3 */
+  .framework-visual { position: absolute; left: 48px; top: 148px; width: 778px; height: 490px; }
+  .dimension-list { position: absolute; left: 866px; top: 149px; width: 350px; }
+  .dimension-list .label { font-size: 25px; font-weight: 700; margin-bottom: 16px; }
+  .dimension { border-top: 1px solid var(--rule); padding: 14px 0 11px; }
+  .dimension:first-of-type { border-top: 4px solid var(--orange); }
+  .dimension b { display: block; font-size: 22px; line-height: 1.15; margin-bottom: 4px; }
+  .dimension span { display: block; font-size: 17px; line-height: 1.25; color: var(--muted); }
+
+  /* Slide 4 */
+  .pit-stats { position: absolute; left: 49px; top: 148px; width: 306px; }
+  .pit-stat { padding: 16px 0 19px; border-top: 1px solid var(--rule); }
+  .pit-stat:first-child { border-top: 4px solid var(--orange); }
+  .pit-stat b { display: block; font-size: 34px; line-height: 1; margin-bottom: 7px; }
+  .pit-stat span { font-size: 19px; line-height: 1.25; color: var(--muted); }
+  .pit-visual { position: absolute; left: 394px; top: 148px; width: 836px; height: 443px; }
+  .pit-contract { position: absolute; left: 394px; top: 605px; width: 836px; padding: 11px 16px; font-size: 19px; line-height: 1.2; text-align: center; font-weight: 700; }
+
+  /* Slide 5 */
+  .vmd-visual { position: absolute; left: 48px; top: 150px; width: 778px; height: 478px; }
+  .vmd-copy { position: absolute; left: 866px; top: 152px; width: 350px; }
+  .vmd-range { margin-top: 5px; padding: 24px 20px; background: var(--pale-orange); border-top: 5px solid var(--orange); }
+  .vmd-range .metric { font-size: 42px; }
+  .models { margin-top: 28px; font-size: 22px; line-height: 1.55; }
+  .vmd-verdict { margin-top: 25px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 23px; line-height: 1.22; font-weight: 700; color: var(--orange); }
+
+  /* Slide 6 */
+  .llm-visual { position: absolute; left: 49px; top: 152px; width: 814px; height: 463px; }
+  .llm-copy { position: absolute; left: 900px; top: 151px; width: 319px; }
+  .endpoint { padding: 18px 0 24px; border-top: 1px solid var(--rule); }
+  .endpoint:first-child { border-top: 5px solid var(--orange); }
+  .endpoint h3 { margin: 0 0 10px; font-size: 27px; line-height: 1.12; }
+  .endpoint p { margin: 0; font-size: 20px; line-height: 1.3; color: var(--muted); }
+  .endpoint strong { color: var(--orange); }
+  .boundary { margin-top: 24px; padding: 14px 15px; background: var(--soft); font-size: 18px; line-height: 1.25; color: var(--muted); }
+
+  /* Slide 7 */
+  .xai-copy { position: absolute; left: 49px; top: 151px; width: 326px; }
+  .xai-copy .metric-block { padding: 20px 0 22px; border-top: 1px solid var(--rule); }
+  .xai-copy .metric-block:first-child { border-top: 5px solid var(--orange); }
+  .xai-copy h3 { margin: 0 0 9px; font-size: 27px; line-height: 1.15; }
+  .xai-copy p { margin: 0; font-size: 20px; line-height: 1.28; color: var(--muted); }
+  .xai-visual { position: absolute; left: 415px; top: 151px; width: 815px; height: 475px; }
+
+  /* Slide 8 */
+  .results-callout { position: absolute; right: 50px; top: 129px; font-size: 22px; color: var(--muted); }
+  .results-callout b { color: var(--orange); font-size: 34px; margin-right: 7px; }
+  .results-table { position: absolute; left: 49px; top: 185px; width: 1180px; border-collapse: collapse; table-layout: fixed; }
+  .results-table th { background: var(--ink); color: #fff; font-size: 20px; text-align: left; padding: 15px 14px; }
+  .results-table td { font-size: 22px; padding: 16px 14px; border-bottom: 1px solid var(--rule); }
+  .results-table td:nth-child(n+3), .results-table th:nth-child(n+3) { text-align: center; }
+  .results-table tr.best td { background: var(--pale-orange); font-weight: 700; border-top: 2px solid var(--orange); border-bottom: 2px solid var(--orange); }
+  .results-note { position: absolute; left: 49px; top: 593px; width: 1180px; padding: 14px 18px; font-size: 20px; line-height: 1.2; background: var(--soft); text-align: center; color: var(--muted); }
+
+  /* Slide 9 */
+  .behavior-visual { position: absolute; left: 49px; top: 145px; width: 1180px; height: 448px; }
+  .behavior-reads { position: absolute; left: 49px; top: 608px; width: 1180px; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 32px; }
+  .behavior-reads div { border-top: 3px solid var(--rule); padding-top: 9px; font-size: 20px; line-height: 1.18; font-weight: 700; }
+  .behavior-reads div:nth-child(2) { border-color: #6e9e80; }
+  .behavior-reads div:nth-child(3) { border-color: #6d8ca3; }
+
+  /* Slide 10 */
+  .status-list { position: absolute; left: 49px; top: 151px; width: 470px; }
+  .status-row { display: grid; grid-template-columns: 58px 1fr 110px; column-gap: 15px; align-items: start; padding: 20px 0 22px; border-top: 1px solid var(--rule); }
+  .status-row:first-child { border-top: 5px solid var(--orange); }
+  .status-number { font-size: 20px; font-weight: 700; color: var(--muted); padding-top: 4px; }
+  .status-main b { display: block; font-size: 29px; line-height: 1.08; margin-bottom: 7px; }
+  .status-main span { display: block; font-size: 19px; line-height: 1.25; color: var(--muted); }
+  .status-tag { padding: 7px 7px; font-size: 14px; line-height: 1.1; text-align: center; font-weight: 700; letter-spacing: .4px; background: var(--soft); color: var(--muted); }
+  .status-row.complete .status-tag { background: var(--green); color: #31513a; }
+  .status-row.active .status-tag { background: var(--pale-orange); color: var(--orange); }
+  .status-row.next .status-tag { background: var(--blue); color: #38566b; }
+  .submission-visual { position: absolute; left: 566px; top: 151px; width: 663px; height: 394px; }
+  .visual-label { position: absolute; left: 566px; top: 557px; width: 663px; font-size: 18px; line-height: 1.2; color: var(--muted); text-align: center; }
+  .closing-line { position: absolute; left: 49px; top: 584px; width: 1180px; padding: 16px 20px; font-size: 22px; line-height: 1.22; font-weight: 700; text-align: center; }
+</style>
+</head>
+<body>
+
+<section class="slide" data-slide="1">
+  <div class="cover-label">RESEARCH PROGRESS</div>
+  <div class="cover-title">Evaluating<br>Multimodal and<br>Regime-Aware<br>Deep Learning for<br>Next-Day SET Index<br>Direction Forecasting</div>
+  <div class="cover-subtitle">A point-in-time reliability framework for numerical, news, regime and transfer testing</div>
+  <div class="cover-meta">arsanchai.su@wu.ac.th</div>
+  <div class="cover-visual"><img src="file:///D:/SET50_direction_prediction_paper/paper/assets/graphical_abstract_set_reliability_real_images_v4.png" alt="Graphical abstract of the SET forecasting reliability framework"></div>
+  <div class="cover-bottom">MARKET DATA  →  AUDIT FRAMEWORK  →  RELIABLE EVIDENCE</div>
+</section>
+
+<section class="slide" data-slide="2">
+  <div class="orange-rule"></div><div class="kicker">PROBLEM</div><div class="page">02</div>
+  <div class="title">A close price forecast can still miss tomorrow's direction</div>
+  <div class="problem-copy">
+    <div class="lead">Daily direction is a weak, non-stationary signal.</div>
+    <div class="item">Level error and directional accuracy measure different behavior.</div>
+    <div class="item">Temporal leakage, repeated selection and regime dependence can create fragile gains.</div>
+  </div>
+  <div class="problem-question accent-band">Which improvements remain reliable after stricter testing?</div>
+  <div class="problem-visual img-frame"><img src="file:///D:/SET50_direction_prediction_paper/outputs/final_five_model_prediction_visuals_v1/observed_vs_predicted_scatter_oos_2022_2025.png" alt="Observed versus predicted SET50 scatter plots"></div>
+  <div class="footer-rule"></div><div class="footer">Observed versus predicted SET50 levels, out-of-sample 2022-2025</div>
+</section>
+
+<section class="slide" data-slide="3">
+  <div class="orange-rule"></div><div class="kicker">SYSTEM</div><div class="page">03</div>
+  <div class="title">One framework audits five enhancement classes</div>
+  <div class="framework-visual img-frame"><img src="file:///D:/SET50_direction_prediction_paper/paper/figures/methods_v2_simple/figure1_overall_reliability_audit_pipeline.png" alt="Overall reliability audit pipeline"></div>
+  <div class="dimension-list">
+    <div class="label">Five reliability dimensions</div>
+    <div class="dimension"><b>Point-in-time data</b><span>No future information in features or labels</span></div>
+    <div class="dimension"><b>Causal denoising</b><span>VMD tested against matched raw inputs</span></div>
+    <div class="dimension"><b>News and LLM</b><span>Downstream value separated from intrinsic sentiment</span></div>
+    <div class="dimension"><b>Regime and XAI</b><span>Bull, Sideway and Bear routing</span></div>
+    <div class="dimension"><b>Forward and transfer</b><span>Later-period and SET100 robustness</span></div>
+  </div>
+  <div class="footer-rule"></div><div class="footer">A common protocol keeps the five model comparisons aligned</div>
+</section>
+
+<section class="slide" data-slide="4">
+  <div class="orange-rule"></div><div class="kicker">DATA CONTRACT</div><div class="page">04</div>
+  <div class="title">Every forecast uses only information available by day t</div>
+  <div class="pit-stats">
+    <div class="pit-stat"><b>2012-2025</b><span>SET50 daily market data</span></div>
+    <div class="pit-stat"><b>2022-2025</b><span>Four held-out outer years</span></div>
+    <div class="pit-stat"><b>962 sessions</b><span>Evaluated with five fixed seeds</span></div>
+    <div class="pit-stat"><b>t + 1</b><span>Next-session Up or Down target</span></div>
+  </div>
+  <div class="pit-visual img-frame"><img src="file:///D:/SET50_direction_prediction_paper/paper/figures/methods_v2_simple/figure3_point_in_time_expanding_window_design.png" alt="Point-in-time expanding-window protocol"></div>
+  <div class="pit-contract accent-band">Labels are purged by observation date; all transforms are fitted on training data only.</div>
+  <div class="footer-rule"></div><div class="footer">Expanding outer evaluation with frozen window selection</div>
+</section>
+
+<section class="slide" data-slide="5">
+  <div class="orange-rule"></div><div class="kicker">NUMERICAL TRACK</div><div class="page">05</div>
+  <div class="title">Causal VMD was tested across five frozen architectures</div>
+  <div class="vmd-visual img-frame"><img src="file:///D:/SET50_direction_prediction_paper/paper/figures/methods_v2_simple/figure4_vmd_and_registered_architectures.png" alt="Causal VMD and five neural architectures"></div>
+  <div class="vmd-copy">
+    <div class="vmd-range"><div class="metric">-0.60 to +0.35 pp</div><div class="metric-label">Balanced-accuracy effect across architectures</div></div>
+    <div class="models"><b>Registered models</b><br>LSTM<br>CNN<br>LSTM-CNN<br>LSTM-Attention<br>LSTM-CNN-Attention</div>
+    <div class="vmd-verdict">No conclusive general VMD gain</div>
+  </div>
+  <div class="footer-rule"></div><div class="footer">Full technical features versus causal rolling VMD augmentation</div>
+</section>
+
+<section class="slide" data-slide="6">
+  <div class="orange-rule"></div><div class="kicker">MULTIMODAL + LLM</div><div class="page">06</div>
+  <div class="title">News and LLM debate measure different endpoints</div>
+  <div class="llm-visual img-frame"><img src="file:///D:/SET50_direction_prediction_paper/paper/assets/figure5_separated_audits_v2.png" alt="Separated downstream forecasting and intrinsic LLM sentiment audits"></div>
+  <div class="llm-copy">
+    <div class="endpoint"><h3>Downstream market forecast</h3><p>Predicted news showed <strong>no robust incremental BAcc gain</strong> after falsification controls.</p></div>
+    <div class="endpoint"><h3>Locked intrinsic sentiment</h3><p>Leader improved by <strong>+5.93 and +6.00 pp</strong> versus compute-matched controls.</p></div>
+    <div class="boundary">The intrinsic Leader result is not presented as downstream market-forecast evidence.</div>
+  </div>
+  <div class="footer-rule"></div><div class="footer">Forecast utility and sentiment capability are evaluated as separate endpoints</div>
+</section>
+
+<section class="slide" data-slide="7">
+  <div class="orange-rule"></div><div class="kicker">REGIME + XAI</div><div class="page">07</div>
+  <div class="title">Regime-SHAP helped CNN but did not generalize</div>
+  <div class="xai-copy">
+    <div class="metric-block"><div class="metric">+1.46 pp</div><p>CNN balanced-accuracy change with regime-SHAP</p></div>
+    <div class="metric-block"><h3>Architecture dependent</h3><p>Effects were mixed or negative for the other four models.</p></div>
+    <div class="metric-block"><h3>No Holm significance</h3><p>No regime-SHAP contrast survived multiplicity adjustment.</p></div>
+    <div class="metric-block"><div class="metric">71.83%</div><p>LIME repeats with low local fidelity</p></div>
+  </div>
+  <div class="xai-visual img-frame"><img src="file:///D:/SET50_direction_prediction_paper/paper/assets/figure10_shap_lime_result_audit.png" alt="Regime-SHAP changes and LIME fidelity heatmap"></div>
+  <div class="footer-rule"></div><div class="footer">Explanations are treated as diagnostics rather than universal feature claims</div>
+</section>
+
+<section class="slide" data-slide="8">
+  <div class="orange-rule"></div><div class="kicker">FINAL FIVE-MODEL PANEL</div><div class="page">08</div>
+  <div class="title">The integrated arm peaked at 53.64% mean BAcc</div>
+  <div class="results-callout"><b>4 years × 5 seeds</b> common evaluation</div>
+  <table class="results-table">
+    <colgroup><col style="width:9%"><col style="width:35%"><col style="width:14%"><col style="width:21%"><col style="width:21%"></colgroup>
+    <thead><tr><th>Rank</th><th>Model</th><th>Window</th><th>Mean BAcc (%)</th><th>Direction Acc (%)</th></tr></thead>
+    <tbody>
+      <tr class="best"><td>1</td><td>LSTM-CNN-Attention</td><td>20</td><td>53.64 ± 2.42</td><td>53.43 ± 2.96</td></tr>
+      <tr><td>2</td><td>LSTM-CNN</td><td>20</td><td>52.81 ± 2.29</td><td>52.11 ± 2.58</td></tr>
+      <tr><td>3</td><td>LSTM-Attention</td><td>10</td><td>52.62 ± 1.46</td><td>52.40 ± 0.80</td></tr>
+      <tr><td>4</td><td>LSTM</td><td>5</td><td>52.01 ± 1.64</td><td>51.98 ± 0.43</td></tr>
+      <tr><td>5</td><td>CNN</td><td>20</td><td>51.49 ± 1.83</td><td>51.76 ± 1.75</td></tr>
+    </tbody>
+  </table>
+  <div class="results-note">All five models are above chance on average, but the gaps are modest and architecture-dependent.</div>
+  <div class="footer-rule"></div><div class="footer">Primary ranking metric: balanced accuracy</div>
+</section>
+
+<section class="slide" data-slide="9">
+  <div class="orange-rule"></div><div class="kicker">MODEL BEHAVIOR</div><div class="page">09</div>
+  <div class="title">Level tracking and directional accuracy are different</div>
+  <div class="behavior-visual img-frame"><img src="file:///D:/SET50_direction_prediction_paper/outputs/final_five_model_prediction_visuals_v1/actual_vs_predicted_oos_2025_zoom.png" alt="Actual and predicted SET50 trajectories in 2025"></div>
+  <div class="behavior-reads"><div>LSTM follows the price level more closely</div><div>CNN produces smoother trend tracking</div><div>Hybrids can show a larger level spread</div></div>
+  <div class="footer-rule"></div><div class="footer">Actual versus predicted SET50 levels in the 2025 out-of-sample window</div>
+</section>
+
+<section class="slide" data-slide="10">
+  <div class="orange-rule"></div><div class="kicker">CURRENT STATUS</div><div class="page">10</div>
+  <div class="title">The manuscript is complete; submission is next</div>
+  <div class="status-list">
+    <div class="status-row complete"><div class="status-number">01</div><div class="status-main"><b>Manuscript</b><span>Research, experiments and paper sections are complete.</span></div><div class="status-tag">COMPLETE</div></div>
+    <div class="status-row active"><div class="status-number">02</div><div class="status-main"><b>Graphical Abstract</b><span>Finalize the visual and align it with journal specifications.</span></div><div class="status-tag">FINAL UPDATE</div></div>
+    <div class="status-row next"><div class="status-number">03</div><div class="status-main"><b>Journal Submission</b><span>Run the final consistency check and submit the complete package.</span></div><div class="status-tag">NEXT</div></div>
+  </div>
+  <div class="submission-visual img-frame"><img src="file:///D:/SET50_direction_prediction_paper/paper/assets/graphical_abstract_set_reliability_real_images_v4.png" alt="Current graphical abstract draft"></div>
+  <div class="visual-label">Current graphical abstract draft under final refinement</div>
+  <div class="closing-line accent-band">Remaining work: finalize the graphical abstract, verify the submission package and send the manuscript to the journal.</div>
+  <div class="footer-rule"></div><div class="footer">Current project and publication status</div>
+</section>
+
+<script>
+  const selected = new URLSearchParams(location.search).get('s') || '1';
+  for (const slide of document.querySelectorAll('.slide')) {
+    slide.classList.toggle('active', slide.dataset.slide === selected);
+  }
+</script>
+</body>
+</html>
