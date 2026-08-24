@@ -15,6 +15,15 @@ The controlling executed pipeline is:
 - `../test/point_in_time_v2_correction_log.md`: correction and rerun log.
 - `../test/paper_reviewer_audit_pre_shap.md`: preserved reviewer audit that
   triggered the v2 correction.
+- `../test/manuscript_reporting_lock_v1.md`: controlling five-pillar paper
+  structure, evidence tiers, terminology, and main/Supplement boundary.
+- `../test/primary_estimand_and_confirmatory_protocol_v1.md`: frozen primary
+  estimands and honest future prospective boundary.
+- `../test/reliability_extension_protocol_v1.md`: frozen multimodal
+  falsification controls for all five architectures.
+- `../test/reliability_hardening_execution_log_v2.md`: completed 100-cell,
+  400-fit falsification results, runtime, XAI/economic re-audit, and release
+  hardening log.
 - `../output/pdf/first_pipeline_revised.pdf`: paper-ready pipeline figure.
 
 Files `pipeline.md` through `pipeline7.md` are archived working drafts. They

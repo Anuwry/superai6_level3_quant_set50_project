@@ -588,7 +588,7 @@ Novelty จึงอยู่ที่ **protocol integration, leakage control, 
 | Risk | ระดับ | หลักฐาน/ผลกระทบ |
 |---|---|---|
 | Predictive signal อ่อน | สูง | Best BAcc 54.53%; ไม่มี primary Holm-significant BAcc |
-| Single-market external validity | สูง | มีเฉพาะ SET50 และช่วงเวลาจำกัด |
+| Single-market external validity | กลาง-สูง | SET100 same-exchange benchmark เสร็จครบ 100 fits ภายใต้ pre-frozen protocol; mean BAcc ลดลงทุกโมเดล 0.95–2.17 pp และไม่มี Holm-significant cross-index contrast จึงเพิ่ม transfer-robustness evidence แต่ยังไม่ใช่ external-market replication |
 | Track C เป็น post-hoc robustness | สูง | Daily semantic v2 เกิดหลังเห็น HMM failure |
 | Integration ยังไม่ครอบคลุม live/2026 | กลาง | ข่าวถูกส่งเข้า Regime-SHAP 2019-2025 แล้ว แต่ Track D partial-2026 ยังไม่มี frozen news และ extension เป็น post-hoc |
 | Four-fold inferential power ต่ำ | สูง | Exact sign-flip ต่ำสุด 0.125 |
@@ -597,7 +597,7 @@ Novelty จึงอยู่ที่ **protocol integration, leakage control, 
 | LIME fidelity/stability ต่ำ | กลาง-สูง | 71.83% low-fidelity rows |
 | News domain shift | กลาง-สูง | 2024-2025 ไม่มี gold sentiment labels และข้อความสั้นกว่า |
 | Track D source deviation | กลาง | Frozen model protocol แต่เปลี่ยน registered data source/parser |
-| Historical market-data provenance/license | กลาง-สูง | ควรเพิ่ม provider, URL/date, license, timezone และ adjustment convention |
+| Historical market-data provenance/access | ต่ำเมื่อใช้ clean package | หน้า SET50/SET100 ของ provider เข้าถึงได้สาธารณะและระบุ download option; บันทึก URLs, hashes, acquisition method, Asia/Bangkok, 17:00 cutoff และ adjustment convention แล้ว โดยไม่ claim ว่าเป็น open licence และไม่แจก row-level data; private working Git history ต้องไม่ใช้เป็น public release |
 | Scope กว้างเกินไป | กลาง-สูง | VMD + LLM + regime + SHAP/LIME + forward/economics อาจทำให้ central contribution ไม่ชัด |
 | Compute-matched debate control | กลาง | Leader system ใช้สาม role calls เทียบ single หนึ่ง call |
 
@@ -606,6 +606,7 @@ Novelty จึงอยู่ที่ **protocol integration, leakage control, 
 - มี correction หลังตรวจพบ leakage และรันผลที่ได้รับผลกระทบใหม่จริง
 - แยก confirmatory, robustness, descriptive และ exploratory evidence ชัดเจน
 - ใช้ five-model paired comparison แทนการเลือกเฉพาะโมเดลที่ดูดีที่สุด
+- มี SET100 same-exchange transfer audit ที่ freeze windows/code ก่อนเห็นผลและเก็บครบ 100/100 cells แม้ผลเป็นลบ
 - เก็บ negative results, constant-output collapse และ failed selection gates
 - มี alternative-selector และ capacity-matched controls ใน Track C
 - มี article-cluster inference ใน LLM benchmark
@@ -636,7 +637,7 @@ Novelty จึงอยู่ที่ **protocol integration, leakage control, 
 7. Scope ปัจจุบันกว้างเกินไปสำหรับจำนวนหน้าของวารสารหรือไม่?
 8. วารสารเป้าหมายยอมรับ post-hoc robustness study และ transparent negative results มากน้อยเพียงใด?
 9. ต้องเพิ่ม compute-matched self-consistency control ของ LLM ก่อนส่งหรือสามารถจำกัด claim ให้ชัดเจนแทนได้หรือไม่?
-10. Historical market-data provenance/license ต้องแก้ระดับใดก่อน submission?
+10. ก่อน submission ต้องสร้าง clean public package รุ่นสุดท้ายที่ไม่มี SET50/SET100 row-level files และตรวจ manifest/hash ซ้ำ; governance ด้าน public provider access, provider terms, hash, timezone และ adjustment convention ปิดแล้ว
 
 ## 18. สิ่งที่ยังไม่ควร claim
 
@@ -680,3 +681,135 @@ Novelty จึงอยู่ที่ **protocol integration, leakage control, 
 - `outputs/integrated_multimodal_posthoc_v1/integrity_audit.json`
 - `outputs/q2_evidence_package/master_evidence_matrix.csv`
 - `outputs/q2_evidence_package/q2_claim_status.csv`
+
+## 21. Strong-Q2 hardening addendum — 3 August 2026
+
+This section supersedes only the earlier statements that the LLM
+compute-matched control and clean public package were missing. It does not
+replace the mixed/negative forecasting results or guarantee a journal
+quartile.
+
+### 21.1 Compute-matched LLM control is complete
+
+The locked 2023 intrinsic sentiment cohort contains 1,333 article-ticker pairs
+from 738 unique articles. The multi-role Bull/Bear/Leader system achieved
+76.594% Accuracy and 70.253% Macro-F1. The equal-call three-pass
+self-consistency control achieved 70.668% Accuracy and 62.733% Macro-F1. The
+Leader difference was +5.926 percentage points with an article-cluster 95%
+interval [3.491, 8.487] and Holm-adjusted p=0.000040.
+
+A four-pass self-consistency sensitivity cost 93.0% of the Leader system,
+within the frozen +/-15% near-cost band. It achieved 70.593% Accuracy; the
+Leader difference was +6.002 pp with interval [3.613, 8.477] and Holm-adjusted
+p=0.000040. The compute-budget objection is therefore materially reduced.
+
+The safe conclusion is system-level: the frozen multi-role Leader
+configuration outperformed repeated identical-prompt single-pass inference.
+The result does not isolate debate reasoning as the sole cause, does not use
+independent heterogeneous agents, and does not show a next-day forecasting
+gain. Downstream forecasting features remain the frozen Local NLP outputs.
+
+The extension generated 3,999 new calls for an estimated USD 13.9433, below
+the USD 18 guard. The complete intrinsic-LLM ledger is approximately USD
+38.5623. No further paid API experiment is required for this control.
+
+### 21.2 Moving-block result is correctly separated by endpoint
+
+The integrated artifact contains 50 rows: five models, five contrasts, and two
+metrics. It uses 10-day circular moving blocks and 10,000 replicates. For the
+25 Balanced Accuracy contrasts, none survived Holm correction; the minimum
+adjusted p-value was 0.412. Twelve significant squared-error sensitivities must
+not be converted into claims about next-day directional Accuracy.
+
+### 21.3 Clean public package and provider-access boundary
+
+A fail-closed release builder now packages code, tests, protocols, checksums,
+and non-reconstructive aggregate evidence while rejecting raw/prepared market
+data, fold CSVs, row-level predictions, private LLM checkpoints, keys, unsafe
+paths, symlinks, and secret-like patterns. Independent post-build verification
+found exact manifest/path/hash agreement and zero restricted paths.
+
+The SET50 and SET100 historical pages are publicly accessible and explicitly
+offer a data-download option. No institutional entitlement is claimed. Public
+accessibility is not represented as an open-data licence: row-level provider
+data remain excluded from the release, and access/reuse remain subject to the
+provider terms. URLs, hashes, acquisition methods, timezone, adjustment
+convention, and a dated terms reference are retained in the governance record.
+The partial-2026 Track D endpoint retrieval remains a disclosed acquisition
+exception rather than being relabelled as a manual browser download.
+
+### 21.4 Revised quartile assessment
+
+The project is now a more defensible Q2 candidate than in the earlier snapshot:
+the LLM compute-budget concern is closed with a favourable registered control,
+SET100 provides a frozen same-exchange transfer audit, serial dependence is
+reported transparently, and a clean replication bundle exists. Q1 remains
+unlikely because the work has no new algorithm, no independent external-market
+replication, and no consistently significant forecasting gain.
+
+The appropriate current description is **defensible Q2 candidate / strong Q3
+fallback**, conditional on journal fit, a focused reliability-audit narrative,
+accurate public-provider provenance and non-redistribution wording, and
+disciplined placement of LIME and economic proxy results in the Supplement.
+This is not an acceptance prediction.
+
+New authoritative evidence:
+
+- `test/strong_q2_claims_register_v2.md`
+- `test/strong_q2_hardening_execution_log_v1.md`
+- `test/track_b_compute_matched_execution_log_v1.md`
+- `test/moving_block_bootstrap_audit_v1.md`
+- `PUBLIC_REPLICATION_PACKAGE.md`
+- `outputs/track_b/llm/compute_matched_v1/`
+
+## 22. Final reliability-falsification addendum — 4 August 2026
+
+This section supersedes only the earlier assessment made before the new
+multimodal controls and public-package v3 were complete.
+
+The frozen retrospective extension added four controls—News-Only, jointly
+shuffled news, news lagged by five trading rows, and eight random features—to
+all five architectures over four outer years and five seeds. All 100 cells and
+400 new fits passed the input-freeze, alignment, finiteness, and completeness
+audits. The incremental API cost was USD 0.
+
+For the primary Observed-News minus shuffled-news BAcc contrast, mean effects
+ranged from -3.239 to +1.020 percentage points. No architecture passed Holm
+adjustment under exact four-fold inference; none passed the registered 10-day,
+10,000-replicate moving-block sensitivity either (minimum adjusted p=0.098).
+Observed-News minus Market-Only effects were between -1.895 and -0.009 pp and
+all exact Holm p-values were 1.000. Across all six BAcc contrast families, zero
+of 30 exact rows and zero of 30 block-bootstrap rows were Holm-significant.
+
+This does not improve the forecasting headline. It materially improves the
+credibility of the paper's central contribution: the work now demonstrates,
+rather than merely asserts, that apparently favourable multimodal results are
+not stable to architecture, temporal unit, multiplicity, and information-
+content controls. The intrinsic LLM result remains favourable but separate;
+the downstream news features remain frozen Local NLP outputs.
+
+The package now also contains manuscript-ready tables with a source/output
+hash manifest, exact Python 3.12 and historical integrated Python 3.11
+environment records, executable entrypoint tests, and an independent public-
+package hash/secret audit. Provider rows, predictions, private checkpoints,
+and credentials remain excluded.
+
+### Revised position
+
+The appropriate current description is **a defensible, reasonably solid Q2
+candidate for a journal that values forecasting reliability, reproducibility,
+negative/mixed evidence, and emerging-market applications; strong Q3
+fallback**. It is stronger than the earlier borderline-Q2 assessment because
+the information-content controls and release audit are now executed. Q1 is
+still a stretch because no new general algorithm, independent external-market
+replication, or completed 252-session prospective confirmation exists. A
+journal quartile or acceptance outcome cannot be guaranteed.
+
+New controlling evidence:
+
+- `test/primary_estimand_and_confirmatory_protocol_v1.md`
+- `test/reliability_extension_protocol_v1.md`
+- `test/reliability_hardening_execution_log_v2.md`
+- `test/strong_q2_claims_register_v3.md`
+- `outputs/multimodal_falsification_v1/`
+- `outputs/manuscript_tables_v1/`

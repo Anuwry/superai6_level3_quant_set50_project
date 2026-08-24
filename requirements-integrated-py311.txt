@@ -1,0 +1,10 @@
+# Environment recorded in outputs/integrated_multimodal_posthoc_v1/run_metadata.json.
+# Interpreter: CPython 3.11.15 (64-bit)
+# This lock reproduces the historical integrated run; do not silently substitute
+# the Python 3.12 stack when claiming exact artifact reproduction.
+numpy==2.1.3
+pandas==2.3.3
+scipy==1.16.3
+scikit-learn==1.7.2
+tensorflow==2.21.0
+

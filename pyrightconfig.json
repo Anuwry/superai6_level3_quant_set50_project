@@ -1,0 +1,11 @@
+{
+  "include": [
+    "models/multimodal_falsification.py",
+    "models/manuscript_artifacts.py",
+    "models/public_replication_package.py",
+    "models/track_d_economics.py"
+  ],
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "basic",
+  "reportMissingTypeStubs": "none"
+}

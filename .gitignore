@@ -1,8 +1,59 @@
 .env
 key.md
 .coverage
+.pytest_cache/
+.pytest_tmp/
+.tmp*/
 htmlcov/
 __pycache__/
 *.pyc
 runtime_tmp/
 runtime_cache/
+
+# Provider-hosted market data: metadata may be versioned, rows may not.
+set100_data/*.csv
+set100_data/prepared/
+set100_data/folds_point_in_time_v2/
+set100_data/selection_folds_point_in_time_v2/
+set100_data/full_ta_vmd_point_in_time_v2/
+set100_data/full_ta_vmd_point_in_time_v2_nn/
+data-raw/SET50_*.csv
+data-prepared/SET50_*.csv
+data-raw/track_a/SET50_constituents_yahoo_2012_2025/*.csv
+outputs/market_data_governance_v1/private/
+outputs/set100_same_exchange_robustness_v1/private/
+outputs/track_b/llm/compute_matched_v1/private/
+outputs/tmp/
+
+# Licensed or provider-hosted raw corpora are never redistributed.
+data-raw/track_a/
+data-raw/track_b/
+
+# Manuscript render checks and local build intermediates.
+paper/qa/
+paper/_qa*/
+tmp/
+outputs/graphical_abstract_set_reliability_v*/
+outputs/*.pptx.inspect.ndjson
+
+# Trained estimators, checkpoints, and framework caches.
+outputs/**/models/
+outputs/**/checkpoints/
+outputs/**/cache/
+outputs/**/.cache/
+*.pkl
+*.joblib
+*.ckpt
+*.pt
+*.pth
+*.h5
+*.keras
+*.onnx
+
+# Operating-system metadata.
+.DS_Store
+Thumbs.db
+
+# Private working evidence and generated public-release bundles.
+private/
+release/public_replication_package_*/

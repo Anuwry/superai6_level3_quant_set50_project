@@ -1,5 +1,5 @@
-# Current reproducibility and full-test environment, revised 2026-08-04.
-# Install with: py -3.12 -m pip install -r requirements-paper.txt
+# Exact Python 3.12 environment used for the corrected paper pipeline and QA.
+# Interpreter: CPython 3.12.10 (64-bit)
 numpy==2.4.3
 pandas==3.0.1
 scipy==1.17.1
@@ -10,10 +10,10 @@ openai==2.33.0
 pydantic==2.12.5
 requests==2.33.1
 tqdm==4.67.3
-pytest==9.1.1
-pytest-cov==7.1.0
 matplotlib==3.10.8
 optuna==4.7.0
+pytest==9.1.1
+pytest-cov==7.1.0
 ruff==0.14.10
 pyright==1.1.403
 bandit==1.8.6
