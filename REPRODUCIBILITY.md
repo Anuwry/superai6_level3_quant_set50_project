@@ -32,6 +32,17 @@ py -3.12 -m venv .venv-paper
 
 `pytest.ini` keeps test temporary files in the project-local `.pytest_tmp`
 directory on drive D instead of the space-constrained Windows system drive.
+Tests that validate licensed folds or row-level experiment artifacts are marked
+`private_artifact`. They run normally when every registered local input is
+present and are skipped with the missing path in the reason when the public
+checkout intentionally omits that input. This keeps unit and aggregate-evidence
+tests executable without weakening the fail-closed redistribution policy. After
+placing independently obtained inputs at the documented paths, run the private
+artifact subset explicitly with:
+
+```powershell
+py -3.12 -m pytest -q -m private_artifact
+```
 
 ## Data contract
 

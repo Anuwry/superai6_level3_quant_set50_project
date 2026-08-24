@@ -35,6 +35,11 @@ def test_run_four_fold_ablation_passes_all_years_to_paired_runner(
         "configure_fusion_module",
         lambda **_: configured,
     )
+    monkeypatch.setattr(
+        four_fold,
+        "require_forward_daily_news",
+        lambda: four_fold.FORWARD_DAILY_NEWS_FILE,
+    )
 
     result = four_fold.run_four_fold_ablation(
         models=("cnn",),
