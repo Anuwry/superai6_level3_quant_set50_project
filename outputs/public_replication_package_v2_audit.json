@@ -1,0 +1,12 @@
+{
+  "protocol_id": "public-replication-package-v2",
+  "verified_at_utc": "2026-08-03T18:23:41.8974791+00:00",
+  "destination": "release/public_replication_package_v2",
+  "passed": true,
+  "manifest_files": 247,
+  "verified_hashes": 247,
+  "verification_errors": 0,
+  "restricted_paths": 0,
+  "raw_market_data_included": false,
+  "package_sha256": "38f402c55e18486c9d7a1e804d4647ca44ff1232ea5f4f5b50b1285c29ac712e"
+}

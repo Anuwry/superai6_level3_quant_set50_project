@@ -1,0 +1,22 @@
+{
+  "protocol_id": "public-replication-package-v1",
+  "audited_at_utc": "2026-08-03T17:09:00Z",
+  "status": "PASS",
+  "destination": "release/public_replication_package_v1",
+  "manifest_files": 245,
+  "actual_files_excluding_manifest": 245,
+  "path_sets_equal": true,
+  "hash_or_size_mismatches": 0,
+  "restricted_paths": 0,
+  "secret_findings_during_build": 0,
+  "raw_market_data_included": false,
+  "row_level_predictions_included": false,
+  "private_llm_checkpoints_included": false,
+  "package_sha256": "2e09d261d8ca7bcbd233203d4975180b1e246e6e3ed1544d97c193588fe4288a",
+  "manifest_sha256": "ece6477bcb46519fdfb5d7908482d1d0706a1e44f4609bcc0b05b3fd446515eb",
+  "previous_generated_bundle_backups": [
+    "outputs/tmp/public_replication_package_v1_pre_docs",
+    "outputs/tmp/public_replication_package_v1_pre_release_gate_v2"
+  ],
+  "private_licence_evidence_status": "pending_author_or_institution_completion"
+}

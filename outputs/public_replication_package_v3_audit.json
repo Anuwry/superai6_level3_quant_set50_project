@@ -1,0 +1,12 @@
+{
+  "protocol_id": "public-replication-package-v3-audit",
+  "passed": true,
+  "source_protocol_id": "public-replication-package-v3",
+  "verified_files": 295,
+  "missing_files": [],
+  "unexpected_files": [],
+  "hash_mismatches": [],
+  "size_mismatches": [],
+  "secret_findings": [],
+  "package_digest_matches": true
+}

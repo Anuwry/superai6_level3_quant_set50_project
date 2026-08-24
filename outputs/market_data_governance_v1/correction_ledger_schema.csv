@@ -1,0 +1,9 @@
+field,classification
+date,restricted_when_populated
+instrument,restricted_when_populated
+column,restricted_when_populated
+old_value,restricted_when_populated
+new_value,restricted_when_populated
+reason,restricted_when_populated
+verification_source,restricted_when_populated
+verified_at,restricted_when_populated
