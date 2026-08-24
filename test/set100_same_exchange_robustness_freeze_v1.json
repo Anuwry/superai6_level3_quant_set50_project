@@ -1,0 +1,137 @@
+{
+  "protocol_id": "set100-same-exchange-robustness-v1",
+  "freeze_time_utc": "2026-08-03T14:50:13Z",
+  "status": "frozen_before_any_set100_model_fit",
+  "set100_model_results_seen_before_freeze": false,
+  "claim_scope": "post_hoc_same_exchange_robustness_not_external_market_replication",
+  "feature_set": "full_ta_vmd",
+  "feature_count": 122,
+  "vmd": {
+    "window_size": 60,
+    "num_modes": 5,
+    "penalty": 1000.0,
+    "dual_step": 0.0,
+    "dc_mode": true,
+    "tolerance": 1e-7,
+    "max_iterations": 500,
+    "denoising_rule": "remove_highest_center_frequency_mode"
+  },
+  "models": {
+    "lstm": 5,
+    "cnn": 20,
+    "lstm_cnn": 20,
+    "lstm_attention": 10,
+    "lstm_cnn_attention": 20
+  },
+  "seeds": [42, 123, 456, 789, 2025],
+  "outer_test_years": [2022, 2023, 2024, 2025],
+  "set100_selection_folds_used": false,
+  "primary_endpoint": "balanced_accuracy",
+  "secondary_endpoints": [
+    "direction_accuracy",
+    "mcc",
+    "roc_auc",
+    "direction_coverage",
+    "predicted_up_share",
+    "rmse",
+    "mae",
+    "mape",
+    "nrmse_percent",
+    "nmae_percent"
+  ],
+  "seed_aggregation": "average_predictions_within_model_fold_then_recompute_metrics",
+  "paired_contrast": "set100_minus_set50",
+  "inference": "four_fold_exact_sign_flip_with_holm_across_five_models_per_metric",
+  "frozen_inputs": [
+    {
+      "path": "outputs/market_data_governance_v1/release_gates.json",
+      "sha256": "db40553d586d351aec7847e1cbb22a5c9ed30a0ff3990629918ace68310992a9",
+      "bytes": 1783
+    },
+    {
+      "path": "outputs/track_a_final_point_in_time_v2/locked_windows.csv",
+      "sha256": "47456d5827bcb6a4ca01ce56cff21fce67d065f89c953150552ada3ca9faa55f",
+      "bytes": 946
+    },
+    {
+      "path": "outputs/track_a_final_point_in_time_v2/final_metrics_by_seed_fold.csv",
+      "sha256": "d18083fbbc2aa6665762673a147c83b55d1807c81a559c77499a4f1a9b78f16e",
+      "bytes": 52270
+    },
+    {
+      "path": "set100_data/prepared/SET100_aligned_common_set50_dates.csv",
+      "sha256": "40253e7391c7b2d2a4b4f503eaf0064c03e6331ecc57ca05abdcccb9794e964a",
+      "bytes": 578243
+    },
+    {
+      "path": "set100_data/folds_point_in_time_v2/run_metadata.json",
+      "sha256": "ac6afd41e191e37858b4625c739347c54728a0afc3ca6bffd0532006b3ee2a8c",
+      "bytes": 4732
+    },
+    {
+      "path": "models/track_a_final.py",
+      "sha256": "efc406aa9194bac487567a398c4c11af88e0e3e4345a9c82b4f4f92c6597c772",
+      "bytes": 25861
+    },
+    {
+      "path": "models/full_non_ta_feature_pool.py",
+      "sha256": "8e8890ab3fb7fb04f41ee7c7c3444095cc91d57d2e17e651c54324a7242f3712",
+      "bytes": 10023
+    },
+    {
+      "path": "models/full_ta_feature_pool.py",
+      "sha256": "a2c43758320459435e3563eb1e6a53c6386de5ea42e022988ffaca5f72eae289",
+      "bytes": 11321
+    },
+    {
+      "path": "models/vmd_feature_pool.py",
+      "sha256": "aca0cc7542fe4770b12f6f0509b2907102e664cc23e438cdc55db7c36f433927",
+      "bytes": 19978
+    },
+    {
+      "path": "models/baseline_common.py",
+      "sha256": "d860e04f43f028a76cddc8e9622f7c134e88ad8e3564498649297d3bad852213",
+      "bytes": 15481
+    },
+    {
+      "path": "models/convolutional_neural_network.py",
+      "sha256": "11adcedc94ffda2e8fafec598d1ce0343661ee315711ccf747afd1f4b9e10d2b",
+      "bytes": 6381
+    },
+    {
+      "path": "models/lstm_cnn.py",
+      "sha256": "f164d3e557bc7aeb43985c79f77b22372781cf0272b0964860a402a7ce389f63",
+      "bytes": 4719
+    },
+    {
+      "path": "models/attention_lstm.py",
+      "sha256": "2a8d422af7c987f2af2c879ad74053b94f25b7d9c1035eccbb54e299dd613158",
+      "bytes": 4898
+    },
+    {
+      "path": "models/lstm_cnn_attention.py",
+      "sha256": "1efae840768a008ef79cf8a04c4a56109bf3307ce87b524c0bb3f1283ebc60c2",
+      "bytes": 11052
+    },
+    {
+      "path": "models/full_non_ta_experiments.py",
+      "sha256": "c3577b2c5d94fe216921551fd047df27a8537d8bf4e5e2e3abd31fdfee7d3181",
+      "bytes": 21165
+    },
+    {
+      "path": "models/neural_network_folds.py",
+      "sha256": "f84703a997c34cc3de462d7650b28d2c0e6ea2fef8bae324a65085ad96f0cc4e",
+      "bytes": 3629
+    },
+    {
+      "path": "models/point_in_time_data.py",
+      "sha256": "586ed12666468526e9623d299cabfb47d8481fbbd6aa202af5e229f7b8ca03b0",
+      "bytes": 11165
+    },
+    {
+      "path": "models/shap_protocol_v2.py",
+      "sha256": "2bf09a783b0ceb8ced149437dd86facef671b9beb54158c6fe0797758e60a04e",
+      "bytes": 6028
+    }
+  ]
+}

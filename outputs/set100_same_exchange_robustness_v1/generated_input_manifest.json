@@ -1,0 +1,318 @@
+{
+  "protocol_id": "set100-same-exchange-robustness-v1",
+  "created_at_utc": "2026-08-03T15:31:40+00:00",
+  "freeze_verification": {
+    "protocol_id": "set100-same-exchange-robustness-v1",
+    "all_inputs_match": true,
+    "checked_inputs": [
+      {
+        "path": "outputs/market_data_governance_v1/release_gates.json",
+        "exists": true,
+        "bytes": 1783,
+        "sha256": "db40553d586d351aec7847e1cbb22a5c9ed30a0ff3990629918ace68310992a9",
+        "matches": true
+      },
+      {
+        "path": "outputs/track_a_final_point_in_time_v2/locked_windows.csv",
+        "exists": true,
+        "bytes": 946,
+        "sha256": "47456d5827bcb6a4ca01ce56cff21fce67d065f89c953150552ada3ca9faa55f",
+        "matches": true
+      },
+      {
+        "path": "outputs/track_a_final_point_in_time_v2/final_metrics_by_seed_fold.csv",
+        "exists": true,
+        "bytes": 52270,
+        "sha256": "d18083fbbc2aa6665762673a147c83b55d1807c81a559c77499a4f1a9b78f16e",
+        "matches": true
+      },
+      {
+        "path": "set100_data/prepared/SET100_aligned_common_set50_dates.csv",
+        "exists": true,
+        "bytes": 578243,
+        "sha256": "40253e7391c7b2d2a4b4f503eaf0064c03e6331ecc57ca05abdcccb9794e964a",
+        "matches": true
+      },
+      {
+        "path": "set100_data/folds_point_in_time_v2/run_metadata.json",
+        "exists": true,
+        "bytes": 4732,
+        "sha256": "ac6afd41e191e37858b4625c739347c54728a0afc3ca6bffd0532006b3ee2a8c",
+        "matches": true
+      },
+      {
+        "path": "models/track_a_final.py",
+        "exists": true,
+        "bytes": 25861,
+        "sha256": "efc406aa9194bac487567a398c4c11af88e0e3e4345a9c82b4f4f92c6597c772",
+        "matches": true
+      },
+      {
+        "path": "models/full_non_ta_feature_pool.py",
+        "exists": true,
+        "bytes": 10023,
+        "sha256": "8e8890ab3fb7fb04f41ee7c7c3444095cc91d57d2e17e651c54324a7242f3712",
+        "matches": true
+      },
+      {
+        "path": "models/full_ta_feature_pool.py",
+        "exists": true,
+        "bytes": 11321,
+        "sha256": "a2c43758320459435e3563eb1e6a53c6386de5ea42e022988ffaca5f72eae289",
+        "matches": true
+      },
+      {
+        "path": "models/vmd_feature_pool.py",
+        "exists": true,
+        "bytes": 19978,
+        "sha256": "aca0cc7542fe4770b12f6f0509b2907102e664cc23e438cdc55db7c36f433927",
+        "matches": true
+      },
+      {
+        "path": "models/baseline_common.py",
+        "exists": true,
+        "bytes": 15481,
+        "sha256": "d860e04f43f028a76cddc8e9622f7c134e88ad8e3564498649297d3bad852213",
+        "matches": true
+      },
+      {
+        "path": "models/convolutional_neural_network.py",
+        "exists": true,
+        "bytes": 6381,
+        "sha256": "11adcedc94ffda2e8fafec598d1ce0343661ee315711ccf747afd1f4b9e10d2b",
+        "matches": true
+      },
+      {
+        "path": "models/lstm_cnn.py",
+        "exists": true,
+        "bytes": 4719,
+        "sha256": "f164d3e557bc7aeb43985c79f77b22372781cf0272b0964860a402a7ce389f63",
+        "matches": true
+      },
+      {
+        "path": "models/attention_lstm.py",
+        "exists": true,
+        "bytes": 4898,
+        "sha256": "2a8d422af7c987f2af2c879ad74053b94f25b7d9c1035eccbb54e299dd613158",
+        "matches": true
+      },
+      {
+        "path": "models/lstm_cnn_attention.py",
+        "exists": true,
+        "bytes": 11052,
+        "sha256": "1efae840768a008ef79cf8a04c4a56109bf3307ce87b524c0bb3f1283ebc60c2",
+        "matches": true
+      },
+      {
+        "path": "models/full_non_ta_experiments.py",
+        "exists": true,
+        "bytes": 21165,
+        "sha256": "c3577b2c5d94fe216921551fd047df27a8537d8bf4e5e2e3abd31fdfee7d3181",
+        "matches": true
+      },
+      {
+        "path": "models/neural_network_folds.py",
+        "exists": true,
+        "bytes": 3629,
+        "sha256": "f84703a997c34cc3de462d7650b28d2c0e6ea2fef8bae324a65085ad96f0cc4e",
+        "matches": true
+      },
+      {
+        "path": "models/point_in_time_data.py",
+        "exists": true,
+        "bytes": 11165,
+        "sha256": "586ed12666468526e9623d299cabfb47d8481fbbd6aa202af5e229f7b8ca03b0",
+        "matches": true
+      },
+      {
+        "path": "models/shap_protocol_v2.py",
+        "exists": true,
+        "bytes": 6028,
+        "sha256": "2bf09a783b0ceb8ced149437dd86facef671b9beb54158c6fe0797758e60a04e",
+        "matches": true
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_1/context_before_test.csv",
+      "bytes": 3247,
+      "sha256": "c545029fb398e43ac4c300441933d49c91469137a2e63405f28a38578a6aa00e"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_1/test_2022.csv",
+      "bytes": 423128,
+      "sha256": "564a29ba70d8e8dd111ed633408768efb9a252728c31bc130b7905b49b018cbd"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_1/train_2012_2021.csv",
+      "bytes": 4085627,
+      "sha256": "0cb39170fab52fff82588d03f0349fb1fa31bfe6989097d9d6b870019cc50430"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_1/vmd_config.json",
+      "bytes": 912,
+      "sha256": "92f1452257d2970e88177c810b252a0383d4712d0de8343f8ac1dd3095ce32d8"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_2/context_before_test.csv",
+      "bytes": 3250,
+      "sha256": "765901c178f9626b27028b4a15a85089734635005ad7a70b5fe7a005bce9469c"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_2/test_2023.csv",
+      "bytes": 427156,
+      "sha256": "e7e5f93144a5a864ec7c1d45662dcfcf493edce3e04e549ab3d00cab3ed52a1b"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_2/train_2012_2022.csv",
+      "bytes": 4507249,
+      "sha256": "5808b96c91f525d7f7ec56de288aae832ed29f8ecfb7fbc4a9ca3396d59799f4"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_2/vmd_config.json",
+      "bytes": 912,
+      "sha256": "92f1452257d2970e88177c810b252a0383d4712d0de8343f8ac1dd3095ce32d8"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_3/context_before_test.csv",
+      "bytes": 3262,
+      "sha256": "fa20842db9a072434a5b60262dbf44fd5c5f18a00663d95151c4ff6a24ac7562"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_3/test_2024.csv",
+      "bytes": 430482,
+      "sha256": "d1c423d185ccd9077fd1a4ade28ee5674982d3f471a058305e168f3b2f48da32"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_3/train_2012_2023.csv",
+      "bytes": 4932890,
+      "sha256": "9819ae9db5e99778d8766a46f1bc07cc701ca23f525c4fe88b3af0bd56d041ba"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_3/vmd_config.json",
+      "bytes": 912,
+      "sha256": "92f1452257d2970e88177c810b252a0383d4712d0de8343f8ac1dd3095ce32d8"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_4/context_before_test.csv",
+      "bytes": 3300,
+      "sha256": "dcb622540a1bdb9ebaabc12ec775b338a1aecc0738863d194c4b9aa932468636"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_4/test_2025.csv",
+      "bytes": 409706,
+      "sha256": "a96dea4803652c6d01f3f304f1fe4f90ba755d878bfddd3867a1f47f3b2fa71a"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_4/train_2012_2024.csv",
+      "bytes": 5361831,
+      "sha256": "2c6f56da01682e4b6f3d4cba75b208c5f46b4da3ecd9915cd87f237c64dcbc62"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2/fold_4/vmd_config.json",
+      "bytes": 912,
+      "sha256": "92f1452257d2970e88177c810b252a0383d4712d0de8343f8ac1dd3095ce32d8"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_1/context_before_test.csv",
+      "bytes": 3788,
+      "sha256": "f7d961853e21bca1f7d0999800e37b40b5ba7739c543fec1f689f288882ea6cc"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_1/minmax_scaler.json",
+      "bytes": 15979,
+      "sha256": "4280207e4f20ba8c6276a8cf111123071a6d4f8c61f53dcfa63c9e3697b2bfa5"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_1/test_2022.csv",
+      "bytes": 553760,
+      "sha256": "f9d386466946d05ef39a77ccc86906d161e3de426fcf53f45a068b2fb0408736"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_1/train_2012_2021.csv",
+      "bytes": 5354447,
+      "sha256": "c7d81dbe39bf6a68b0daf7a4da10a0c207a730854815d625824976d6c4dd1085"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_1/vmd_config.json",
+      "bytes": 912,
+      "sha256": "92f1452257d2970e88177c810b252a0383d4712d0de8343f8ac1dd3095ce32d8"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_2/context_before_test.csv",
+      "bytes": 3799,
+      "sha256": "63cb8167317601daa69367c747afef4115fa20b4f212043a377ede530a1b22a4"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_2/minmax_scaler.json",
+      "bytes": 15979,
+      "sha256": "4280207e4f20ba8c6276a8cf111123071a6d4f8c61f53dcfa63c9e3697b2bfa5"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_2/test_2023.csv",
+      "bytes": 560833,
+      "sha256": "ae761f1765bbebbfd98b7a55396f21e9050bc51108c0bea45071f77ba5f492a6"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_2/train_2012_2022.csv",
+      "bytes": 5906693,
+      "sha256": "702c11f20db95ef1f8c9d3dff1d80ca75d5a7bb5cc2f8182f260c856696993cc"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_2/vmd_config.json",
+      "bytes": 912,
+      "sha256": "92f1452257d2970e88177c810b252a0383d4712d0de8343f8ac1dd3095ce32d8"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_3/context_before_test.csv",
+      "bytes": 3794,
+      "sha256": "dc4ae81eae54543f58e6c8368fb2958eef0c79f919fe1de310135fd30e44768b"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_3/minmax_scaler.json",
+      "bytes": 15917,
+      "sha256": "0277f4b78d43cdcf3ecbb1a788ab6879382d2fd36b1e870fb042b3a29ecd2bba"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_3/test_2024.csv",
+      "bytes": 565752,
+      "sha256": "e807cb53712801928dad6a608b25ddbf6ecfe1cdf89432d16764f8ef812e50c2"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_3/train_2012_2023.csv",
+      "bytes": 6464986,
+      "sha256": "8be8dec2b53494b5dc9e6ea8857d0e787ac83815ef9f21bed1cecccc131e83f3"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_3/vmd_config.json",
+      "bytes": 912,
+      "sha256": "92f1452257d2970e88177c810b252a0383d4712d0de8343f8ac1dd3095ce32d8"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_4/context_before_test.csv",
+      "bytes": 3814,
+      "sha256": "4940ff8fbaba8c92b3a2f0bee305a3aa719e685889d273c515f5d3f4444374fd"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_4/minmax_scaler.json",
+      "bytes": 15917,
+      "sha256": "0277f4b78d43cdcf3ecbb1a788ab6879382d2fd36b1e870fb042b3a29ecd2bba"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_4/test_2025.csv",
+      "bytes": 544328,
+      "sha256": "b2ba1c9cec44ffc0e55b76f14bca7ef1d77696ea3f28dd8bd074d6180f0e122b"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_4/train_2012_2024.csv",
+      "bytes": 7029215,
+      "sha256": "9c9c0af1c47ebac13ffea65d33e80bc65a5412f28d71ce4fcb0fb60540e6d9ef"
+    },
+    {
+      "path": "set100_data/full_ta_vmd_point_in_time_v2_nn/fold_4/vmd_config.json",
+      "bytes": 912,
+      "sha256": "92f1452257d2970e88177c810b252a0383d4712d0de8343f8ac1dd3095ce32d8"
+    }
+  ]
+}

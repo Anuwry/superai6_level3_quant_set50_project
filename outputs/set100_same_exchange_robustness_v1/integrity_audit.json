@@ -1,0 +1,24 @@
+{
+  "protocol_id": "set100-same-exchange-robustness-v1",
+  "created_at_utc": "2026-08-03T15:32:37.487915+00:00",
+  "passed": true,
+  "freeze_inputs_match": true,
+  "feature_integrity_passed": true,
+  "registered_set100_cells": {
+    "expected_cells": 100,
+    "observed_cells": 100
+  },
+  "registered_set50_cells": {
+    "expected_cells": 100,
+    "observed_cells": 100
+  },
+  "seed_averaged_fold_rows": 40,
+  "paired_market_fold_rows": 20,
+  "paired_cross_index_date_checks": 20,
+  "primary_metric": "balanced_accuracy",
+  "primary_inference_unit": "seed-averaged outer fold",
+  "holm_family": "five models within each metric",
+  "set100_news_used": false,
+  "set100_raw_rows_in_public_outputs": false,
+  "scope_label": "same-exchange robustness; not external-market replication"
+}

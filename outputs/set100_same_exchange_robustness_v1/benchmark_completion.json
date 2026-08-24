@@ -1,0 +1,10 @@
+{
+  "protocol_id": "set100-same-exchange-robustness-v1",
+  "status": "complete",
+  "set100_fit_cells": 100,
+  "seed_averaged_market_fold_rows": 40,
+  "paired_market_fold_rows": 20,
+  "public_output_files": 10,
+  "output_manifest": "outputs/set100_same_exchange_robustness_v1/output_manifest.json",
+  "run_wall_seconds": 1207.4130162999973
+}
