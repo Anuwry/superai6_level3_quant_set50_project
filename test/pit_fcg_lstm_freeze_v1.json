@@ -1,0 +1,100 @@
+{
+  "protocol_id": "pit-fcg-lstm-inner-development-v1",
+  "frozen_at_utc": "2026-08-04T16:53:12Z",
+  "result_access_at_freeze": false,
+  "evidence_status": "post_freeze_exploratory_architecture_inner_development",
+  "target": "1[Close[t+1] > Close[t]]",
+  "primary_metric": "balanced_accuracy",
+  "decision_threshold": 0.5,
+  "window": 5,
+  "development_validation_years": [
+    2020,
+    2021
+  ],
+  "outer_years_accessed_by_this_protocol": [],
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    2025
+  ],
+  "variants": [
+    "direct_numeric_lstm",
+    "concat_lstm",
+    "bounded_residual",
+    "random_control_fcg",
+    "matched_control_fcg"
+  ],
+  "features": {
+    "numeric": 122,
+    "news": 8,
+    "gate_context": [
+      "prob_bull",
+      "prob_sideway",
+      "prob_bear",
+      "routing_entropy"
+    ]
+  },
+  "architecture": {
+    "numeric_lstm_units": 16,
+    "anchor_dense_units": 8,
+    "residual_hidden_units": 4,
+    "gate_hidden_units": 4,
+    "residual_logit_cap": 1.0
+  },
+  "optimization": {
+    "optimizer": "adam",
+    "learning_rate": 0.001,
+    "epochs": 20,
+    "batch_size": 32,
+    "shuffle": false,
+    "early_stopping": false,
+    "hyperparameter_tuning": false
+  },
+  "loss": {
+    "final_bce_weight": 1.0,
+    "anchor_bce_weight": 0.25,
+    "candidate_bce_weight": 0.25,
+    "rank_loss_weight": 0.25,
+    "gate_loss_weight": 0.1,
+    "placebo_suppression_weight": 0.05,
+    "falsification_margin": 0.01
+  },
+  "control_matching": {
+    "temporal_gap_rows": 5,
+    "nearest_k": 5,
+    "same_regime_required": true,
+    "same_year_preferred_when_candidates_at_least": 5,
+    "coverage_components": [
+      "log1p_window_article_count_sum",
+      "log1p_window_ticker_mention_count_sum",
+      "window_news_available_mean"
+    ],
+    "coverage_weights": [
+      1.0,
+      1.0,
+      2.0
+    ],
+    "labels_used_for_matching": false,
+    "validation_sources": "inner_training_only"
+  },
+  "promotion": {
+    "must_beat_inner_variants": [
+      "direct_numeric_lstm",
+      "concat_lstm",
+      "bounded_residual"
+    ],
+    "aligned_must_beat_placebo_each_inner_fold": true,
+    "minimum_gate_median": 0.01,
+    "maximum_gate_median": 0.99,
+    "maximum_parameter_increase_fraction": 0.15
+  },
+  "input_sha256": {
+    "test/pit_fcg_lstm_protocol_v1.md": "ebfd4b99812b6fda34f4ccaf48802c5cb72776bb5716a1acfab0dc41179ab947",
+    "data-folds-full-ta-vmd-point-in-time-v2/fold_1/train_2012_2021.csv": "9e112537bc5a01a616d3215cb6630dcc43dc3d6c545ef0337f1a281bb2e7fc39",
+    "outputs/track_b/forward_news/daily_news_features_2019_2025.csv": "13d3fc66a94c58bed5d5b49992bb63eec8e15336ed4f37bce0f29143089ab6f0",
+    "outputs/track_c/daily_regime_point_in_time_v2/fold_1/train_regimes.csv": "085308b3cd6dc941b788e6b46ab8593d03198f29e3b862874b399e1e27ccafbb",
+    "test/integrated_multimodal_freeze_v1.json": "30400c1051dad84910bd20c39af4b0d5ab1d62257f19f5379cbb599af9c4b954"
+  }
+}
