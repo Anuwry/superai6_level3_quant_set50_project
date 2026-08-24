@@ -1,0 +1,33 @@
+{
+  "protocol_id": "track-b-llm-compute-matched-v1",
+  "completed_at_utc": "2026-08-03T16:55:50.972007+00:00",
+  "status": "complete",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "low",
+  "prompt_version": "track-b-terra-v1",
+  "max_output_tokens": 384,
+  "new_calls": 3999,
+  "incremental_cost_usd": 13.9433325,
+  "incremental_cost_guard_usd": 18.0,
+  "checkpoint_first_completed_at_utc": "2026-08-03T16:02:25.508761+00:00",
+  "checkpoint_last_completed_at_utc": "2026-08-03T16:46:56.762946+00:00",
+  "checkpoint_completion_span_seconds": 2671.254185,
+  "new_call_runtime_seconds_total": 9202.66847490002,
+  "new_call_runtime_seconds_mean": 2.301242429332338,
+  "new_call_runtime_seconds_median": 2.0445048000001407,
+  "new_call_runtime_seconds_p95": 3.6622309499995023,
+  "aggregation_compute_seconds": 83.09424990000116,
+  "near_cost_ratio_sc4_to_leader": 0.9301680650922663,
+  "near_cost_gate_passed": true,
+  "near_cost_tolerance": 0.15,
+  "primary_comparison": "leader_minus_self_consistency_3",
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "openai": "2.33.0",
+    "pydantic": "2.12.5"
+  },
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0"
+}

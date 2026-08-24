@@ -1,0 +1,17 @@
+{
+  "protocol_id": "track-b-llm-compute-matched-v1",
+  "created_at_utc": "2026-08-03T16:54:27.724706+00:00",
+  "passed": true,
+  "freeze_inputs_match": true,
+  "pairs": 1333,
+  "unique_articles": 738,
+  "label_counts": {
+    "negative": 92,
+    "neutral": 585,
+    "positive": 656
+  },
+  "item_ids_exact": true,
+  "text_hashes_exact": true,
+  "gold_labels_exact": true,
+  "raw_article_written_to_output": false
+}

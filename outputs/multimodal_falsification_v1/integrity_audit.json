@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "protocol_id": "multimodal-falsification-v1",
+  "input_manifest": {
+    "passed": true,
+    "files_checked": 6,
+    "inherited_integrated_manifest": {
+      "passed": true,
+      "files_checked": 24
+    }
+  },
+  "expected_cells": 100,
+  "completed_cells": 100,
+  "new_fit_rows": 400,
+  "analysis_arms": [
+    "Market-Only",
+    "Observed-News",
+    "Global-Numeric-Shuffled-News",
+    "Global-Numeric-Lagged-News",
+    "Global-Numeric-Random-Features",
+    "News-Only"
+  ],
+  "fold_metric_rows": 120,
+  "paired_fold_rows": 120,
+  "fold_inference_rows": 150,
+  "bootstrap_rows": 60,
+  "quarterly_origin_rows": 480,
+  "all_predictions_finite": true
+}

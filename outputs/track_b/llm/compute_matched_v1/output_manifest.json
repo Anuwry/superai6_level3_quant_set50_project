@@ -1,0 +1,47 @@
+{
+  "protocol_id": "track-b-llm-compute-matched-v1",
+  "created_at_utc": "2026-08-03T16:55:51.169769+00:00",
+  "private_checkpoints_excluded": true,
+  "files": [
+    {
+      "path": "outputs/track_b/llm/compute_matched_v1/checkpoint_audit.json",
+      "bytes": 332,
+      "sha256": "1fc342811713a28480e00adec24c3ceb78ad10299653a9eb65af9ea14c7726d0"
+    },
+    {
+      "path": "outputs/track_b/llm/compute_matched_v1/cohort_integrity_audit.json",
+      "bytes": 428,
+      "sha256": "d4fc3e2983dc96fe1ad0206d3d37586bbfd95adc1ae123658c647c32dcd80d68"
+    },
+    {
+      "path": "outputs/track_b/llm/compute_matched_v1/metrics_by_arm.csv",
+      "bytes": 700,
+      "sha256": "4d11e73ca788c1d2ae1eb1ba043d1f2f6e0660ff4074507f7788a5199ddd866a"
+    },
+    {
+      "path": "outputs/track_b/llm/compute_matched_v1/paired_comparisons.csv",
+      "bytes": 1329,
+      "sha256": "978b3f7ec2c4d98dd9463d8452eaa59069e887fd856d073dc2893dffbee35d2c"
+    },
+    {
+      "path": "outputs/track_b/llm/compute_matched_v1/paired_comparisons_holm.csv",
+      "bytes": 1415,
+      "sha256": "4654d21f5be9ebaa23e3c87d823a1d61bde490e5d623ad2476ded1360c1c03b6"
+    },
+    {
+      "path": "outputs/track_b/llm/compute_matched_v1/paper_compute_matched_table.csv",
+      "bytes": 2080,
+      "sha256": "10e68516878ba31906daa0fd515d1e56ed28c2b6cce302326d93540b3737fd58"
+    },
+    {
+      "path": "outputs/track_b/llm/compute_matched_v1/run_metadata.json",
+      "bytes": 1325,
+      "sha256": "59f2c6aa679370d3e3805cab41dac090b199365078943c34cb9bd14b757a9ae2"
+    },
+    {
+      "path": "outputs/track_b/llm/compute_matched_v1/runtime_cost_summary.csv",
+      "bytes": 461,
+      "sha256": "d4649efc4dd612464372550c58ceb42ee289ee2b23c1bab29cec0b6708a90a15"
+    }
+  ]
+}

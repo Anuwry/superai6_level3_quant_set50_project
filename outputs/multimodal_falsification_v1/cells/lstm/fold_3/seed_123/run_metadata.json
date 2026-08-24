@@ -1,0 +1,32 @@
+{
+  "protocol_id": "multimodal-falsification-v1",
+  "evidence_status": "pre_frozen_retrospective_falsification",
+  "created_at_utc": "2026-08-03T21:27:50+00:00",
+  "model": "lstm",
+  "fold": "fold_3",
+  "test_year": 2024,
+  "base_seed": 123,
+  "window": 5,
+  "arms": [
+    "News-Only",
+    "Global-Numeric-Shuffled-News",
+    "Global-Numeric-Lagged-News",
+    "Global-Numeric-Random-Features"
+  ],
+  "control_seeds": {
+    "shuffled_news": 3604188100,
+    "lagged_news": 2052381821,
+    "random_features": 4046189838
+  },
+  "news_lag_trading_rows": 5,
+  "cell_wall_seconds": 31.008028999996895,
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "tensorflow": "2.21.0"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0"
+}
