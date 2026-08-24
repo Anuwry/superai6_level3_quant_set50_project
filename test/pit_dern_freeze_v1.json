@@ -1,0 +1,75 @@
+{
+  "protocol_id": "pit-dern-exploratory-v1",
+  "evidence_status": "post_freeze_exploratory_architecture_extension",
+  "result_access_at_freeze": false,
+  "model_key": "pit_dern",
+  "window": 5,
+  "seeds": [42, 123, 456, 789, 2025],
+  "folds": ["fold_1", "fold_2", "fold_3", "fold_4"],
+  "arms": [
+    "Global-Numeric",
+    "Global-Numeric-News",
+    "Regime-SHAP-Numeric",
+    "Regime-SHAP-Numeric-News"
+  ],
+  "architecture": {
+    "projection_dim": 24,
+    "mixer_blocks": 2,
+    "mixer_expansion": 2,
+    "embedding_dim": 16,
+    "dropout": 0.1,
+    "epochs": 20,
+    "batch_size": 32,
+    "optimizer": "adam",
+    "learning_rate": 0.001,
+    "direction_loss": "binary_crossentropy",
+    "direction_loss_weight": 1.0,
+    "delta_loss": "huber",
+    "delta_loss_weight": 0.25,
+    "contrastive_temperature": 0.1,
+    "contrastive_loss_weight": 0.1,
+    "shuffle": false
+  },
+  "retrieval": {
+    "similarity": "cosine",
+    "standard_top_k": 10,
+    "dual_top_k_per_class": 5,
+    "temperature": 0.2,
+    "minimum_similarity_anchor": 0.25,
+    "decision_threshold": 0.5,
+    "regime_residual_floor": 0.25
+  },
+  "ablations": [
+    "encoder_only",
+    "standard_retrieval",
+    "dual_evidence",
+    "pit_dern",
+    "shuffled_retrieval_control"
+  ],
+  "primary_metric": "balanced_accuracy",
+  "primary_arm": "Regime-SHAP-Numeric-News",
+  "primary_comparator": "lstm_cnn_attention",
+  "promotion_gates": {
+    "minimum_bacc_delta_pp": 1.0,
+    "minimum_positive_temporal_folds": 3,
+    "require_improvement_over_encoder": true,
+    "require_improvement_over_shuffled_control": true,
+    "maximum_parameter_delta_fraction": 0.15,
+    "require_finite_complete_predictions": true
+  },
+  "incremental_api_cost_usd": 0,
+  "input_sha256": {
+    "integrated_freeze_manifest": "30400c1051dad84910bd20c39af4b0d5ab1d62257f19f5379cbb599af9c4b954",
+    "locked_windows": "47456d5827bcb6a4ca01ce56cff21fce67d065f89c953150552ada3ca9faa55f",
+    "daily_news_features": "13d3fc66a94c58bed5d5b49992bb63eec8e15336ed4f37bce0f29143089ab6f0",
+    "regime_shap_selections": "533e0ec56d5008c95c8d77b4e98bfb510b449544ef09fc0e565f5f78a1c0c441",
+    "regime_fold_1_train": "085308b3cd6dc941b788e6b46ab8593d03198f29e3b862874b399e1e27ccafbb",
+    "regime_fold_1_test": "aae68a5c4d4396693bc7a5021b16c4c08d920582850a557a55a638ab29ae719e",
+    "regime_fold_2_train": "2c14431a9af5903612b4e0fdb9b6814f4ffb3a79786b8158e95e800959cc2312",
+    "regime_fold_2_test": "5c1e02a814c389f4882427f1d521d9715c98b112741955d14203960ec1dc3ab5",
+    "regime_fold_3_train": "8c6839a9dd4d18c65947e734c94ba4cce466f1a3cfd1b869513657ce0db7ff8d",
+    "regime_fold_3_test": "bb51d7b2cdc018363a645f2faab4190485b051ea1c6ff8ae9210f02453bf7e28",
+    "regime_fold_4_train": "e7e110006c62a3a7bba86e640cdbcb65c3b163708d2da1751aaeaebb7c8c4be8",
+    "regime_fold_4_test": "8261093ea49617e322903e1afc16c9a9e4ac15d52251fdc92e8e1aed091de9c4"
+  }
+}

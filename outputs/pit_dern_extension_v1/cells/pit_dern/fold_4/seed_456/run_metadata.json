@@ -1,0 +1,61 @@
+{
+  "protocol_id": "pit-dern-exploratory-v1",
+  "evidence_status": "post_freeze_exploratory_architecture_extension",
+  "created_at": "2026-08-04T16:02:07+00:00",
+  "model": "pit_dern",
+  "model_label": "PIT-DERN",
+  "fold": "fold_4",
+  "test_year": 2025,
+  "base_seed": 456,
+  "window": 5,
+  "arms": [
+    "Global-Numeric",
+    "Global-Numeric-News",
+    "Regime-SHAP-Numeric",
+    "Regime-SHAP-Numeric-News"
+  ],
+  "ablations": [
+    "encoder_only",
+    "standard_retrieval",
+    "dual_evidence",
+    "pit_dern",
+    "shuffled_retrieval_control"
+  ],
+  "unique_fits": 4,
+  "cell_wall_seconds": 31.99010830000043,
+  "runtime_scope": "build, fit, embedding inference, and retrieval",
+  "incremental_api_cost_usd": 0,
+  "config": {
+    "protocol_id": "pit-dern-exploratory-v1",
+    "model": "PIT-DERN",
+    "sequence_window": 5,
+    "epochs": 20,
+    "batch_size": 32,
+    "projection_dim": 24,
+    "mixer_blocks": 2,
+    "mixer_expansion": 2,
+    "embedding_dim": 16,
+    "dropout": 0.1,
+    "learning_rate": 0.001,
+    "contrastive_temperature": 0.1,
+    "contrastive_loss_weight": 0.1,
+    "delta_loss_weight": 0.25,
+    "standard_retrieval_top_k": 10,
+    "retrieval_top_k_per_class": 5,
+    "retrieval_temperature": 0.2,
+    "minimum_similarity_anchor": 0.25,
+    "regime_residual_floor": 0.25,
+    "decision_threshold": 0.5,
+    "hyperparameter_tuning": false,
+    "shuffle": false
+  },
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "tensorflow": "2.21.0"
+  }
+}

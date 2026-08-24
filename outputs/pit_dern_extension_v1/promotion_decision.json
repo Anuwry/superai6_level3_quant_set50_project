@@ -1,0 +1,17 @@
+{
+  "mean_bacc_delta_pp": -3.482876564723481,
+  "positive_temporal_folds": 0,
+  "ours_bacc": 0.5015896459754035,
+  "encoder_bacc": 0.5033976121525285,
+  "shuffled_control_bacc": 0.5033976121525285,
+  "parameter_delta_fraction": -0.12723815560133106,
+  "mean_bacc_delta_gate": false,
+  "temporal_consistency_gate": false,
+  "retrieval_mechanism_gate": false,
+  "shuffled_control_gate": false,
+  "parameter_budget_gate": true,
+  "complete_finite_prediction_gate": true,
+  "passed": false,
+  "exact_sign_flip_pvalue": 0.125,
+  "primary_comparator": "lstm_cnn_attention"
+}

@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "metric_rows": 4,
+  "ablation_metric_rows": 20,
+  "fit_rows": 4,
+  "prediction_rows": 936,
+  "protocol_id": "pit-dern-exploratory-v1",
+  "extension_freeze_passed": true,
+  "integrated_freeze_passed": true,
+  "memory_label_date_max": "2024-12-30",
+  "query_date_min": "2025-01-02"
+}

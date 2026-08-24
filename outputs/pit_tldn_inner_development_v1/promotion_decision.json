@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "conditions": {
+    "integrity_passed": true,
+    "beats_all_required_mean_ablations": true,
+    "simple_average_delta_nonnegative_each_inner_fold": true,
+    "mean_worker_disagreement_at_least_0_02": true,
+    "leader_weight_noncollapsed_each_inner_fold": true
+  },
+  "mean_ablation_comparisons": {
+    "simple_average_shap": true,
+    "leader_no_disagreement_shap": true,
+    "pit_tldn_all_features": true
+  },
+  "balanced_accuracy_delta_vs_simple_average_by_year": {
+    "2020": 0.0,
+    "2021": 0.036408612640234206
+  },
+  "mean_worker_disagreement": 0.20136813576887994,
+  "mean_cnn_weight_by_year": {
+    "2020": 0.4666073396872428,
+    "2021": 0.455462127025
+  }
+}

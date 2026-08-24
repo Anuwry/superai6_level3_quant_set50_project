@@ -1,0 +1,10 @@
+phase,feature_mode,worker,fits,fit_seconds_total,inference_seconds_total,shap_seconds_total,trainable_parameters
+worker_fit,shap,cnn_trend,40,124.08610640002007,11.813532200016198,0.0,2633
+worker_fit,shap,lstm_price,40,152.47399010002846,2.0791038000024837,0.0,3162
+worker_fit,all_features,cnn_trend,40,136.18636200000765,11.930235899984835,0.0,9993
+worker_fit,all_features,lstm_price,40,155.49204050001572,2.195208399978581,0.0,9050
+leader_fit,leader_no_disagreement_shap,debate_leader,10,30.962701999989804,0.1862388000299684,0.0,50
+leader_fit,pit_tldn_all_features,debate_leader,10,30.04151149999234,0.1777651000302281,0.0,50
+leader_fit,pit_tldn,debate_leader,10,31.2314003000065,0.1903161000082031,0.0,50
+shap_mask_fit,,cnn_trend,8,27.239858700035256,1.4983284000045385,9.463551100008772,9993
+shap_mask_fit,,lstm_price,8,31.582224400000996,0.4342386999778679,7.368983800013666,9050
